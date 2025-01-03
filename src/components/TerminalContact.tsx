@@ -12,6 +12,37 @@ import {
   useState,
 } from "react";
 
+const QUESTIONS: QuestionType[] = [
+  {
+    key: "email",
+    text: "To start, could you give us ",
+    postfix: "your email?",
+    complete: false,
+    value: "",
+  },
+  {
+    key: "name",
+    text: "Awesome! And what's ",
+    postfix: "your name?",
+    complete: false,
+    value: "",
+  },
+  {
+    key: "subject",
+    text: "What's ",
+    postfix: "the subject of your message?",
+    complete: false,
+    value: "",
+  },
+  {
+    key: "message",
+    text: "Perfect, and ",
+    postfix: "what's your message?",
+    complete: false,
+    value: "",
+  },
+];
+
 const TerminalContact = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -54,9 +85,7 @@ const TerminalHeader = () => {
 const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
   const [focused, setFocused] = useState(false);
   const [text, setText] = useState("");
-
   const [questions, setQuestions] = useState(QUESTIONS);
-
   const curQuestion = questions.find((q) => !q.complete);
 
   const handleSubmitLine = (value: string) => {
@@ -151,20 +180,38 @@ const CurrentQuestion = ({ curQuestion }: CurrentQuestionProps) => {
 
 const Summary = ({ questions, setQuestions }: SummaryProps) => {
   const [complete, setComplete] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleReset = () => {
+    setError(null);
+    setComplete(false);
     setQuestions((pv) => pv.map((q) => ({ ...q, value: "", complete: false })));
   };
 
-  const handleSend = () => {
-    const formData = questions.reduce((acc, val) => {
-      return { ...acc, [val.key]: val.value };
-    }, {});
+  const handleSend = async () => {
+    try {
+      const formData = questions.reduce((acc, q) => {
+        return { ...acc, [q.key]: q.value };
+      }, {});
 
-    // Send this data to your server or whatever :)
-    console.log(formData);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setComplete(true);
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setComplete(true);
+      setError(null);
+    } catch (err) {
+      setError('Failed to send message. Please try again.');
+      console.error(err);
+    }
   };
 
   return (
@@ -178,6 +225,7 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
         );
       })}
       <p>Look good?</p>
+      {error && <p className="text-red-500">{error}</p>}
       {complete ? (
         <p className="text-emerald-300">
           <FiCheckCircle className="inline-block mr-2" />
@@ -273,32 +321,6 @@ const CurLine = ({
   );
 };
 
-export default TerminalContact;
-
-const QUESTIONS: QuestionType[] = [
-  {
-    key: "email",
-    text: "To start, could you give us ",
-    postfix: "your email?",
-    complete: false,
-    value: "",
-  },
-  {
-    key: "name",
-    text: "Awesome! And what's ",
-    postfix: "your name?",
-    complete: false,
-    value: "",
-  },
-  {
-    key: "description",
-    text: "Perfect, and ",
-    postfix: "how can we help you?",
-    complete: false,
-    value: "",
-  },
-];
-
 interface CurrentLineProps {
   text: string;
   focused: boolean;
@@ -335,3 +357,5 @@ interface SummaryProps {
 interface CurrentQuestionProps {
   curQuestion: QuestionType | undefined;
 }
+
+export default TerminalContact;
