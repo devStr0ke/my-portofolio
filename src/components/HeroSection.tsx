@@ -99,14 +99,14 @@ import {
   const CenterCopy = () => {
     return (
       <div className="flex flex-col items-center justify-center px-12 max-w-7xl mx-auto w-full text-center">
-        <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">
-          <div className="text-neutral-400">
+        <h1 className="text-4xl md:text-6xl lg:text-8xl">
+          <div className="text-neutral-500 mb-1">
             <HighLightText>Software engineer,</HighLightText>
           </div>
-          <div className="text-neutral-400">
+          <div className="text-neutral-500 mb-2">
             <HighLightText>building for</HighLightText>
           </div>
-          <div className="text-neutral-400">
+          <div className="text-neutral-500">
             <HighLightText>the</HighLightText>{" "}
             <span className="text-neutral-50">
               <HighLightText>web.</HighLightText>
@@ -116,7 +116,7 @@ import {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-8 px-8 py-3 bg-purple-500 text-white rounded-lg font-medium hover:bg-purple-600 transition-colors"
+          className="mt-8 px-8 py-3 bg-indigo-500 text-white rounded-lg font-medium hover:bg-indigo-600 transition-colors"
         >
           View My Work
         </motion.button>

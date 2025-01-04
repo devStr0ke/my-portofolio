@@ -52,7 +52,7 @@ const Text = ({ children }: { children: string }) => {
         <span
           key={idx}
           className="inline-block transition-all duration-300 ease-in-out font-thin"
-          style={{ width: child === ' ' ? '0.5em' : 'auto' }}
+          style={{ width: child === ' ' ? '0.25em' : 'auto' }}
         >
           {child}
         </span>
