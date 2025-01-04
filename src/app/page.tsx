@@ -1,10 +1,12 @@
 "use client";
 import TerminalContact from "@/components/TerminalContact";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
     <>
       <div className="w-full h-full">
+        <HeroSection />
         <TerminalContact />
       </div>
     </>
