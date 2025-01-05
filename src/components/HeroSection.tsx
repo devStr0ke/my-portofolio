@@ -9,7 +9,7 @@ import {
   import { FiArrowDown } from "react-icons/fi";
   import { FaGithub, FaLinkedin} from "react-icons/fa";
   import HighLightText from "./HighLightText";
-  
+
   export const HeroSection = () => {
     const targetRef = useRef(null);
   
@@ -29,7 +29,7 @@ import {
     return (
       <section
         ref={targetRef}
-        className="h-[300vh] bg-neutral-950 text-neutral-50"
+        className="h-[300vh] bg-neutral-950 text-neutral-100"
       >
         <div className="sticky top-0 flex h-screen flex-col justify-between overflow-hidden">
           <Nav />
@@ -48,17 +48,20 @@ import {
   
   const Nav = () => {
     return (
-      <div className="relative mb-1 flex w-full justify-between p-6">
-        <p className="hidden text-xs text-neutral-400 md:block">
-          Full Stack Developer
-          Available for Work
-        </p>
-        <Logo />
-        <div className="flex items-center gap-8">
-          <SocialLinks />
-          <Links />
+      <>
+        <div className="lg:hidden"></div>
+        <div className="hidden lg:flex relative mb-1 flex w-full justify-between p-6">
+          <p className="hidden text-xs text-neutral-400 md:block">
+            Full Stack Developer
+            Available for Work
+          </p>
+          <Logo />
+          <div className="flex items-center gap-8">
+            <SocialLinks />
+            <Links />
+          </div>
         </div>
-      </div>
+      </>
     );
   };
   
@@ -98,8 +101,8 @@ import {
   
   const CenterCopy = () => {
     return (
-      <div className="flex flex-col items-center justify-center px-12 max-w-7xl mx-auto w-full text-center">
-        <h1 className="text-4xl md:text-6xl lg:text-8xl">
+      <div className="flex flex-col items-center justify-center mx-auto w-full text-center">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
           <div className="text-neutral-500 mb-1">
             <HighLightText>Software engineer,</HighLightText>
           </div>
@@ -108,7 +111,7 @@ import {
           </div>
           <div className="text-neutral-500">
             <HighLightText>the</HighLightText>{" "}
-            <span className="text-neutral-50">
+            <span className="text-neutral-50 italic">
               <HighLightText>web.</HighLightText>
             </span>
           </div>
