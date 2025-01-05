@@ -15,10 +15,10 @@ const HighLightText = ({ children }: { children: string }) => {
         const rightNeighbor = this.nextElementSibling as HTMLSpanElement;
 
         if (leftNeighbor) {
-          leftNeighbor.classList.add("font-medium", "text-indigo-200");
+          leftNeighbor.classList.add("font-black", "text-indigo-200");
         }
         if (rightNeighbor) {
-          rightNeighbor.classList.add("font-medium", "text-indigo-200");
+          rightNeighbor.classList.add("font-black", "text-indigo-200");
         }
       });
 
@@ -29,10 +29,10 @@ const HighLightText = ({ children }: { children: string }) => {
         const rightNeighbor = this.nextElementSibling as HTMLSpanElement;
 
         if (leftNeighbor) {
-          leftNeighbor.classList.remove("font-medium", "text-indigo-200");
+          leftNeighbor.classList.remove("font-black", "text-indigo-200");
         }
         if (rightNeighbor) {
-          rightNeighbor.classList.remove("font-medium", "text-indigo-200");
+          rightNeighbor.classList.remove("font-black", "text-indigo-200");
         }
       });
     });
@@ -51,7 +51,7 @@ const Text = ({ children }: { children: string }) => {
       {children.split("").map((child, idx) => (
         <span
           key={idx}
-          className="inline-block transition-all duration-300 ease-in-out font-thin"
+          className="inline-block transition-all duration-300 ease-in-out font-bold"
           style={{ width: child === ' ' ? '0.25em' : 'auto' }}
         >
           {child}
