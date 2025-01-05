@@ -12,13 +12,35 @@ export const MobileNav = () => {
 const Nav = () => {
     const [active, setActive] = useState(false);
   
+    React.useEffect(() => {
+      if (active) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'unset';
+      }
+      
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }, [active]);
+  
     return (
       <>
         <HamburgerButton active={active} setActive={setActive} />
+        <AnimatePresence>
+          {active && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-30 backdrop-blur-sm bg-neutral-950/50"
+            />
+          )}
+        </AnimatePresence>
         <AnimatePresence>{active && <LinksOverlay />}</AnimatePresence>
       </>
     );
-  };
+};
 
 const LinksOverlay = () => {
   return (
@@ -220,7 +242,7 @@ const UNDERLAY_VARIANTS = {
     width: "80px",
     height: "80px",
     transition: {
-      delay: 0.75,
+      delay: 0.1,
       type: "spring",
       mass: 3,
       stiffness: 400,
