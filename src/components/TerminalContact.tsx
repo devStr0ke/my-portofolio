@@ -15,7 +15,7 @@ import {
 const QUESTIONS: QuestionType[] = [
   {
     key: "email",
-    text: "To start, could you give us ",
+    text: "To start, could you give me ",
     postfix: "your email?",
     complete: false,
     value: "",
@@ -53,14 +53,14 @@ const TerminalContact = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="px-4 py-12 bg-transparent"
+      className="px-4 py-12 bg-neutral-950"
     >
       <div
         ref={containerRef}
         onClick={() => {
           inputRef.current?.focus();
         }}
-        className="h-96 bg-slate-950/70 backdrop-blur rounded-lg w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono"
+        className="h-96 bg-neutral-900/80 backdrop-blur rounded-lg w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono border border-neutral-800"
       >
         <TerminalHeader />
         <TerminalBody inputRef={inputRef} containerRef={containerRef} />
@@ -71,11 +71,11 @@ const TerminalContact = () => {
 
 const TerminalHeader = () => {
   return (
-    <div className="w-full p-3 bg-slate-900 flex items-center gap-1 sticky top-0">
-      <div className="w-3 h-3 rounded-full bg-red-500" />
-      <div className="w-3 h-3 rounded-full bg-yellow-500" />
-      <div className="w-3 h-3 rounded-full bg-green-500" />
-      <span className="text-sm text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%]">
+    <div className="w-full p-3 bg-neutral-950 flex items-center gap-1 sticky top-0 border-b border-neutral-800">
+      <div className="w-3 h-3 rounded-full bg-red-500/80" />
+      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+      <div className="w-3 h-3 rounded-full bg-green-500/80" />
+      <span className="text-sm text-neutral-300 font-semibold absolute left-[50%] -translate-x-[50%]">
         contact@voidsoftware.pro
       </span>
     </div>
@@ -131,7 +131,7 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
 const InitialText = () => {
   return (
     <>
-      <p>Hey there! We're excited to link 🔗</p>
+      <p>Hey there! I'm excited to link 🔗</p>
       <p className="whitespace-nowrap overflow-hidden font-light">
         ------------------------------------------------------------------------
       </p>
@@ -146,13 +146,13 @@ const PreviousQuestions = ({ questions }: PreviousQuestionProps) => {
         if (q.complete) {
           return (
             <Fragment key={i}>
-              <p>
+              <p className="text-neutral-300">
                 {q.text || ""}
                 {q.postfix && (
-                  <span className="text-violet-300">{q.postfix}</span>
+                  <span className="text-indigo-400">{q.postfix}</span>
                 )}
               </p>
-              <p className="text-emerald-300">
+              <p className="text-indigo-400">
                 <FiCheckCircle className="inline-block mr-2" />
                 <span>{q.value}</span>
               </p>
@@ -172,7 +172,7 @@ const CurrentQuestion = ({ curQuestion }: CurrentQuestionProps) => {
     <p>
       {curQuestion.text || ""}
       {curQuestion.postfix && (
-        <span className="text-violet-300">{curQuestion.postfix}</span>
+        <span className="text-indigo-400">{curQuestion.postfix}</span>
       )}
     </p>
   );
@@ -216,32 +216,32 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
 
   return (
     <>
-      <p>Beautiful! Here's what we've got:</p>
+      <p>Beautiful! Here's what I've got:</p>
       {questions.map((q) => {
         return (
           <p key={q.key}>
-            <span className="text-blue-300">{q.key}:</span> {q.value}
+            <span className="text-indigo-400">{q.key}:</span> {q.value}
           </p>
         );
       })}
       <p>Look good?</p>
       {error && <p className="text-red-500">{error}</p>}
       {complete ? (
-        <p className="text-emerald-300">
+        <p className="text-indigo-400">
           <FiCheckCircle className="inline-block mr-2" />
-          <span>Sent! We'll get back to you ASAP 😎</span>
+          <span>Sent! I'll get back to you ASAP.</span>
         </p>
       ) : (
         <div className="flex gap-2 mt-2">
           <button
             onClick={handleReset}
-            className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-slate-100 text-black"
+            className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-neutral-800 text-neutral-200 hover:bg-neutral-700"
           >
             Restart
           </button>
           <button
             onClick={handleSend}
-            className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-indigo-500 text-white"
+            className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-indigo-600 text-white hover:bg-indigo-500"
           >
             Send it!
           </button>
@@ -300,9 +300,9 @@ const CurLine = ({
         />
       </form>
       <p>
-        <span className="text-emerald-400">➜</span>{" "}
-        <span className="text-cyan-300">~</span>{" "}
-        {command && <span className="opacity-50">Enter {command}: </span>}
+        <span className="text-indigo-400">➜</span>{" "}
+        <span className="text-indigo-300">~</span>{" "}
+        {command && <span className="text-neutral-500">Enter {command}: </span>}
         {text}
         {focused && (
           <motion.span
@@ -313,7 +313,7 @@ const CurLine = ({
               ease: "linear",
               times: [0, 0.5, 0.5, 1],
             }}
-            className="inline-block w-2 h-5 bg-slate-400 translate-y-1 ml-0.5"
+            className="inline-block w-2 h-5 bg-indigo-400 translate-y-1 ml-0.5"
           />
         )}
       </p>
