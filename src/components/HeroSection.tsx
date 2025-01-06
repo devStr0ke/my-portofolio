@@ -11,6 +11,7 @@ import {
   import HighLightText from "./HighLightText";
   import GravityIcon from "./GravityIcon";
   import { TextFlip } from "./TextFlip";
+  import GravityButton from "./GravityButton";
 
   export const HeroSection = () => {
     const targetRef = useRef(null);
@@ -119,13 +120,9 @@ import {
             </span>
           </div>
         </h1>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-8 px-8 py-3 bg-indigo-500 text-white rounded-lg font-medium hover:bg-indigo-600 transition-colors"
-        >
+        <GravityButton className="mt-8">
           View My Work
-        </motion.button>
+        </GravityButton>
       </div>
     );
   };
