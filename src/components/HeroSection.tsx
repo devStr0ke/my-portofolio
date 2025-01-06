@@ -79,10 +79,10 @@ import {
   const SocialLinks = () => {
     return (
       <div className="hidden md:flex gap-4 text-neutral-400">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-50 transition-colors">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
           <FaGithub size={20} />
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-50 transition-colors">
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
           <FaLinkedin size={20} />
         </a>
       </div>
@@ -92,9 +92,10 @@ import {
   const Links = () => {
     return (
       <nav className="flex gap-6 text-sm">
-        <a href="#projects" className="hover:text-blue-500 transition-colors">Projects</a>
-        <a href="#about" className="hover:text-blue-500 transition-colors">About</a>
-        <a href="#contact" className="hover:text-blue-500 transition-colors">Contact</a>
+        <a href="#about" className="hover:text-indigo-500 transition-colors">About</a>
+        <a href="#projects" className="hover:text-indigo-500 transition-colors">Experience</a>
+        <a href="#about" className="hover:text-indigo-500 transition-colors">Projects</a>
+        <a href="#contact" className="hover:text-indigo-500 transition-colors">Contact</a>
       </nav>
     );
   };

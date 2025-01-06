@@ -208,11 +208,15 @@ const FooterCTAs = () => {
 
 const LINKS = [
   {
-    title: "Projects",
+    title: "About",
     href: "#",
   },
   {
-    title: "About",
+    title: "Experience",
+    href: "#",
+  },
+  {
+    title: "Projects",
     href: "#",
   },
   {
