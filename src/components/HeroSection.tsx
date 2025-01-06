@@ -9,6 +9,8 @@ import {
   import { FiArrowDown } from "react-icons/fi";
   import { FaGithub, FaLinkedin} from "react-icons/fa";
   import HighLightText from "./HighLightText";
+  import GravityIcon from "./GravityIcon";
+  import { TextFlip } from "./TextFlip";
 
   export const HeroSection = () => {
     const targetRef = useRef(null);
@@ -51,13 +53,11 @@ import {
       <>
         <div className="lg:hidden"></div>
         <div className="hidden lg:flex relative mb-1 flex w-full justify-between p-6">
-          <p className="hidden text-xs text-neutral-400 md:block">
-            Full Stack Developer
-            Available for Work
-          </p>
+          <div className="hidden text-xs text-neutral-400 md:block">
+            <SocialLinks />
+          </div>
           <Logo />
           <div className="flex items-center gap-8">
-            <SocialLinks />
             <Links />
           </div>
         </div>
@@ -79,23 +79,25 @@ import {
   const SocialLinks = () => {
     return (
       <div className="hidden md:flex gap-4 text-neutral-400">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
-          <FaGithub size={20} />
-        </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
-          <FaLinkedin size={20} />
-        </a>
+        <GravityIcon 
+          icon={<FaGithub size={25} />}
+          href="https://github.com/devStr0ke"
+        />
+        <GravityIcon 
+          icon={<FaLinkedin size={25} />}
+          href="https://www.linkedin.com/in/samuel-c-293984212/"
+        />
       </div>
     );
   };
   
   const Links = () => {
     return (
-      <nav className="flex gap-6 text-sm">
-        <a href="#about" className="hover:text-indigo-500 transition-colors">About</a>
-        <a href="#projects" className="hover:text-indigo-500 transition-colors">Experience</a>
-        <a href="#about" className="hover:text-indigo-500 transition-colors">Projects</a>
-        <a href="#contact" className="hover:text-indigo-500 transition-colors">Contact</a>
+      <nav className="flex gap-6 capitalize">
+        <TextFlip href="#about">About</TextFlip>
+        <TextFlip href="#projects">Experience</TextFlip>
+        <TextFlip href="#about">Projects</TextFlip>
+        <TextFlip href="#contact">Contact</TextFlip>
       </nav>
     );
   };
