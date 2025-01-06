@@ -11,7 +11,7 @@ import {
   import HighLightText from "./HighLightText";
   import GravityIcon from "./GravityIcon";
   import { TextFlip } from "./TextFlip";
-  import GravityButton from "./GravityButton";
+  import { GravityButton } from "./GravityButton";
 
   export const HeroSection = () => {
     const targetRef = useRef(null);
@@ -115,7 +115,7 @@ import {
           </div>
           <div className="text-neutral-500">
             <HighLightText>the</HighLightText>{" "}
-            <span className="text-neutral-50 italic">
+            <span className="text-indigo-600 italic">
               <HighLightText>web.</HighLightText>
             </span>
           </div>

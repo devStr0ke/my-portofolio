@@ -55,7 +55,7 @@ import {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ transform }}
-        className="hover:text-indigo-500 transition-colors"
+        className="hover:text-indigo-600 transition-colors"
       >
         {icon}
       </motion.a>
