@@ -16,8 +16,8 @@ export const AboutSection = () => {
           </span>
           
           <div className="flex justify-center">
-            <span className="text-neutral-500 font-black text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[4.6rem] 3xl:text-8xl tracking-wide">
-              I'm a <span className="text-indigo-600">skilled developer</span> focused on creating efficient, scalable web solutions & exploring web3 potential.
+            <span className="text-neutral-500 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter">
+              I'm a <span className="text-indigo-600">skilled developer</span> focused on creating efficient, scalable web solutions & exploring the potential of web3.
             </span>
           </div>
         </motion.div>
