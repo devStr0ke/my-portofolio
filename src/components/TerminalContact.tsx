@@ -53,7 +53,7 @@ const TerminalContact = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="px-4 py-12 bg-neutral-950"
+      className="px-4 py-12 bg-neutral-950 mt-56"
     >
       <div
         ref={containerRef}
