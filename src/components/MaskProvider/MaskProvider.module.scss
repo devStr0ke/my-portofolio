@@ -1,0 +1,13 @@
+.globalMask {
+    pointer-events: none; // This ensures the mask doesn't interfere with clicks
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    mask-image: url('/mask.svg');
+    mask-repeat: no-repeat;
+    mask-size: 40px;
+    background: #4f46e5;
+    z-index: 9999;
+  }
