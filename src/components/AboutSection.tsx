@@ -32,7 +32,6 @@ export const AboutSection = () => {
             start: 'bottom bottom',
             end: 'top center',
             scrub: 0.5,
-            markers: true,
           }
         }
       );
