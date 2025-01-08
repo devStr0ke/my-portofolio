@@ -9,7 +9,7 @@ export const AboutSection = () => {
     offset: ["start end", "center center"]
   });
 
-  // Add this transform for the width animation
+  // Transform from 0% to 100% for width animation
   const widthProgress = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
@@ -24,20 +24,21 @@ export const AboutSection = () => {
             About me
           </span>
           
-          <div className="flex justify-center relative">
-            {/* Add overlapping text layer with mask effect */}
-            <motion.div 
-              className="absolute inset-0 overflow-hidden"
-              style={{ width: widthProgress }}
-            >
-              <span className="text-red-500 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter whitespace-nowrap">
-                I'm a skilled developer focused on creating efficient, scalable web solutions & exploring the potential of web3.
-              </span>
-            </motion.div>
+          <div className="flex flex-col relative">
             {/* Original text layer */}
             <span className="text-neutral-500 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter">
               I'm a skilled developer focused on creating efficient, scalable web solutions & exploring the potential of web3.
             </span>
+
+            {/* Overlay text layer */}
+            <motion.div 
+              className="absolute inset-0 overflow-hidden"
+              style={{ height: widthProgress }}
+            >
+              <span className="text-red-500 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter">
+                I'm a skilled developer focused on creating efficient, scalable web solutions & exploring the potential of web3.
+              </span>
+            </motion.div>
           </div>
         </motion.div>
       </div>
