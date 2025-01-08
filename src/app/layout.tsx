@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
 import { MobileNav } from "@/components/MobileNav";
-import { MaskProvider } from "@/components/MaskProvider/MaskProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,12 +28,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950`}
       >
-        <MaskProvider>
-          <div className="lg:hidden">
+        <div className="lg:hidden">
             <MobileNav />
-          </div>
-          {children}
-        </MaskProvider>
+        </div>
+        {children}
       </body>
     </html>
   );

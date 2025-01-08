@@ -1,20 +1,34 @@
 'use client'
-import { useMask } from '@/components/MaskProvider/MaskProvider';
+import { useState } from 'react';  
+import { motion } from 'framer-motion';
+import useMousePosition from '@/app/utils/useMousePosition';
 
 export default function Home() {
-  const { setIsHovered } = useMask();
+  const [isHovered, setIsHovered] = useState(false);
+  const { x, y } = useMousePosition();
+  const size = isHovered ? 400 : 40;
 
   return (
-    <div 
-    >
-      <div className="flex justify-center items-center text-white text-4xl h-screen">
+    <main className="h-screen relative mask-content">
+      <motion.div 
+        className="mask-reveal"
+        animate={{
+          WebkitMaskPosition: x !== null && y !== null ? `${x - (size/2)}px ${y - (size/2)}px` : '0px 0px',
+          WebkitMaskSize: `${size}px`,
+        }}
+        transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
+      >
         <p 
-          onMouseEnter={() => setIsHovered(true)}
+          onMouseEnter={() => setIsHovered(true)} 
           onMouseLeave={() => setIsHovered(false)}
         >
           A visual designer - with skills that haven't been replaced by A.I (yet) - making good shit only if the paycheck is equally good.
         </p>
+      </motion.div>
+
+      <div>
+        <p>I'm a <span>selectively skilled</span> product designer with strong focus on producing high quality & impactful digital experience.</p>
       </div>
-    </div>
-  )
+    </main>
+  );
 }
