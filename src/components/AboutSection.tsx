@@ -9,35 +9,8 @@ export const AboutSection = () => {
     offset: ["start end", "center center"]
   });
 
-  const AnimatedText = ({ text, className, isHighlighted = false }: { 
-    text: string, 
-    className?: string,
-    isHighlighted?: boolean 
-  }) => {
-    return (
-      <span className={className}>
-        {text.split("").map((char, i) => {
-            return (
-              <motion.span
-                key={i}
-                style={{
-                  color: isHighlighted 
-                    ? 'rgb(79 70 229 / var(--opacity))' // indigo-600
-                    : 'rgb(82 82 82 / var(--opacity))', // neutral-600
-                  '--opacity': useTransform(
-                    scrollYProgress, 
-                    [0, 0.5, 1], 
-                    [0.02, 0.5, 1]
-                  )
-                } as any}
-              >
-                {char}
-              </motion.span>
-            );
-          })}
-      </span>
-    );
-  };
+  // Add this transform for the width animation
+  const widthProgress = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section
@@ -51,19 +24,19 @@ export const AboutSection = () => {
             About me
           </span>
           
-          <div className="flex justify-center">
+          <div className="flex justify-center relative">
+            {/* Add overlapping text layer with mask effect */}
+            <motion.div 
+              className="absolute inset-0 overflow-hidden"
+              style={{ width: widthProgress }}
+            >
+              <span className="text-red-500 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter whitespace-nowrap">
+                I'm a skilled developer focused on creating efficient, scalable web solutions & exploring the potential of web3.
+              </span>
+            </motion.div>
+            {/* Original text layer */}
             <span className="text-neutral-500 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter">
-              <AnimatedText text="I'm a " />
-              <AnimatedText text="skilled developer" isHighlighted />
-              <AnimatedText text=" focused " />
-              <AnimatedText text="on " />
-              <AnimatedText text="creating " />
-              <AnimatedText text="efficient, " />
-              <AnimatedText text="scalable " />
-              <AnimatedText text="web " />
-              <AnimatedText text="solutions & " />
-              <AnimatedText text="exploring the potential of " />
-              <AnimatedText text="web3. " />
+              I'm a skilled developer focused on creating efficient, scalable web solutions & exploring the potential of web3.
             </span>
           </div>
         </motion.div>
