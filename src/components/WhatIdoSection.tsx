@@ -9,7 +9,7 @@ export const WhatIdoSection = () => {
     >
       <div className="flex flex-col h-screen ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
         <motion.div className="flex flex-col">
-          <span className="text-neutral-400 font-bold text-base uppercase mb-6 block tracking-widest">
+          <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
             What I Do
           </span>
           
@@ -44,7 +44,7 @@ const WhatIdoItem = ({
       {/* Content container */}
       <div className="flex w-full items-center justify-between">
         <div>
-          <p className="mb-1.5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl font-black text-neutral-400 uppercase">{title}</p>
+          <p className="mb-1.5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl font-black text-neutral-500 uppercase">{title}</p>
           <p className="text-sm uppercase text-neutral-400">{description}</p>
         </div>
       </div>

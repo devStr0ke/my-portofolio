@@ -1,43 +1,46 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+'use client'
+import React, { useRef, useEffect, useState } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 
 export const AboutSection = () => {
   const targetRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "center center"]
-  });
+  const textRef = useRef(null);
+  const [isMounted, setIsMounted] = useState(false);
 
-  const AnimatedText = ({ text, className, isHighlighted = false }: { 
-    text: string, 
-    className?: string,
-    isHighlighted?: boolean 
-  }) => {
-    return (
-      <span className={className}>
-        {text.split("").map((char, i) => {
-            return (
-              <motion.span
-                key={i}
-                style={{
-                  color: isHighlighted 
-                    ? 'rgb(79 70 229 / var(--opacity))' // indigo-600
-                    : 'rgb(82 82 82 / var(--opacity))', // neutral-600
-                  '--opacity': useTransform(
-                    scrollYProgress, 
-                    [0, 0.5, 1], 
-                    [0.02, 0.5, 1]
-                  )
-                } as any}
-              >
-                {char}
-              </motion.span>
-            );
-          })}
-      </span>
-    );
-  };
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const text = new SplitType(textRef.current!, { types: 'lines' });
+    
+    text.lines?.forEach((line, index) => {
+      gsap.fromTo(line,
+        {
+          clipPath: 'inset(0 100% -20% 0)'
+        },
+        {
+          clipPath: 'inset(0 0% -20% 0)',
+          duration: 1,
+          scrollTrigger: {
+            trigger: line,
+            start: 'bottom bottom',
+            end: 'top center',
+            scrub: 0.5,
+          }
+        }
+      );
+    });
+
+    return () => {
+      text.revert();
+    };
+  }, [isMounted]);
 
   return (
     <section
@@ -46,30 +49,27 @@ export const AboutSection = () => {
       className="min-h-screen bg-neutral-950 text-neutral-100"
     >
       <div className="flex flex-col justify-center h-screen ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
-        <motion.div className="flex flex-col">
+        <div className="flex flex-col">
           <span className="text-neutral-400 font-bold text-base uppercase mb-6 block tracking-widest">
             About me
           </span>
           
-          <div className="flex justify-center">
-            <span className="text-neutral-500 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter">
-              <AnimatedText text="I'm a " />
-              <AnimatedText text="skilled developer" isHighlighted />
-              <AnimatedText text=" focused " />
-              <AnimatedText text="on " />
-              <AnimatedText text="creating " />
-              <AnimatedText text="efficient, " />
-              <AnimatedText text="scalable " />
-              <AnimatedText text="web " />
-              <AnimatedText text="solutions & " />
-              <AnimatedText text="exploring the potential of " />
-              <AnimatedText text="web3. " />
+          <div className="relative">
+            {/* Background text */}
+            <span className="text-neutral-600/10 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter">
+              I'm a <span className="text-indigo-600/10">skilled developer</span> focused on creating efficient, scalable web solutions & exploring the potential of web3.
             </span>
+
+            {/* Animated text */}
+            <div 
+              ref={textRef}
+              className="absolute inset-0 text-neutral-500 font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[6.1rem] 3xl:text-8xl tracking-tighter"
+            >
+              I'm a <span className="text-indigo-600">skilled developer</span> focused on creating efficient, scalable web solutions & exploring the potential of web3.
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
-
-export default AboutSection;
