@@ -39,7 +39,7 @@ export default function Paragraph({ paragraph, title }: ParagraphProps) {
       )}
         <p 
           ref={container}         
-          className="flex text-[2.5rem] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[5.2rem] 2xl:text-[5.9rem] 3xl:text-8xl font-bold leading-none text-neutral-500 flex-wrap tracking-tight"
+          className="flex text-[2.5rem] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[5.2rem] 2xl:text-[5.2rem] 3xl:text-8xl font-bold leading-none text-neutral-500 flex-wrap tracking-tight"
         >
       {
         words.map((word, i) => {
