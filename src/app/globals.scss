@@ -8,6 +8,7 @@ body {
 
 @layer base {
   :root {
+    // Color variables
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
@@ -34,6 +35,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
@@ -66,7 +68,47 @@ body {
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .mask-reveal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mask-image: url('/mask.svg');
+    mask-repeat: no-repeat;
+    mask-size: 40px;
+    background: #ec4e39;
+    position: absolute;
+    color: black;
+    top: 0;
+    left: 0;
+  }
+
+  .mask-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #afa18f;
+    font-size: 64px;
+    line-height: 66px;
+    cursor: default;
+    
+    p {
+      width: 1000px;
+      padding: 40px;
+    }
+    
+    span {
+      color: #ec4e39;
+    }
   }
 }
