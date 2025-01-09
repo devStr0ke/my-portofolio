@@ -1,12 +1,29 @@
 'use client';
 import Character from '@/components/Character';
 
-const paragraph = "I'm a skilled developer focused on creating efficient, scalable web solutions & exploring the potential of web3."
+const paragraph = [
+  { text: "I'm" },
+  { text: "a" },
+  { text: "skilled developer", color: "rgb(99 102 241)" }, // Indigo-600
+  { text: "focused" },
+  { text: "on" },
+  { text: "creating" },
+  { text: "efficient," },
+  { text: "scalable" },
+  { text: "web" },
+  { text: "solutions" },
+  { text: "&" },
+  { text: "exploring" },
+  { text: "the" },
+  { text: "potential" },
+  { text: "of" },
+  { text: "web3." }
+];
 
 export const AboutSection = () => {
   return (
-    <main className='flex justify-center items-center h-screen'>
-      <Character paragraph={paragraph} />
+    <main className='flex justify-center items-center min-h-screen'>
+      <Character paragraph={paragraph} title="About Me" />
     </main>
   )
 }
