@@ -12,7 +12,7 @@ export const TextFlip = ({ children, href }: { children: string; href: string })
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap text-base font-bold" // Adjusted size
+      className="relative block overflow-hidden whitespace-nowrap text-base font-bold text-neutral-100" // Adjusted size
       style={{
         lineHeight: 1,
       }}

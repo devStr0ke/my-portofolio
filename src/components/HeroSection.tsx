@@ -54,7 +54,7 @@ import {
       <>
         <div className="lg:hidden"></div>
         <div className="hidden lg:flex relative mb-1 flex w-full justify-between p-6">
-          <div className="hidden text-xs text-neutral-400 md:block">
+          <div className="hidden text-xs text-neutral-500 md:block">
             <SocialLinks />
           </div>
           <Logo />
@@ -70,7 +70,7 @@ import {
     return (
       <a 
         href="/" 
-        className="absolute right-4 top-1/2 h-fit -translate-y-1/2 translate-x-0 text-2xl font-bold text-neutral-50 md:right-1/2 md:translate-x-1/2"
+        className="absolute right-4 top-1/2 h-fit -translate-y-1/2 translate-x-0 text-2xl font-bold text-neutral-100 md:right-1/2 md:translate-x-1/2"
       >
         Samuel Coelho
       </a>
@@ -79,7 +79,7 @@ import {
   
   const SocialLinks = () => {
     return (
-      <div className="hidden md:flex gap-4 text-neutral-400">
+      <div className="hidden md:flex gap-4 text-neutral-500">
         <GravityIcon 
           icon={<FaGithub size={25} />}
           href="https://github.com/devStr0ke"
@@ -130,7 +130,7 @@ import {
   const ScrollArrow = () => {
     return (
       <>
-        <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-400 lg:block">
+        <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-500 lg:block">
           <span
             style={{
               writingMode: "vertical-lr",
@@ -140,7 +140,7 @@ import {
           </span>
           <FiArrowDown className="mx-auto mt-2" />
         </div>
-        <div className="absolute right-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-400 lg:block">
+        <div className="absolute right-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-500 lg:block">
           <span
             style={{
               writingMode: "vertical-lr",
