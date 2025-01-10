@@ -72,6 +72,10 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  .group:hover .absolute {
+    clip-path: inset(0 0 0) !important;
+  }
 }
 
 @layer components {

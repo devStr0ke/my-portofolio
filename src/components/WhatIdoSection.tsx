@@ -39,16 +39,31 @@ const WhatIdoItem = ({
       initial={{ y: 48, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
-      className="relative mb-9 flex items-center justify-between pb-9"
+      className="relative mb-0 group"
     >
+      {/* Background div that extends full width - removed top/bottom inset */}
+      <div 
+        className="absolute inset-y-0 w-screen left-[50%] -translate-x-1/2 bg-indigo-600 transition-[clip-path] duration-300 ease-in-out"
+        style={{
+          clipPath: "inset(50% 0 50%)",
+        }}
+      />
+
       {/* Content container */}
-      <div className="flex w-full items-center justify-between">
-        <div>
-          <p className="mb-1.5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl font-black text-neutral-500 uppercase">{title}</p>
-          <p className="text-sm uppercase text-neutral-400">{description}</p>
+      <div className="flex items-center justify-between pb-9 relative z-10 py-6"> {/* Added relative and z-10 */}
+        <div className="flex w-full items-center justify-between">
+          <div>
+            <p className="mb-1.5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl font-black text-neutral-500 uppercase relative group-hover:text-neutral-950 transition-colors duration-300">
+              {title}
+            </p>
+            <p className="text-sm uppercase text-neutral-400 group-hover:text-neutral-950 transition-colors duration-300">
+              {description}
+            </p>
+          </div>
         </div>
       </div>
-      {/* Full-width border */}
+
+      {/* Border */}
       <div className="absolute bottom-0 left-[50%] h-px w-screen -translate-x-1/2 border-b border-zinc-800" />
     </motion.div>
   );
