@@ -3,6 +3,7 @@ import TerminalContact from "@/components/TerminalContact";
 import HeroSection from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { WhatIdoSection } from "@/components/WhatIdoSection";
+import { HistorySection } from "@/components/HistorySection";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import Footer from "@/components/Footer/Footer";
 import { useEffect } from "react";
@@ -26,6 +27,7 @@ export default function Home() {
         <AboutSection />
         <WhatIdoSection />
         <ExperienceSection />
+        <HistorySection />
         <TerminalContact />
         <Footer />
       </div>
