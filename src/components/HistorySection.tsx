@@ -28,12 +28,12 @@ export const HistorySection = () => {
   return (
     <section className="h-screen bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
-        <motion.div className="flex flex-col h-full">
+        <motion.div className="flex flex-col">
           <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
             History
           </span>
           
-          <div className="flex flex-col">
+          <div className="text-start">
             {historyItems.map((item, index) => (
               <HistoryItem key={index} {...item} />
             ))}
@@ -51,10 +51,10 @@ const HistoryItem = ({
 }: HistoryItem) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: -8 }}
+      initial={{ opacity: 0, y: 48 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
-      className="relative group"
+      className="relative mb-0 group"
     >
       {/* Background div */}
       <div 
@@ -65,15 +65,15 @@ const HistoryItem = ({
       />
 
       {/* Content container */}
-      <div className="grid grid-cols-[180px_1fr] items-start relative z-8 py-12">
-        <span className="text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-500">
+      <div className="flex gap-20 sm:gap-32 md:gap-48 items-start relative z-8 py-10 text-neutral-500 hover:text-neutral-950 transition-colors duration-300">
+        <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold">
           {year}
         </span>
-        <div className="flex flex-col">
-          <h3 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-500 group-hover:text-neutral-950 transition-colors duration-300">
-            {title}<span>.</span>
+        <div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold">
+            {title}
           </h3>
-          <p className="text-sm uppercase text-neutral-400 opacity-0 group-hover:opacity-100 group-hover:text-neutral-950 transition-all duration-300">
+          <p className="text-xs lg:text-sm mt-2">
             {company}
           </p>
         </div>
