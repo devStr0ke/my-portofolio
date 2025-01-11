@@ -4,23 +4,33 @@ type HistoryItem = {
   year: string;
   title: string;
   company: string;
+  description: string;
 };
 
 const historyItems: HistoryItem[] = [
   {
     year: "NOW",
     title: "Freelance Developer",
-    company: "I work with a lot of clients"
+    company: "I work with different clients",
+    description: "Developed a Shopify-like application for managing stock and quotes."
   },
   {
-    year: "2022",
+    year: "2023",
     title: "Full Stack Developer",
-    company: "Dassault Systèmes : React and Node.js"
+    company: "Dassault Systèmes",
+    description: "Developed scalable UI/UX solutions for a large application using React and Node.js."
   },
   {
     year: "2022",
     title: "Frontend Developer",
-    company: "INSPI : Vue.js"
+    company: "INSPI & Innersense",
+    description: "Revamped an old app's frontend by rebuilding it in Vue.js with modern UI/UX enhancements."
+  },
+  {
+    year: "2019",
+    title: "University Student",
+    company: "University Paul Sabatier",
+    description: "Studied Computer Science at UPS from 2019 to 2024 (Master's degree)"
   }
 ];
 
@@ -48,6 +58,7 @@ const HistoryItem = ({
   year,
   title,
   company,
+  description,
 }: HistoryItem) => {
   return (
     <motion.div
@@ -65,17 +76,22 @@ const HistoryItem = ({
       />
 
       {/* Content container */}
-      <div className="flex gap-20 sm:gap-32 md:gap-48 items-start relative z-8 py-10 text-neutral-500 hover:text-neutral-950 transition-colors duration-300">
+      <div className="flex gap-6 sm:gap-32 md:gap-48 items-start relative z-8 py-10 text-neutral-500 hover:text-neutral-950 transition-colors duration-300">
         <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold -ml-0">
           {year}
         </span>
-        <div className=" w-full text-right">
+        <div className="w-full text-right">
           <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold">
             {title}
           </h3>
-          <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2">
-            {company}
-          </p>
+          <div className="relative h-6"> {/* Container for both texts */}
+            <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-1">
+              {company}
+            </p>
+            <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-300 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0">
+              {description}
+            </p>
+          </div>
         </div>
       </div>
 
