@@ -1,0 +1,86 @@
+import { motion } from "framer-motion";
+
+type HistoryItem = {
+  year: string;
+  title: string;
+  company: string;
+};
+
+const historyItems: HistoryItem[] = [
+  {
+    year: "NOW",
+    title: "Freelance Developer",
+    company: "I work with a lot of clients"
+  },
+  {
+    year: "2022",
+    title: "Full Stack Developer",
+    company: "Dassault Systèmes : React and Node.js"
+  },
+  {
+    year: "2022",
+    title: "Frontend Developer",
+    company: "INSPI : Vue.js"
+  }
+];
+
+export const HistorySection = () => {
+  return (
+    <section className="h-screen bg-neutral-950 text-neutral-100">
+      <div className="flex flex-col h-full ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
+        <motion.div className="flex flex-col h-full">
+          <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
+            History
+          </span>
+          
+          <div className="flex flex-col">
+            {historyItems.map((item, index) => (
+              <HistoryItem key={index} {...item} />
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const HistoryItem = ({
+  year,
+  title,
+  company,
+}: HistoryItem) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ ease: "easeInOut", duration: 0.75 }}
+      className="relative group"
+    >
+      {/* Background div */}
+      <div 
+        className="absolute inset-y-0 w-screen left-[50%] -translate-x-1/2 bg-indigo-600 transition-[clip-path] duration-300 ease-in-out"
+        style={{
+          clipPath: "inset(50% 0 50%)",
+        }}
+      />
+
+      {/* Content container */}
+      <div className="flex items-start justify-between relative z-8 py-8">
+        <span className="text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-500 group-hover:text-neutral-950 transition-colors duration-300">
+          {year}
+        </span>
+        <div className="flex flex-col">
+          <h3 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-500 group-hover:text-neutral-950 transition-colors duration-300">
+            {title}
+          </h3>
+          <p className="text-sm uppercase text-neutral-400 opacity-0 group-hover:opacity-100 group-hover:text-neutral-950 transition-all duration-300">
+            {company}
+          </p>
+        </div>
+      </div>
+
+      {/* Border */}
+      <div className="absolute bottom-0 left-[50%] h-px w-screen -translate-x-1/2 border-b border-zinc-800" />
+    </motion.div>
+  );
+};
