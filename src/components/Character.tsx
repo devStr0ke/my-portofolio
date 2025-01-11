@@ -28,18 +28,13 @@ export default function Paragraph({ paragraph, title }: ParagraphProps) {
   return (
     <div className="flex flex-col md:max-w-[90%] lg:max-w-[68%] ml-4 sm:ml-8 md:mx-auto">
       {title && (
-        <motion.span 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeInOut", duration: 0.75 }}
-          className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest"
-        >
+        <div className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
           {title}
-        </motion.span>
+        </div>
       )}
         <p 
           ref={container}         
-          className="flex text-[2.5rem] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[5.2rem] 2xl:text-[5.2rem] 3xl:text-8xl font-bold leading-none text-neutral-500 flex-wrap tracking-tight"
+          className="text-start flex text-[2.5rem] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[5.2rem] 2xl:text-[5.2rem] 3xl:text-8xl font-bold leading-none text-neutral-500 flex-wrap tracking-tight"
         >
       {
         words.map((word, i) => {

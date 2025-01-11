@@ -29,7 +29,7 @@ export const HistorySection = () => {
     <section className="h-screen bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
         <motion.div className="flex flex-col">
-          <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
+          <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest ml-0">
             History
           </span>
           
@@ -66,14 +66,14 @@ const HistoryItem = ({
 
       {/* Content container */}
       <div className="flex gap-20 sm:gap-32 md:gap-48 items-start relative z-8 py-10 text-neutral-500 hover:text-neutral-950 transition-colors duration-300">
-        <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold">
+        <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold -ml-0">
           {year}
         </span>
-        <div>
+        <div className=" w-full text-right">
           <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold">
             {title}
           </h3>
-          <p className="text-xs lg:text-sm mt-2">
+          <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2">
             {company}
           </p>
         </div>
