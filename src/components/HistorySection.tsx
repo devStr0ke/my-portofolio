@@ -65,13 +65,13 @@ const HistoryItem = ({
       />
 
       {/* Content container */}
-      <div className="flex items-start justify-between relative z-8 py-8">
-        <span className="text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-500 group-hover:text-neutral-950 transition-colors duration-300">
+      <div className="grid grid-cols-[180px_1fr] items-start relative z-8 py-12">
+        <span className="text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-500">
           {year}
         </span>
         <div className="flex flex-col">
           <h3 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-500 group-hover:text-neutral-950 transition-colors duration-300">
-            {title}
+            {title}<span>.</span>
           </h3>
           <p className="text-sm uppercase text-neutral-400 opacity-0 group-hover:opacity-100 group-hover:text-neutral-950 transition-all duration-300">
             {company}
