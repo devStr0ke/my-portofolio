@@ -79,7 +79,7 @@ import {
   
   const SocialLinks = () => {
     return (
-      <div className="hidden md:flex gap-4 text-neutral-500">
+      <div className="hidden md:flex gap-4">
         <GravityIcon 
           icon={<FaGithub size={25} />}
           href="https://github.com/devStr0ke"
@@ -94,11 +94,11 @@ import {
   
   const Links = () => {
     return (
-      <nav className="flex gap-6 capitalize">
-        <TextFlip className="text-base font-bold text-neutral-100" href="#about">About</TextFlip>
-        <TextFlip className="text-base font-bold text-neutral-100" href="#projects">Experience</TextFlip>
-        <TextFlip className="text-base font-bold text-neutral-100" href="#about">Projects</TextFlip>
-        <TextFlip className="text-base font-bold text-neutral-100" href="#contact">Contact</TextFlip>
+      <nav className="flex gap-6 capitalize text-base text-neutral-500">
+        <TextFlip className="font-bold" href="#about">About</TextFlip>
+        <TextFlip className="font-bold" href="#projects">Experience</TextFlip>
+        <TextFlip className="font-bold" href="#about">Projects</TextFlip>
+        <TextFlip className="font-bold" href="#contact">Contact</TextFlip>
       </nav>
     );
   };
