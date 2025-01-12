@@ -37,28 +37,28 @@ const Nav = () => {
             />
           )}
         </AnimatePresence>
-        <AnimatePresence>{active && <LinksOverlay />}</AnimatePresence>
+        <AnimatePresence>{active && <LinksOverlay setActive={setActive} />}</AnimatePresence>
       </>
     );
 };
 
-const LinksOverlay = () => {
+const LinksOverlay = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <nav className="fixed right-4 top-4 z-40 h-[calc(100vh_-_110px)] w-[calc(100%_-_32px)] overflow-hidden">
-      <Logo />
-      <LinksContainer />
-      <FooterCTAs />
+      <Logo setActive={setActive} />
+      <LinksContainer setActive={setActive} />
+      <FooterCTAs setActive={setActive} />
     </nav>
   );
 };
 
-const LinksContainer = () => {
+const LinksContainer = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <motion.div className="space-y-4 p-12 pl-4 md:pl-20">
       {LINKS.map((l, idx) => {
         return (
           <NavLink key={l.title} href={l.href} idx={idx}>
-            {l.title}
+            <span onClick={() => setActive(false)}>{l.title}</span>
           </NavLink>
         );
       })}
@@ -96,7 +96,7 @@ const NavLink = ({
   );
 };
 
-const Logo = () => {
+const Logo = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <motion.a
       initial={{ opacity: 0, y: -12 }}
@@ -107,6 +107,7 @@ const Logo = () => {
       }}
       exit={{ opacity: 0, y: -12 }}
       href="#"
+      onClick={() => setActive(false)}
       className="grid h-20 w-20 place-content-center rounded-br-xl rounded-tl-xl bg-neutral-950 transition-colors"
     >
       <svg
@@ -175,7 +176,7 @@ const HamburgerButton = ({
   );
 };
 
-const FooterCTAs = () => {
+const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <>
       <div className="absolute bottom-6 left-6 flex gap-4 md:flex-col">
@@ -186,6 +187,7 @@ const FooterCTAs = () => {
               href={l.href}
               target={l.target}
               rel={l.rel}
+              onClick={() => setActive(false)}
               initial={{ opacity: 0, y: -8 }}
               animate={{
                 opacity: 1,
