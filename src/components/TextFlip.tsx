@@ -6,13 +6,19 @@ import { motion } from "framer-motion";
 const DURATION = 0.25;
 const STAGGER = 0.025;
 
-export const TextFlip = ({ children, href }: { children: string; href: string }) => {
+type TextFlipProps = {
+  children: string;
+  href: string;
+  className?: string;
+};
+
+export const TextFlip = ({ children, href, className }: TextFlipProps) => {
   return (
     <motion.a
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap text-base font-bold text-neutral-100" // Adjusted size
+      className={`relative block overflow-hidden whitespace-nowrap text-base font-bold text-neutral-100 ${className}`} // Adjusted size
       style={{
         lineHeight: 1,
       }}
