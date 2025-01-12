@@ -37,28 +37,28 @@ const Nav = () => {
             />
           )}
         </AnimatePresence>
-        <AnimatePresence>{active && <LinksOverlay />}</AnimatePresence>
+        <AnimatePresence>{active && <LinksOverlay setActive={setActive} />}</AnimatePresence>
       </>
     );
 };
 
-const LinksOverlay = () => {
+const LinksOverlay = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <nav className="fixed right-4 top-4 z-40 h-[calc(100vh_-_110px)] w-[calc(100%_-_32px)] overflow-hidden">
-      <Logo />
-      <LinksContainer />
-      <FooterCTAs />
+      <Logo setActive={setActive} />
+      <LinksContainer setActive={setActive} />
+      <FooterCTAs setActive={setActive} />
     </nav>
   );
 };
 
-const LinksContainer = () => {
+const LinksContainer = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <motion.div className="space-y-4 p-12 pl-4 md:pl-20">
       {LINKS.map((l, idx) => {
         return (
           <NavLink key={l.title} href={l.href} idx={idx}>
-            {l.title}
+            <span onClick={() => setActive(false)}>{l.title}</span>
           </NavLink>
         );
       })}
@@ -89,15 +89,14 @@ const NavLink = ({
       }}
       exit={{ opacity: 0, y: -8 }}
       href={href}
-      className="block text-5xl font-semibold text-indigo-100 transition-colors hover:text-indigo-200 md:text-7xl"
+      className="block text-5xl font-semibold text-neutral-500 transition-colors hover:text-indigo-600 md:text-7xl"
     >
       {children}.
     </motion.a>
   );
 };
 
-const Logo = () => {
-  // Temp logo from https://logoipsum.com/
+const Logo = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <motion.a
       initial={{ opacity: 0, y: -12 }}
@@ -108,6 +107,7 @@ const Logo = () => {
       }}
       exit={{ opacity: 0, y: -12 }}
       href="#"
+      onClick={() => setActive(false)}
       className="grid h-20 w-20 place-content-center rounded-br-xl rounded-tl-xl bg-neutral-950 transition-colors"
     >
       <svg
@@ -158,17 +158,17 @@ const HamburgerButton = ({
       >
         <motion.span
           variants={HAMBURGER_VARIANTS.top}
-          className="absolute block h-1 w-10 bg-white"
+          className="absolute block h-1 w-10 bg-neutral-500"
           style={{ y: "-50%", left: "50%", x: "-50%" }}
         />
         <motion.span
           variants={HAMBURGER_VARIANTS.middle}
-          className="absolute block h-1 w-10 bg-white"
+          className="absolute block h-1 w-10 bg-neutral-500"
           style={{ left: "50%", x: "-50%", top: "50%", y: "-50%" }}
         />
         <motion.span
           variants={HAMBURGER_VARIANTS.bottom}
-          className="absolute block h-1 w-5 bg-white"
+          className="absolute block h-1 w-5 bg-neutral-500"
           style={{ x: "-50%", y: "50%" }}
         />
       </motion.button>
@@ -176,7 +176,7 @@ const HamburgerButton = ({
   );
 };
 
-const FooterCTAs = () => {
+const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <>
       <div className="absolute bottom-6 left-6 flex gap-4 md:flex-col">
@@ -185,6 +185,9 @@ const FooterCTAs = () => {
             <motion.a
               key={idx}
               href={l.href}
+              target={l.target}
+              rel={l.rel}
+              onClick={() => setActive(false)}
               initial={{ opacity: 0, y: -8 }}
               animate={{
                 opacity: 1,
@@ -197,7 +200,7 @@ const FooterCTAs = () => {
               }}
               exit={{ opacity: 0, y: -8 }}
             >
-              <l.Component className="text-xl text-white transition-colors hover:text-indigo-300" />
+              <l.Component className="text-xl text-neutral-500 transition-colors hover:text-indigo-600" />
             </motion.a>
           );
         })}
@@ -209,30 +212,34 @@ const FooterCTAs = () => {
 const LINKS = [
   {
     title: "About",
-    href: "#",
+    href: "#about",
   },
   {
     title: "Experience",
-    href: "#",
+    href: "#experience",
   },
   {
     title: "Projects",
-    href: "#",
+    href: "#projects",
   },
   {
     title: "Contact",
-    href: "#",
+    href: "#contact",
   },
 ];
 
 const SOCIAL_CTAS = [
   {
     Component: FaGithub,
-    href: "#",
+    href: "https://github.com/devStr0ke",
+    target: "_blank",
+    rel: "noopener noreferrer"
   },
   {
     Component: FaLinkedin,
-    href: "#",
+    href: "https://www.linkedin.com/in/samuel-c-293984212/",
+    target: "_blank",
+    rel: "noopener noreferrer"
   },
 ];
 

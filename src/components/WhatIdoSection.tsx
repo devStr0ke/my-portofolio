@@ -2,6 +2,34 @@ import {
   motion
 } from "framer-motion";
 
+type WhatIdoItem = {
+  title: string;
+  description: string;
+};
+
+const items: WhatIdoItem[] = [
+  {
+    title: "Web Architecture",
+    description: "Designing scalable, maintainable, and efficient web systems",
+  },
+  {
+    title: "API Integration",
+    description: "Connecting applications with third-party services",
+  },
+  {
+    title: "Web3 Development",
+    description: "Building decentralized apps (dApps) and integrating blockchain technologies.",
+  },
+  {
+    title: "Performance Tuning",
+    description: "Optimizing code and infrastructure to ensure fast, reliable, and efficient applications.",
+  },
+  {
+    title: "UI/UX Design",
+    description: "Transforming designs into responsive, accessible, and user-friendly web interfaces.",
+  },
+];
+
 export const WhatIdoSection = () => {
   return (
     <section
@@ -13,13 +41,11 @@ export const WhatIdoSection = () => {
             What I Do
           </span>
           
+          
           <div>
-            <WhatIdoItem title="Web Architecture" description="Designing scalable, maintainable, and efficient web systems to support seamless user experiences." />
-            <WhatIdoItem title="API Integration" description="Connecting applications with third-party services or internal systems via robust APIs." />
-            <WhatIdoItem title="Web3 Development" description="Building decentralized apps (dApps) and integrating blockchain technologies." />
-            <WhatIdoItem title="Performance Tuning" description="Optimizing code and infrastructure to ensure fast, reliable, and efficient applications." />
-            <WhatIdoItem title="UI/UX Design" description="Transforming designs into responsive, accessible, and user-friendly web interfaces." />
-            {/* ... other skills ? idk maybe ... */}
+            {items.map((item, index) => (
+              <WhatIdoItem key={index} {...item} />
+            ))}
           </div>
         </motion.div>
       </div>
@@ -53,10 +79,10 @@ const WhatIdoItem = ({
       <div className="flex items-center justify-between pb-9 relative z-8 py-6">
         <div className="flex w-full items-center justify-between">
           <div>
-            <p className="mb-1.5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl font-black text-neutral-500 uppercase relative group-hover:text-neutral-950 transition-colors duration-300">
+            <p className="mb-1.5 text-2xl tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl font-black text-neutral-500 uppercase relative group-hover:text-neutral-950 transition-colors duration-300">
               {title}
             </p>
-            <p className="text-sm uppercase text-neutral-400 group-hover:text-neutral-950 transition-colors duration-300">
+            <p className="text-xs sm:text-sm tracking-tight font-semibold text-neutral-400 group-hover:text-neutral-950 transition-colors duration-300">
               {description}
             </p>
           </div>

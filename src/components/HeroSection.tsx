@@ -95,10 +95,10 @@ import {
   const Links = () => {
     return (
       <nav className="flex gap-6 capitalize">
-        <TextFlip href="#about">About</TextFlip>
-        <TextFlip href="#projects">Experience</TextFlip>
-        <TextFlip href="#about">Projects</TextFlip>
-        <TextFlip href="#contact">Contact</TextFlip>
+        <TextFlip className="text-base font-bold text-neutral-100" href="#about">About</TextFlip>
+        <TextFlip className="text-base font-bold text-neutral-100" href="#projects">Experience</TextFlip>
+        <TextFlip className="text-base font-bold text-neutral-100" href="#about">Projects</TextFlip>
+        <TextFlip className="text-base font-bold text-neutral-100" href="#contact">Contact</TextFlip>
       </nav>
     );
   };
