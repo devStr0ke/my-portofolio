@@ -9,9 +9,10 @@ import {
   interface GravityIconProps {
     icon: React.ReactNode;
     href: string;
+    className?: string;
   }
   
-  const GravityIcon = ({ icon, href }: GravityIconProps) => {
+  const GravityIcon = ({ icon, href, className }: GravityIconProps) => {
     const ref = useRef<HTMLAnchorElement | null>(null);
   
     const x = useMotionValue(0);
@@ -55,7 +56,7 @@ import {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ transform }}
-        className="hover:text-indigo-600 transition-colors"
+        className={`hover:text-indigo-600 transition-colors ${className || ''}`}
       >
         {icon}
       </motion.a>
