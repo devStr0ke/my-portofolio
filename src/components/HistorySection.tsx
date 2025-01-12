@@ -88,7 +88,7 @@ const HistoryItem = ({
             <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-1">
               {company}
             </p>
-            <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-300 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0">
+            <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-0 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0">
               {description}
             </p>
           </div>
