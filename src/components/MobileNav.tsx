@@ -89,7 +89,7 @@ const NavLink = ({
       }}
       exit={{ opacity: 0, y: -8 }}
       href={href}
-      className="block text-5xl font-semibold text-indigo-100 transition-colors hover:text-indigo-200 md:text-7xl"
+      className="block text-5xl font-semibold text-neutral-500 transition-colors hover:text-indigo-600 md:text-7xl"
     >
       {children}.
     </motion.a>
@@ -97,7 +97,6 @@ const NavLink = ({
 };
 
 const Logo = () => {
-  // Temp logo from https://logoipsum.com/
   return (
     <motion.a
       initial={{ opacity: 0, y: -12 }}
@@ -158,17 +157,17 @@ const HamburgerButton = ({
       >
         <motion.span
           variants={HAMBURGER_VARIANTS.top}
-          className="absolute block h-1 w-10 bg-white"
+          className="absolute block h-1 w-10 bg-neutral-500"
           style={{ y: "-50%", left: "50%", x: "-50%" }}
         />
         <motion.span
           variants={HAMBURGER_VARIANTS.middle}
-          className="absolute block h-1 w-10 bg-white"
+          className="absolute block h-1 w-10 bg-neutral-500"
           style={{ left: "50%", x: "-50%", top: "50%", y: "-50%" }}
         />
         <motion.span
           variants={HAMBURGER_VARIANTS.bottom}
-          className="absolute block h-1 w-5 bg-white"
+          className="absolute block h-1 w-5 bg-neutral-500"
           style={{ x: "-50%", y: "50%" }}
         />
       </motion.button>
@@ -185,6 +184,8 @@ const FooterCTAs = () => {
             <motion.a
               key={idx}
               href={l.href}
+              target={l.target}
+              rel={l.rel}
               initial={{ opacity: 0, y: -8 }}
               animate={{
                 opacity: 1,
@@ -197,7 +198,7 @@ const FooterCTAs = () => {
               }}
               exit={{ opacity: 0, y: -8 }}
             >
-              <l.Component className="text-xl text-white transition-colors hover:text-indigo-300" />
+              <l.Component className="text-xl text-neutral-500 transition-colors hover:text-indigo-600" />
             </motion.a>
           );
         })}
@@ -209,30 +210,34 @@ const FooterCTAs = () => {
 const LINKS = [
   {
     title: "About",
-    href: "#",
+    href: "#about",
   },
   {
     title: "Experience",
-    href: "#",
+    href: "#experience",
   },
   {
     title: "Projects",
-    href: "#",
+    href: "#projects",
   },
   {
     title: "Contact",
-    href: "#",
+    href: "#contact",
   },
 ];
 
 const SOCIAL_CTAS = [
   {
     Component: FaGithub,
-    href: "#",
+    href: "https://github.com/devStr0ke",
+    target: "_blank",
+    rel: "noopener noreferrer"
   },
   {
     Component: FaLinkedin,
-    href: "#",
+    href: "https://www.linkedin.com/in/samuel-c-293984212/",
+    target: "_blank",
+    rel: "noopener noreferrer"
   },
 ];
 
