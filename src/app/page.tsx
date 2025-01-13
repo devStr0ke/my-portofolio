@@ -29,19 +29,19 @@ export default function Home() {
       <div className="w-full h-full">
         <FloatingNav />
         <HeroSection />
-        <Spacer size="lg" />
+        <Spacer mobileSize="md" size="lg" />
         <AboutSection />
         <Spacer size="sm" />
         <WhatIdoSection />
-        <Spacer size="lg" />
+        <Spacer mobileSize="md" size="lg" />
         <ExperienceSection />
         <Spacer size="sm" />
         <HistorySection />
-        <Spacer size="lg" />
+        <Spacer mobileSize="md" size="lg" />
         <ProjectsSection />
         <Spacer size="sm" />
         <Work />
-        <Spacer size="xs" />
+        <Spacer mobileSize="md"size="xs" />
         <TerminalContact />
         <Spacer size="xs" />
         <Footer />
