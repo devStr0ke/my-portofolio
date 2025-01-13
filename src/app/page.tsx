@@ -8,6 +8,7 @@ import { ExperienceSection } from "@/components/ExperienceSection";
 import { FloatingNav } from "@/components/FloatingNav";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { Work } from "@/components/Work/Work";
+import { Spacer } from "@/components/Spacer";
 import Footer from "@/components/Footer/Footer";
 import { useEffect } from "react";
 import Lenis from 'lenis';
@@ -28,13 +29,21 @@ export default function Home() {
       <div className="w-full h-full">
         <FloatingNav />
         <HeroSection />
+        <Spacer size="lg" />
         <AboutSection />
+        <Spacer size="sm" />
         <WhatIdoSection />
+        <Spacer size="lg" />
         <ExperienceSection />
+        <Spacer size="sm" />
         <HistorySection />
+        <Spacer size="lg" />
         <ProjectsSection />
+        <Spacer size="sm" />
         <Work />
+        <Spacer size="xs" />
         <TerminalContact />
+        <Spacer size="xs" />
         <Footer />
       </div>
     </>

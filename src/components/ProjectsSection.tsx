@@ -18,7 +18,7 @@ const paragraph = [
   
   export const ProjectsSection = () => {
     return (
-      <main className='flex justify-center items-start min-h-screen'>
+      <main className='flex justify-center items-start min-h-min'>
         <Character paragraph={paragraph} title="Projects" />
       </main>
     )

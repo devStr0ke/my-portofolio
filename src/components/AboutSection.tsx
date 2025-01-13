@@ -22,7 +22,7 @@ const paragraph = [
 
 export const AboutSection = () => {
   return (
-    <main className='flex justify-center items-center min-h-screen'>
+    <main className='flex justify-center items-center min-h-min'>
       <Character paragraph={paragraph} title="About Me" />
     </main>
   )
