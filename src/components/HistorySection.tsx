@@ -36,7 +36,7 @@ const historyItems: HistoryItem[] = [
 
 export const HistorySection = () => {
   return (
-    <section className="h-screen bg-neutral-950 text-neutral-100">
+    <section className="bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
         <motion.div className="flex flex-col">
           <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest ml-0">
@@ -85,10 +85,10 @@ const HistoryItem = ({
             {title}
           </h3>
           <div className="relative h-6"> {/* Container for both texts */}
-            <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-1">
+            <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-300 ease-in-out opacity-100 translate-y-0 group-hover:opacity-0 group-hover:-translate-y-1">
               {company}
             </p>
-            <p className="text-xs lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-0 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0">
+            <p className="text-xs text-neutral-950 lg:text-sm xl:text-base font-semibold mt-2 absolute right-0 transition-all duration-300 ease-in-out opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0">
               {description}
             </p>
           </div>

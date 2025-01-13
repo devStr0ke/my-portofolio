@@ -21,16 +21,10 @@ const Section1 = () => {
 
 const Section2 = () => {
     return (
-        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0'>
+        <div className='flex flex-col justify-between items-start gap-0'>
             <h1 className='text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-950'>
                 S.Coelho<span className="text-neutral-950">.</span>
             </h1>
-            <div className="flex items-center gap-2 text-neutral-950 transition-colors duration-300">
-                <FaEnvelope className="text-lg sm:text-xl" />
-                <a href="mailto:samuel.coelho@voidsoftware.pro" className="text-sm sm:text-lg break-all sm:break-normal">
-                    samuel.coelho@voidsoftware.pro
-                </a>
-            </div>
         </div>
     )
 }

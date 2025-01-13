@@ -5,6 +5,10 @@ import { AboutSection } from "@/components/AboutSection";
 import { WhatIdoSection } from "@/components/WhatIdoSection";
 import { HistorySection } from "@/components/HistorySection";
 import { ExperienceSection } from "@/components/ExperienceSection";
+import { FloatingNav } from "@/components/FloatingNav";
+import { ProjectsSection } from "@/components/ProjectsSection";
+import { Work } from "@/components/Work/Work";
+import { Spacer } from "@/components/Spacer";
 import Footer from "@/components/Footer/Footer";
 import { useEffect } from "react";
 import Lenis from 'lenis';
@@ -23,12 +27,23 @@ export default function Home() {
   return (
     <>
       <div className="w-full h-full">
+        <FloatingNav />
         <HeroSection />
+        <Spacer mobileSize="md" size="lg" />
         <AboutSection />
+        <Spacer size="sm" />
         <WhatIdoSection />
+        <Spacer mobileSize="md" size="lg" />
         <ExperienceSection />
+        <Spacer size="sm" />
         <HistorySection />
+        <Spacer mobileSize="md" size="lg" />
+        <ProjectsSection />
+        <Spacer size="sm" />
+        <Work />
+        <Spacer mobileSize="md"size="xs" />
         <TerminalContact />
+        <Spacer size="xs" />
         <Footer />
       </div>
     </>

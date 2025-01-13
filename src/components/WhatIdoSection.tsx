@@ -33,9 +33,9 @@ const items: WhatIdoItem[] = [
 export const WhatIdoSection = () => {
   return (
     <section
-      className="min-h-screen bg-neutral-950 text-neutral-100"
+      className="min-h-min bg-neutral-950 text-neutral-100"
     >
-      <div className="flex flex-col h-screen ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
+      <div className="flex flex-col h-min ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
         <motion.div className="flex flex-col">
           <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
             What I Do
