@@ -6,18 +6,18 @@ import Modal from './Modal';
 const projects = [
   {
     title: "MG Événements",
-    src: "mgevenements.png",
-    color: "#000000"
+    src: "mgevenements/main.png",
+    color: "#737373"
   },
   {
     title: "MGE Dashboard",
-    src: "mgedashboard.png",
-    color: "#8C8C8C"
+    src: "mgedashboard/main.png",
+    color: "#e5e5e5"
   },
   {
     title: "Halcyon Labs",
-    src: "halcyonlabs.png",
-    color: "#EFE8D3"
+    src: "halcyon/main.png",
+    color: "#000000"
   },
 ]
 
