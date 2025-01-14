@@ -44,7 +44,7 @@ export default function Modal({modal, projects}: {modal: any, projects: any}) {
         variants={scaleAnimation} 
         initial="initial" 
         animate={active ? "enter" : "closed"}
-        className="h-[350px] w-[400px] absolute bg-white overflow-hidden pointer-events-none flex items-center justify-center"
+        className="h-[450px] w-[475px] absolute bg-white overflow-hidden pointer-events-none flex items-center justify-center"
       >
         <div 
           style={{top: index * -100 + "%"}} 
@@ -59,11 +59,11 @@ export default function Modal({modal, projects}: {modal: any, projects: any}) {
                 key={`modal_${index}`}
               >
                 <Image 
-                  src={`/images/${src}`}
-                  width={300}
+                  src={`/${src}`}
+                  width={450}
                   height={0}
                   alt="image"
-                  className="h-auto"
+                  className="h-auto rounded-lg"
                 />
               </div>
             )
