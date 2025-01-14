@@ -19,11 +19,6 @@ const projects = [
     src: "halcyonlabs.png",
     color: "#EFE8D3"
   },
-  {
-    title: "Smart Tickets",
-    src: "smarttickets.png",
-    color: "#706D63"
-  }
 ]
 
 export const Work = () => {
