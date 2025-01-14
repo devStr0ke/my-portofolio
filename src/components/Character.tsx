@@ -26,7 +26,7 @@ export default function Paragraph({ paragraph, title }: ParagraphProps) {
     : paragraph;
 
   return (
-    <div className="flex flex-col md:max-w-[90%] lg:max-w-[68%] ml-4 sm:ml-8 md:mx-auto">
+    <div className="flex flex-col max-w-[90%] lg:max-w-[68%] md:mx-auto">
       {title && (
         <div className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
           {title}

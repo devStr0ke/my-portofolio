@@ -32,7 +32,7 @@ export const Work = () => {
 
   return (
     <section className="bg-neutral-950 text-neutral-100">
-      <div className="flex flex-col h-full ml-4 mr-4 sm:ml-8 sm:mr-8 lg:mx-auto lg:max-w-[68%]">
+      <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto">
         <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
           Selected Work
         </span>
