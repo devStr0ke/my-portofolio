@@ -32,7 +32,7 @@ export const Work = () => {
 
   return (
     <section className="bg-neutral-950 text-neutral-100">
-      <div className="flex flex-col h-full ml-4 sm:ml-8 max-w-[90%] sm:max-w-[75%] md:max-w-[90%] lg:max-w-[68%] md:mx-auto">
+      <div className="flex flex-col h-full ml-4 mr-4 sm:ml-8 sm:mr-8 lg:mx-auto lg:max-w-[68%]">
         <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
           Selected Work
         </span>
@@ -52,7 +52,7 @@ export const Work = () => {
         {/* Tablet and Mobile view */}
         <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="space-y-4">
+            <div key={index} className="space-y-4 mb-16 sm:mb-4">
               {/* Image container with square aspect ratio and project color */}
               <div 
                 className="aspect-square w-full p-8 flex items-center justify-center"
