@@ -10,21 +10,24 @@ const projects = [
     src: "mgevenements/main.png",
     color: "#737373",
     type: "Conception & Development",
-    year: "2024"
+    year: "2024",
+    route: "/work/mg-evenements"
   },
   {
     title: "MGE Dashboard",
     src: "mgedashboard/main.png",
     color: "#e5e5e5",
     type: "Conception & Development",
-    year: "2024"
+    year: "2024",
+    route: "/work/mge-dashboard"
   },
   {
     title: "Halcyon Labs",
     src: "halcyon/main.png",
     color: "#000000",
     type: "UI/UX Design",
-    year: "2022"
+    year: "2022",
+    route: "/work/halcyon-labs"
   },
 ]
 
@@ -35,6 +38,7 @@ type ProjectCardProps = {
     color: string;
     type: string;
     year: string;
+    route: string;
   };
   index: number;
 };
@@ -55,7 +59,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   };
 
   return (
-    <Link href="work">
+    <Link href={project.route}>
       <div className="space-y-4 relative group">
         <div 
           ref={containerRef}
@@ -125,6 +129,7 @@ export const Work = () => {
             <Project 
               index={index} 
               {...project}
+              route={project.route}
               setModal={setModal} 
               key={index}
             />

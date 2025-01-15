@@ -3,9 +3,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from "next-transition-router";
 
-export default function Project({ index, title, setModal }: { index: any, title: any, setModal: any }) {
+interface ProjectProps {
+  index: number;
+  title: string;
+  route: string;
+  setModal: (modal: { active: boolean; index: number }) => void;
+}
+
+export default function Project({ index, title, route, setModal }: ProjectProps) {
   return (
-    <Link href={`/work`}>
+    <Link href={route}>
       <motion.div 
         initial={{ opacity: 0, y: 48 }}
         whileInView={{ opacity: 1, y: 0 }}
