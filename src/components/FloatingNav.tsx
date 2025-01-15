@@ -5,14 +5,20 @@ import { TextFlip } from "./TextFlip";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import GravityIcon from "./GravityIcon";
 
-export const FloatingNav = () => {
+interface FloatingNavProps {
+  disableScroll?: boolean;
+}
+
+export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
   const { scrollY } = useScroll();
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(disableScroll);
   const [isOverFooter, setIsOverFooter] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const shouldShow = latest > window.innerHeight * 3;
-    setVisible(shouldShow);
+    if (!disableScroll) {
+      const shouldShow = latest > window.innerHeight * 3;
+      setVisible(shouldShow);
+    }
 
     // Calculate if we're over the footer
     const footerStart = document.documentElement.scrollHeight - window.innerHeight - 552;
