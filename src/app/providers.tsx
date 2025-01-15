@@ -6,7 +6,7 @@ import { TransitionRouter } from "next-transition-router";
 
 const routes: { [key: string]: string } = {
   "/": "· Home",
-  "/test": "· Test",
+  "/work": "· Work",
 };
 
 export function Providers({ children }: { children: React.ReactNode }) {

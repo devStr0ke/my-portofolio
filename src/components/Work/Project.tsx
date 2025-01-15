@@ -5,7 +5,7 @@ import { Link } from "next-transition-router";
 
 export default function Project({ index, title, setModal }: { index: any, title: any, setModal: any }) {
   return (
-    <Link href={`/test`}>
+    <Link href={`/work`}>
       <motion.div 
         initial={{ opacity: 0, y: 48 }}
         whileInView={{ opacity: 1, y: 0 }}

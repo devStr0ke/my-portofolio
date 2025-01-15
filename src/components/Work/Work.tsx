@@ -55,7 +55,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   };
 
   return (
-    <Link href="test">
+    <Link href="work">
       <div className="space-y-4 relative group">
         <div 
           ref={containerRef}
