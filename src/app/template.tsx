@@ -5,22 +5,34 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
 const routes: { [key: string]: string } = {
-  "/": "Home",
-  "/about": "About",
-  "/work": "Work",
-  "/contact": "Contact"
+  "/": "· Home",
+  "/test": "· Test",
 };
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const [showPathname, setShowPathname] = useState(true)
+  const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Reset states on pathname change
+    setShowPathname(true)
+    setShowContent(false)
+
+    // Hide the pathname after 1 second
+    const pathnameTimer = setTimeout(() => {
       setShowPathname(false)
     }, 1000)
 
-    return () => clearTimeout(timer)
+    // Show content after pathname animation is complete
+    const contentTimer = setTimeout(() => {
+      setShowContent(true)
+    }, 500) // 1000ms (pathname display) + 750ms (exit animation)
+
+    return () => {
+      clearTimeout(pathnameTimer)
+      clearTimeout(contentTimer)
+    }
   }, [pathname])
 
   return (
@@ -29,12 +41,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
         {showPathname && (
           <motion.div
             key="pathname"
-            className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-indigo-600"
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{
-              duration: 0.75,
+              duration: 0.35, // Super fast entry
               ease: [0.76, 0, 0.24, 1]
             }}
           >
@@ -44,8 +56,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{
-                duration: 0.5,
-                delay: 0.2
+                duration: 0.3,
+                delay: 0.1
               }}
             >
               {routes[pathname] || pathname.substring(1)}
@@ -54,7 +66,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      {children}
+      <div style={{ opacity: showContent ? 1 : 0 }}>
+        {children}
+      </div>
     </>
   )
 }
