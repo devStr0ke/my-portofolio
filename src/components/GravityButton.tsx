@@ -16,6 +16,7 @@ interface GravityButtonProps {
   label?: string;
   icon?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
+  static?: boolean;
 }
 
 export const GravityButton = ({ 
@@ -23,8 +24,9 @@ export const GravityButton = ({
   className = "", 
   href, 
   label = "View My Work • See My Projects • View My Skills • Contact Me •",
-  icon = <MdOutlineArrowDownward className="text-2xl" />,
-  size = 'lg'
+  icon = <MdOutlineArrowDownward className="text-5xl" />,
+  size = 'lg',
+  static: isStatic = false
 }: GravityButtonProps) => {
   const ref = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -138,10 +140,10 @@ export const GravityButton = ({
 
       <motion.svg
         initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
+        animate={{ rotate: isStatic ? 0 : 360 }}
         transition={{
           duration: 25,
-          repeat: Infinity,
+          repeat: isStatic ? 0 : Infinity,
           repeatType: "loop",
           ease: "linear",
         }}
@@ -163,7 +165,11 @@ export const GravityButton = ({
         <text>
           <textPath
             href="#circlePath"
-            className="fill-neutral-400 text-[8px] sm:text-xs font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 group-hover:fill-neutral-50"
+            className={`fill-neutral-400 text-[8px] sm:text-xs font-light uppercase 
+              ${isStatic 
+                ? 'opacity-100 group-hover:fill-neutral-50' 
+                : 'opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 group-hover:fill-neutral-50'
+              }`}
           >
             {label}
           </textPath>
