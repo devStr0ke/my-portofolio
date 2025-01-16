@@ -68,7 +68,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
       <div
         ref={layer}
-        className="fixed inset-0 z-50 translate-y-full bg-indigo-600 flex items-center justify-center"
+        className="fixed inset-0 z-[9999] translate-y-full bg-indigo-600 flex items-center justify-center"
       >
         <span className="text-4xl font-light text-white">
           {routes[currentRoute] || '· ' + currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)}
