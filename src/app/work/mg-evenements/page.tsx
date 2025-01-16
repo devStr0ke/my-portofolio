@@ -24,6 +24,7 @@ export default function Home() {
         title="MG Événements"
         mainImage="/mgevenements/main.png"
         macImage="/mgevenements/mac.png"
+        websiteUrl="https://mgevenements.fr/"
       />
     </>
   );
