@@ -4,15 +4,17 @@ import Image from 'next/image';
 import { Spacer } from '@/components/Spacer';
 import { GravityButton } from '@/components/GravityButton';
 import { FiExternalLink } from 'react-icons/fi';
+import Character from '@/components/Character';
 
 interface ProjectSectionProps {
   title: string;
   mainImage: string;
   macImage: string;
   websiteUrl?: string;
+  firstDescription?: string;
 }
 
-export default function ProjectSection({ title, mainImage, macImage, websiteUrl }: ProjectSectionProps) {
+export default function ProjectSection({ title, mainImage, macImage, websiteUrl, firstDescription }: ProjectSectionProps) {
   return (
     <>
       <div className="w-full lg:max-w-[85%] mx-auto relative">
@@ -41,6 +43,15 @@ export default function ProjectSection({ title, mainImage, macImage, websiteUrl 
           />
         </div>
       </div>
+
+      <Spacer mobileSize="xs" size="xs" />
+      
+      <Character 
+        paragraph={firstDescription ? firstDescription : []}
+        size="sm"
+        customContainerClass="w-full max-w-[90%] lg:max-w-[85%] mx-auto"
+        textAlign="center"
+      />
 
       <Spacer mobileSize="xs" size="xs" />
 
