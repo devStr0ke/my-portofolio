@@ -1,3 +1,5 @@
+"use client";
+
 import {
   motion,
   useMotionTemplate,
@@ -5,21 +7,31 @@ import {
   useSpring,
 } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { MdOutlineArrowUpward } from "react-icons/md";
+import { MdOutlineArrowDownward } from "react-icons/md";
 
 interface GravityButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
+  href?: string;
+  label?: string;
+  icon?: React.ReactNode;
+  size?: 'sm' | 'md' | 'lg';
 }
 
-export const GravityButton = ({ children, className }: GravityButtonProps) => {
-  const ref = useRef<HTMLButtonElement | null>(null);
+export const GravityButton = ({ 
+  children, 
+  className = "", 
+  href, 
+  label = "View My Work • See My Projects • View My Skills • Contact Me •",
+  icon = <MdOutlineArrowDownward className="text-2xl" />,
+  size = 'lg'
+}: GravityButtonProps) => {
+  const ref = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check for mobile device
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640); // sm breakpoint
+      setIsMobile(window.innerWidth < 640);
     };
     
     checkMobile();
@@ -32,12 +44,12 @@ export const GravityButton = ({ children, className }: GravityButtonProps) => {
   const y = useMotionValue(0);
 
   const xSpring = useSpring(x, {
-    mass: 3,
+    mass: 1,
     stiffness: 400,
     damping: 50,
   });
   const ySpring = useSpring(y, {
-    mass: 3,
+    mass: 1,
     stiffness: 400,
     damping: 50,
   });
@@ -45,7 +57,7 @@ export const GravityButton = ({ children, className }: GravityButtonProps) => {
   const transform = useMotionTemplate`translateX(${xSpring}px) translateY(${ySpring}px)`;
 
   const handleMouseMove = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>
   ) => {
     if (isMobile || !ref.current) return;
 
@@ -61,16 +73,66 @@ export const GravityButton = ({ children, className }: GravityButtonProps) => {
     y.set(0);
   };
 
+  // Handle click for internal links
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+    if (href?.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
+  const sizeClasses = {
+    sm: "h-[100px] w-[100px] sm:h-[100px] sm:w-[100px]", // Always md size on mobile
+    md: "h-[100px] w-[100px] sm:h-[120px] sm:w-[120px]", // Always md size on mobile
+    lg: "h-[100px] w-[100px] sm:h-[150px] sm:w-[150px]"  // Always md size on mobile
+  }[size];
+
+  const svgSizes = {
+    sm: { 
+      width: isMobile ? 100 : 80, 
+      height: isMobile ? 100 : 80, 
+      path: isMobile 
+        ? "M50,50 m-45,0 a45,45 0 1,0 90,0 a45,45 0 1,0 -90,0" 
+        : "M40,40 m-40,0 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0" 
+    },
+    md: { 
+      width: 100, 
+      height: 100, 
+      path: "M50,50 m-45,0 a45,45 0 1,0 90,0 a45,45 0 1,0 -90,0" 
+    },
+    lg: { 
+      width: isMobile ? 100 : 130, 
+      height: isMobile ? 100 : 130, 
+      path: isMobile 
+        ? "M50,50 m-43,0 a43,43 0 1,0 86,0 a43,43 0 1,0 -86,0"
+        : "M65,65 m-65,0 a65,65 0 1,0 130,0 a65,65 0 1,0 -130,0" 
+    }
+  }[size];
+  
+  const Component = href ? motion.a : motion.button;
+
   return (
-    <motion.button
-      ref={ref}
+    <Component
+      ref={ref as any}
+      href={href}
+      target={href?.startsWith('#') ? undefined : href ? "_blank" : undefined}
+      rel={href?.startsWith('#') ? undefined : href ? "noopener noreferrer" : undefined}
+      onClick={handleClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={isMobile ? undefined : { transform }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      className={`group relative grid h-[120px] w-[120px] sm:h-[150px] sm:w-[150px] place-content-center rounded-full border-2 border-neutral-400 transition-colors duration-700 ease-out ${className}`}
+      className={`group relative grid ${sizeClasses} place-content-center rounded-full border-2 border-neutral-400 transition-colors duration-700 ease-out ${className}`}
     >
-      <MdOutlineArrowUpward className="pointer-events-none relative z-10 rotate-180 text-4xl sm:text-5xl text-neutral-400 transition-all duration-700 ease-out group-hover:text-neutral-50" />
+      <div className="pointer-events-none relative z-10 text-neutral-400 transition-all duration-700 ease-out group-hover:text-neutral-50">
+        {icon}
+      </div>
 
       <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-indigo-600 transition-transform duration-700 ease-out group-hover:scale-100" />
 
@@ -89,24 +151,24 @@ export const GravityButton = ({ children, className }: GravityButtonProps) => {
           x: "-50%",
           y: "-50%",
         }}
-        width={isMobile ? "100" : "130"}
-        height={isMobile ? "100" : "130"}
+        width={svgSizes.width}
+        height={svgSizes.height}
         className="pointer-events-none absolute z-10"
       >
         <path
           id="circlePath"
-          d={isMobile ? "M50,50 m-50,0 a50,50 0 1,0 100,0 a50,50 0 1,0 -100,0" : "M65,65 m-65,0 a65,65 0 1,0 130,0 a65,65 0 1,0 -130,0"}
+          d={svgSizes.path}
           fill="none"
         />
         <text>
           <textPath
             href="#circlePath"
-            className="fill-neutral-400 text-[10px] sm:text-xs font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 group-hover:fill-neutral-50"
+            className="fill-neutral-400 text-[8px] sm:text-xs font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 group-hover:fill-neutral-50"
           >
-            View My Work • See My Projects • View My Skills • Contact Me •
+            {label}
           </textPath>
         </text>
       </motion.svg>
-    </motion.button>
+    </Component>
   );
 };
