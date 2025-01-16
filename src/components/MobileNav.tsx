@@ -33,7 +33,7 @@ const Nav = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-30 backdrop-blur-sm bg-neutral-950/50"
+              className="fixed inset-0 z-[90] backdrop-blur-sm bg-neutral-950/50"
             />
           )}
         </AnimatePresence>
@@ -44,7 +44,7 @@ const Nav = () => {
 
 const LinksOverlay = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
-    <nav className="fixed right-4 top-4 z-40 h-[calc(100vh_-_110px)] w-[calc(100%_-_32px)] overflow-hidden">
+    <nav className="fixed right-4 top-4 z-[100] h-[calc(100vh_-_110px)] w-[calc(100%_-_32px)] overflow-hidden">
       <Logo setActive={setActive} />
       <LinksContainer setActive={setActive} />
       <FooterCTAs setActive={setActive} />
@@ -145,14 +145,14 @@ const HamburgerButton = ({
         animate={active ? "open" : "closed"}
         variants={UNDERLAY_VARIANTS}
         style={{ top: 16, right: 16 }}
-        className={`fixed z-10 rounded-xl ${active ? "bg-neutral-950" : "bg-transparent"}`}
+        className={`fixed z-[80] rounded-xl ${active ? "bg-neutral-950" : "bg-transparent"}`}
       />
 
       <motion.button
         initial={false}
         animate={active ? "open" : "closed"}
         onClick={() => setActive((pv) => !pv)}
-        className={`group fixed right-4 top-4 z-50 h-20 w-20 bg-white/0 transition-all ${
+        className={`group fixed right-4 top-4 z-[110] h-20 w-20 bg-white/0 transition-all ${
           active ? "rounded-bl-xl rounded-tr-xl" : "rounded-xl"
         }`}
       >

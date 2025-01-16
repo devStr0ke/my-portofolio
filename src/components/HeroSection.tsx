@@ -120,7 +120,7 @@ import {
             </span>
           </div>
         </h1>
-        <GravityButton className="mt-8">
+        <GravityButton className="mt-8" href="#about">
           View My Work
         </GravityButton>
       </div>

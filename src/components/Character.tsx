@@ -7,13 +7,31 @@ type HighlightedWord = {
   color?: string;
 }
 
+type TextSize = 'sm' | 'md' | 'lg' | 'xl';
+type TextAlign = 'start' | 'center' | 'end';
 
 type ParagraphProps = {
   paragraph: string | HighlightedWord[];
-  title?: string;  // Add optional title prop
+  title?: string;
+  size?: TextSize;
+  customContainerClass?: string;
+  textAlign?: TextAlign;
 }
 
-export default function Paragraph({ paragraph, title }: ParagraphProps) {
+const TEXT_SIZES = {
+  sm: "text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl",
+  md: "text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl",
+  lg: "text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl",
+  xl: "text-[2.5rem] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[5.2rem] 2xl:text-[5.2rem] 3xl:text-8xl",
+} as const;
+
+export default function Paragraph({ 
+  paragraph, 
+  title, 
+  size = 'xl',
+  customContainerClass = 'flex flex-col max-w-[90%] lg:max-w-[68%] md:mx-auto',
+  textAlign = 'start'
+}: ParagraphProps) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -26,18 +44,17 @@ export default function Paragraph({ paragraph, title }: ParagraphProps) {
     : paragraph;
 
   return (
-    <div className="flex flex-col max-w-[90%] lg:max-w-[68%] md:mx-auto">
+    <div className={customContainerClass}>
       {title && (
         <div className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
           {title}
         </div>
       )}
-        <p 
-          ref={container}         
-          className="text-start flex text-[2.5rem] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[5.2rem] 2xl:text-[5.2rem] 3xl:text-8xl font-bold leading-none text-neutral-500 flex-wrap tracking-tight"
-        >
-      {
-        words.map((word, i) => {
+      <p 
+        ref={container}         
+        className={`text-${textAlign} flex font-bold leading-none text-neutral-500 flex-wrap tracking-tight ${TEXT_SIZES[size]} ${textAlign === 'center' ? 'justify-center' : ''}`}
+      >
+        {words.map((word, i) => {
           const start = i / words.length
           const end = start + (1 / words.length)
           return (
@@ -50,8 +67,7 @@ export default function Paragraph({ paragraph, title }: ParagraphProps) {
               {word.text}
             </Word>
           )
-        })
-      }
+        })}
       </p>
     </div>
   )
@@ -72,22 +88,20 @@ const Word = ({
   const step = amount / children.length
   return (
     <span className="relative mr-3 mt-3">
-      {
-        children.split("").map((char, i) => {
-          const start = range[0] + (i * step);
-          const end = range[0] + ((i + 1) * step)
-          return (
-            <Char 
-              key={`c_${i}`} 
-              progress={progress} 
-              range={[start, end]}
-              color={color}
-            >
-              {char}
-            </Char>
-          )
-        })
-      }
+      {children.split("").map((char, i) => {
+        const start = range[0] + (i * step);
+        const end = range[0] + ((i + 1) * step)
+        return (
+          <Char 
+            key={`c_${i}`} 
+            progress={progress} 
+            range={[start, end]}
+            color={color}
+          >
+            {char}
+          </Char>
+        )
+      })}
     </span>
   )
 }
@@ -104,7 +118,7 @@ const Char = ({
   color?: string
 }) => {
   const opacity = useTransform(progress, range, [0,1])
-  const textColor = color || 'neutral-500' // Default to white if no color specified
+  const textColor = color || 'neutral-500' // Default to neutral-500 if no color specified
   
   return (
     <span>
