@@ -25,6 +25,8 @@ export default function Home() {
         mainImage="/mgevenements/main.png"
         macImage="/mgevenements/mac.png"
         websiteUrl="https://mgevenements.fr/"
+        firstDescription="MG Événements is a boutique event planning agency based in Toulouse, France. I crafted their digital presence to reflect their dedication to creating unforgettable moments, with a design that balances elegance and functionality."
+        secondDescription="Every pixel was meticulously placed, every interaction carefully crafted. The portfolio section became a canvas where technology meets artistry."
       />
     </>
   );

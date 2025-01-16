@@ -12,9 +12,10 @@ interface ProjectSectionProps {
   macImage: string;
   websiteUrl?: string;
   firstDescription?: string;
+  secondDescription?: string;
 }
 
-export default function ProjectSection({ title, mainImage, macImage, websiteUrl, firstDescription }: ProjectSectionProps) {
+export default function ProjectSection({ title, mainImage, macImage, websiteUrl, firstDescription, secondDescription }: ProjectSectionProps) {
   return (
     <>
       <div className="w-full lg:max-w-[85%] mx-auto relative">
@@ -49,7 +50,7 @@ export default function ProjectSection({ title, mainImage, macImage, websiteUrl,
       <Character 
         paragraph={firstDescription ? firstDescription : []}
         size="sm"
-        customContainerClass="w-full max-w-[90%] lg:max-w-[85%] mx-auto"
+        customContainerClass="w-full max-w-[90%] lg:max-w-[75%] mx-auto"
         textAlign="center"
       />
 
@@ -66,6 +67,15 @@ export default function ProjectSection({ title, mainImage, macImage, websiteUrl,
           />
         </div>
       </div>
+
+      <Character 
+        paragraph={secondDescription ? secondDescription : []}
+        size="sm"
+        customContainerClass="w-full max-w-[90%] lg:max-w-[75%] mx-auto"
+        textAlign="center"
+      />
+
+      <Spacer mobileSize="xl" size="xl" />
     </>
   );
 }
