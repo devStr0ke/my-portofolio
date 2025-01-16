@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "S.A.M.U.E.L.",
-  description: "S.A.M.U.E.L. is a portfolio website for Samuele Coelho, a software engineer.",
+  title: "Samuel Coelho",
+  description: "My personal website",
 };
 
 export default function RootLayout({
