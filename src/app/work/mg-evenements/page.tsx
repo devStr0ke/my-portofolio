@@ -2,6 +2,7 @@
 import { FloatingNav } from "@/components/FloatingNav";
 import ProjectHeader from "@/components/ProjectPresentation/ProjectHeader";
 import { Spacer } from "@/components/Spacer";
+import ProjectSection from "@/components/ProjectPresentation/ProjectSection";
 
 export default function Home() {
 
@@ -17,6 +18,12 @@ export default function Home() {
         }}
         location="Toulouse, France"
         year="2024"
+      />
+      <Spacer mobileSize="xs" size="xs" />
+      <ProjectSection
+        title="MG Événements"
+        mainImage="/mgevenements/main.png"
+        macImage="/mgevenements/mac.png"
       />
     </>
   );
