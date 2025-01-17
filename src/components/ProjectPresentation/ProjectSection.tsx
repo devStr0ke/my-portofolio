@@ -10,12 +10,17 @@ interface ProjectSectionProps {
   title: string;
   mainImage: string;
   macImage: string;
+  macImage2: string;
   websiteUrl?: string;
   firstDescription?: string;
   secondDescription?: string;
+  thirdDescription?: string;
+  mobile1?: string;
+  mobile2?: string;
+  mobile3?: string;
 }
 
-export default function ProjectSection({ title, mainImage, macImage, websiteUrl, firstDescription, secondDescription }: ProjectSectionProps) {
+export default function ProjectSection({ title, mainImage, macImage, macImage2, websiteUrl, firstDescription, secondDescription, thirdDescription, mobile1, mobile2, mobile3 }: ProjectSectionProps) {
   return (
     <>
       <div className="w-full lg:max-w-[85%] mx-auto relative">
@@ -75,7 +80,66 @@ export default function ProjectSection({ title, mainImage, macImage, websiteUrl,
         textAlign="center"
       />
 
-      <Spacer mobileSize="xl" size="xl" />
+      <Spacer mobileSize="xs" size="xs" />
+
+      {/* Mobile Showcase */}
+      {(mobile1 || mobile2 || mobile3) && (
+        <div className="w-full lg:max-w-[85%] mx-auto">
+          <div className="relative w-full aspect-[16/9] flex items-center justify-center gap-4 md:gap-36 mb-32">
+            {mobile1 && (
+              <div className="relative w-[25%] aspect-[9/19]">
+                <Image 
+                  src={mobile1}
+                  alt={`${title} mobile preview 1`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            )}
+            {mobile2 && (
+              <div className="relative w-[25%] aspect-[9/19]">
+                <Image 
+                  src={mobile2}
+                  alt={`${title} mobile preview 2`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            )}
+            {mobile3 && (
+              <div className="relative w-[25%] aspect-[9/19]">
+                <Image 
+                  src={mobile3}
+                  alt={`${title} mobile preview 3`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      <Character 
+        paragraph={thirdDescription ? thirdDescription : []}
+        size="sm"
+        customContainerClass="w-full max-w-[90%] lg:max-w-[75%] mx-auto"
+        textAlign="center"
+      />
+
+      <Spacer mobileSize="xs" size="xs" />
+
+      <div className="w-full max-w-[90%] lg:max-w-[68%] mx-auto">
+        {/* Mac Image */}
+        <div className="relative w-full aspect-[16/9] mb-32">
+          <Image 
+            src={macImage2}
+            alt={`${title} mac preview`}
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
     </>
   );
 }
