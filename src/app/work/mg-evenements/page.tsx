@@ -3,6 +3,7 @@ import { FloatingNav } from "@/components/FloatingNav";
 import ProjectHeader from "@/components/ProjectPresentation/ProjectHeader";
 import { Spacer } from "@/components/Spacer";
 import ProjectSection from "@/components/ProjectPresentation/ProjectSection";
+import ProjectFooter from "@/components/ProjectFooter/ProjectFooter";
 
 export default function Home() {
 
@@ -33,6 +34,11 @@ export default function Home() {
         mobile2="/mgevenements/mobile2.png"
         mobile3="/mgevenements/mobile3.png"
       />
+      <ProjectFooter nextProject={{
+        title: "MGE Dashboard",
+        href: "/work/mge-dashboard",
+        image: "/mgedashboard/main.png"
+      }} />
     </>
   );
 }
