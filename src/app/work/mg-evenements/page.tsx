@@ -24,9 +24,14 @@ export default function Home() {
         title="MG Événements"
         mainImage="/mgevenements/main.png"
         macImage="/mgevenements/mac.png"
+        macImage2="/mgevenements/mac2.png"
         websiteUrl="https://mgevenements.fr/"
         firstDescription="MG Événements is a boutique event planning agency based in Toulouse, France. I crafted their digital presence to reflect their dedication to creating unforgettable moments, with a design that balances elegance and functionality."
-        secondDescription="Every pixel was meticulously placed, every interaction carefully crafted. The portfolio section became a canvas where technology meets artistry."
+        secondDescription="Every pixel was meticulously placed, every interaction carefully crafted. MG Événements became a canvas where technology meets artistry."
+        thirdDescription="The website is built with Next.js, Tailwind CSS, and Framer Motion, ensuring a seamless user experience across all devices."
+        mobile1="/mgevenements/mobile1.png"
+        mobile2="/mgevenements/mobile2.png"
+        mobile3="/mgevenements/mobile3.png"
       />
     </>
   );
