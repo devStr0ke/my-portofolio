@@ -50,7 +50,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
     <div 
       className='bg-indigo-600 h-full w-full relative flex flex-col'
     >
-      <p className='absolute top-8 font-bold left-1/2 -translate-x-1/2 text-sm sm:text-xl'>
+      <p className='absolute top-20 font-bold left-1/2 -translate-x-1/2 text-2xl'>
         Next project
       </p>
 
@@ -61,13 +61,13 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           {/* The line */}
           <div 
             ref={lineRef}
-            className='w-[90%] lg:w-[75%] h-[2px] bg-neutral-950 relative z-20'
+            className='w-[100%] sm:w-[90%] lg:w-[75%] h-[2px] bg-neutral-950 relative z-20'
           />
           
           {/* Project Card */}
           <div 
             ref={cardRef}
-            className="absolute w-[400px] left-1/2 -translate-x-1/2 z-2"
+            className="absolute w-[245px] sm:w-[400px] left-1/2 -translate-x-1/2 z-2"
           >
             <ProjectCard 
               project={{
