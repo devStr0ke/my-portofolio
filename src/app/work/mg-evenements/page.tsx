@@ -37,7 +37,8 @@ export default function Home() {
       <ProjectFooter nextProject={{
         title: "MGE Dashboard",
         href: "/work/mge-dashboard",
-        image: "/mgedashboard/main.png"
+        image: "/mgedashboard/main.png",
+        color: "#e5e5e5"
       }} />
     </>
   );

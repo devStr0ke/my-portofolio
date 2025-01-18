@@ -6,6 +6,7 @@ interface ProjectFooterProps {
     title: string;
     href: string;
     image: string;
+    color: string;
   }
 }
 
