@@ -13,18 +13,17 @@ interface ProjectContentProps {
     image: string;
     color: string;
   }
+  triggerRef: React.RefObject<HTMLDivElement>;
 }
 
-export default function ProjectContent({ nextProject }: ProjectContentProps) {
+export default function ProjectContent({ nextProject, triggerRef }: ProjectContentProps) {
   const lineRef = useRef(null);
   const cardRef = useRef(null);
-  const containerRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Setup scroll animation
-    const scrollAnimation = gsap.fromTo(cardRef.current,
+    const animation = gsap.fromTo(cardRef.current,
       {
         y: 400,
       },
@@ -32,25 +31,23 @@ export default function ProjectContent({ nextProject }: ProjectContentProps) {
         y: -175,
         ease: "none",
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: triggerRef.current,
           start: "top bottom",
           end: "top center",
           scrub: 1,
+          toggleActions: "play none none reverse"
         }
       }
     );
 
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
-      if (scrollAnimation) {
-        scrollAnimation.kill();
-      }
+      if (animation) animation.kill();
     }
   }, []);
 
   return (
     <div 
-      ref={containerRef}
       className='bg-indigo-600 h-full w-full relative flex flex-col'
     >
       <p className='absolute top-8 font-bold left-1/2 -translate-x-1/2 text-sm sm:text-xl'>
