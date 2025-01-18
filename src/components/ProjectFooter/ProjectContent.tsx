@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import ProjectCard from '@/components/ProjectCard'
 
 interface ProjectContentProps {
@@ -21,8 +22,32 @@ export default function ProjectContent({ nextProject }: ProjectContentProps) {
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
   const lineRef = useRef(null);
+  const cardRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
+    // Register ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Card animation
+    gsap.fromTo(cardRef.current,
+      {
+        y: 400, // Start below the footer
+      },
+      {
+        y: -175, // Final position
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top bottom", // Start when the footer enters viewport
+          end: "top center", // End when footer reaches center
+          scrub: 1, // Smooth scrubbing effect
+          // markers: true, // Enable for debugging
+        }
+      }
+    );
+
+    // Cursor animations
     let xMoveContainer = gsap.quickTo(modalContainer.current, "left", {duration: 0.8, ease: "power3"})
     let yMoveContainer = gsap.quickTo(modalContainer.current, "top", {duration: 0.8, ease: "power3"})
     let xMoveCursor = gsap.quickTo(cursor.current, "left", {duration: 0.5, ease: "power3"})
@@ -41,7 +66,11 @@ export default function ProjectContent({ nextProject }: ProjectContentProps) {
     }
 
     window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    }
   }, [])
 
   const scaleAnimation = {
@@ -51,28 +80,31 @@ export default function ProjectContent({ nextProject }: ProjectContentProps) {
   }
 
   return (
-    <div className='bg-indigo-600 h-full w-full relative flex flex-col'>
-      {/* Next project text at top */}
+    <div 
+      ref={containerRef}
+      className='bg-indigo-600 h-full w-full relative flex flex-col'
+    >
       <p className='absolute top-8 left-1/2 -translate-x-1/2 text-neutral-950 text-sm sm:text-base'>
         Next project
       </p>
-  
-      {/* Content at bottom */}
+
       <div 
         className='relative z-10 p-8 sm:p-12 flex flex-col h-full items-center justify-end'
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        {/* Container for line and image */}
         <div className="relative w-full flex flex-col items-center mb-8">
           {/* The line */}
           <div 
             ref={lineRef}
-            className='w-[90%] lg:w-[75%] h-[2px] bg-neutral-950'
+            className='w-[90%] lg:w-[75%] h-[2px] bg-neutral-950 relative z-20'
           />
           
-          {/* Project Card positioned relative to the line */}
-          <div className="absolute w-[400px] -top-[175px] left-1/2 -translate-x-1/2">
+          {/* Project Card */}
+          <div 
+            ref={cardRef}
+            className="absolute w-[400px] left-1/2 -translate-x-1/2 z-2"
+          >
             <ProjectCard 
               project={{
                 title: nextProject.title,
@@ -83,10 +115,12 @@ export default function ProjectContent({ nextProject }: ProjectContentProps) {
               index={0}
             />
           </div>
+
+          {/* Indigo mask */}
+          <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-15" />
         </div>
-        
-        {/* Title */}
-        <Link href={nextProject.href}>
+      
+        <Link href={nextProject.href} className="relative z-30">
           <h2 className='text-4xl sm:text-6xl md:text-8xl font-light text-neutral-950'>
             {nextProject.title}
           </h2>
