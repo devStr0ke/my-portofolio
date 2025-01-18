@@ -1,6 +1,6 @@
 interface SpacerProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  mobileSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  mobileSize?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
 }
 
@@ -13,6 +13,7 @@ const sizes = {
 };
 
 const mobileSizes = {
+  xxs: 'h-20', // 48px
   xs: 'h-32', // 96px
   sm: 'h-48', // 96px
   md: 'h-64', // 128px

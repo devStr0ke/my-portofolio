@@ -50,7 +50,7 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
         </div>
       </div>
 
-      <Spacer mobileSize="xs" size="xs" />
+      <Spacer mobileSize="xxs" size="xs" />
       
       <Character 
         paragraph={firstDescription ? firstDescription : []}
@@ -59,11 +59,11 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
         textAlign="center"
       />
 
-      <Spacer mobileSize="xs" size="xs" />
+      <Spacer mobileSize="xxs" size="xs" />
 
       <div className="w-full max-w-[90%] lg:max-w-[68%] mx-auto">
         {/* Mac Image */}
-        <div className="relative w-full aspect-[16/9] mb-32">
+        <div className="relative w-full aspect-[16/9]">
           <Image 
             src={macImage}
             alt={`${title} mac preview`}
@@ -73,6 +73,8 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
         </div>
       </div>
 
+      <Spacer mobileSize="xxs" size="xs" />
+
       <Character 
         paragraph={secondDescription ? secondDescription : []}
         size="sm"
@@ -80,12 +82,12 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
         textAlign="center"
       />
 
-      <Spacer mobileSize="xs" size="xs" />
+      <Spacer mobileSize="xxs" size="xs" />
 
       {/* Mobile Showcase */}
       {(mobile1 || mobile2 || mobile3) && (
-        <div className="w-full lg:max-w-[85%] mx-auto">
-          <div className="relative w-full aspect-[16/9] flex items-center justify-center gap-4 md:gap-36 mb-32">
+        <div className="w-full max-w-[100%] lg:max-w-[80%] mx-auto">
+          <div className="relative w-full aspect-[16/9] flex items-center justify-center gap-4 lg:gap-12">
             {mobile1 && (
               <div className="relative w-[25%] aspect-[9/19]">
                 <Image 
@@ -120,6 +122,8 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
         </div>
       )}
 
+      <Spacer mobileSize="xxs" size="xs" />
+
       <Character 
         paragraph={thirdDescription ? thirdDescription : []}
         size="sm"
@@ -127,10 +131,10 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
         textAlign="center"
       />
 
-      <Spacer mobileSize="xs" size="xs" />
+      <Spacer mobileSize="xxs" size="xs"/>
 
-      <div className="w-full max-w-[90%] lg:max-w-[68%] mx-auto">
-        {/* Mac Image */}
+      <div className="w-full max-w-[100%] mx-auto">
+        {/* Mac Image 2 */}
         <div className="relative w-full aspect-[16/9] mb-32">
           <Image 
             src={macImage2}

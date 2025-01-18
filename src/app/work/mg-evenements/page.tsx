@@ -3,8 +3,22 @@ import { FloatingNav } from "@/components/FloatingNav";
 import ProjectHeader from "@/components/ProjectPresentation/ProjectHeader";
 import { Spacer } from "@/components/Spacer";
 import ProjectSection from "@/components/ProjectPresentation/ProjectSection";
+import ProjectFooter from "@/components/ProjectFooter/ProjectFooter";
+import { useRef, useEffect } from "react";
+import Lenis from 'lenis';
 
 export default function Home() {
+  // Explicitly type the ref as non-null
+  const triggerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lenis = new Lenis()
+    function raf(time: number) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+    requestAnimationFrame(raf)
+  }, [])
 
   return (
     <>
@@ -33,6 +47,14 @@ export default function Home() {
         mobile2="/mgevenements/mobile2.png"
         mobile3="/mgevenements/mobile3.png"
       />
+      <div ref={triggerRef}>
+        <ProjectFooter nextProject={{
+          title: "MGE Dashboard",
+          href: "/work/mge-dashboard",
+          image: "/mgedashboard/main.png",
+          color: "#e5e5e5"
+        }} triggerRef={triggerRef as React.RefObject<HTMLDivElement>} />
+      </div>
     </>
   );
 }
