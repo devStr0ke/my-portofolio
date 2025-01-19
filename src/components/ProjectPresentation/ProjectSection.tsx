@@ -12,6 +12,7 @@ interface ProjectSectionProps {
   macImage: string;
   macImage2: string;
   websiteUrl?: string;
+  buttonLabel?: string;
   firstDescription?: string;
   secondDescription?: string;
   thirdDescription?: string;
@@ -20,7 +21,7 @@ interface ProjectSectionProps {
   mobile3?: string;
 }
 
-export default function ProjectSection({ title, mainImage, macImage, macImage2, websiteUrl, firstDescription, secondDescription, thirdDescription, mobile1, mobile2, mobile3 }: ProjectSectionProps) {
+export default function ProjectSection({ title, mainImage, macImage, macImage2, websiteUrl, buttonLabel, firstDescription, secondDescription, thirdDescription, mobile1, mobile2, mobile3 }: ProjectSectionProps) {
   return (
     <>
       <div className="w-full lg:max-w-[85%] mx-auto relative">
@@ -30,7 +31,7 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
             <GravityButton 
               href={websiteUrl}
               icon={<FiExternalLink className="text-2xl" />}
-              label="Visit Live Website"
+              label={buttonLabel ? buttonLabel : "Visit Live Website"}
               size="sm"
               className="bg-neutral-950"
               static={true}
