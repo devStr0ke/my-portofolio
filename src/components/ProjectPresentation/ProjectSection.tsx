@@ -12,15 +12,34 @@ interface ProjectSectionProps {
   macImage: string;
   macImage2: string;
   websiteUrl?: string;
+  buttonLabel?: string;
   firstDescription?: string;
   secondDescription?: string;
   thirdDescription?: string;
   mobile1?: string;
   mobile2?: string;
   mobile3?: string;
+  credits?: {
+    name: string;
+    linkedIn: string;
+    text: string;
+  };
 }
 
-export default function ProjectSection({ title, mainImage, macImage, macImage2, websiteUrl, firstDescription, secondDescription, thirdDescription, mobile1, mobile2, mobile3 }: ProjectSectionProps) {
+export default function ProjectSection({ 
+  title, 
+  mainImage, 
+  macImage, 
+  macImage2, 
+  websiteUrl, 
+  buttonLabel, 
+  firstDescription, 
+  secondDescription, 
+  thirdDescription, 
+  mobile1, 
+  mobile2, 
+  mobile3, 
+  credits }: ProjectSectionProps) {
   return (
     <>
       <div className="w-full lg:max-w-[85%] mx-auto relative">
@@ -30,7 +49,7 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
             <GravityButton 
               href={websiteUrl}
               icon={<FiExternalLink className="text-2xl" />}
-              label="Visit Live Website"
+              label={buttonLabel ? buttonLabel : "Visit Live Website"}
               size="sm"
               className="bg-neutral-950"
               static={true}
@@ -144,6 +163,26 @@ export default function ProjectSection({ title, mainImage, macImage, macImage2, 
           />
         </div>
       </div>
+
+      {/* Credits Section */}
+      {credits && (
+        <div className="w-full max-w-[90%] lg:max-w-[68%] mx-auto mb-32">
+          <h3 className="text-xs sm:text-sm text-neutral-500 mb-4 text-center">CREDITS</h3>
+          <div className="border-t-[0.25px] border-zinc-800 pt-2 md:pt-8">
+            <p className="text-md sm:text-lg text-neutral-500 text-center">
+              <a 
+                href={credits.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-600 hover:text-indigo-500 transition-colors duration-200"
+              >
+                {credits.name}
+              </a>
+              {': '}{credits.text}
+            </p>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -4,15 +4,12 @@ import React from 'react';
 interface ProjectHeaderProps {
   title: string;
   role: string;
-  credits: {
-    design?: string[];
-    photography?: string[];
-  };
+  techStack: string[]; 
   location: string;
   year: string;
 }
 
-export default function ProjectHeader({ title, role, credits, location, year }: ProjectHeaderProps) {
+export default function ProjectHeader({ title, role, techStack, location, year }: ProjectHeaderProps) {
   return (
     <div className="w-full max-w-[90%] lg:max-w-[68%] mx-auto">
       {/* Title */}
@@ -30,18 +27,13 @@ export default function ProjectHeader({ title, role, credits, location, year }: 
           </div>
         </div>
 
-        {/* Credits Column */}
-        <div>
-          <h3 className="text-xs sm:text-sm text-neutral-500 mb-4">CREDITS</h3>
+         {/* Tech Stack Column */}
+         <div>
+          <h3 className="text-xs sm:text-sm text-neutral-500 mb-4">TECH STACK</h3>
           <div className="border-t-[0.25px] border-zinc-800 pt-2 md:pt-8">
-            <div className="space-y-2">
-              {credits.design && credits.design.map((designer, index) => (
-                <p key={index} className="text-md sm:text-lg text-neutral-500">Design: {designer}</p>
-              ))}
-              {credits.photography && credits.photography.map((photographer, index) => (
-                <p key={index} className="text-md sm:text-lg text-neutral-500">Photography: {photographer}</p>
-              ))}
-            </div>
+            <p className="text-md sm:text-lg text-neutral-500">
+              {techStack.join(', ')}
+            </p>
           </div>
         </div>
 

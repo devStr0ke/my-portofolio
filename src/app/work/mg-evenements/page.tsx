@@ -27,9 +27,7 @@ export default function Home() {
       <ProjectHeader 
         title="MG Événements"
         role="Design & Development"
-        credits={{
-          design: ["Eva Bardeau"],
-        }}
+        techStack={["Next.js", "Tailwind CSS", "Supabase", "Framer Motion"]}
         location="Toulouse, France"
         year="2024"
       />
@@ -41,11 +39,16 @@ export default function Home() {
         macImage2="/mgevenements/mac2.png"
         websiteUrl="https://mgevenements.fr/"
         firstDescription="MG Événements is a boutique event planning agency based in Toulouse, France. I crafted their digital presence to reflect their dedication to creating unforgettable moments, with a design that balances elegance and functionality."
-        secondDescription="Every pixel was meticulously placed, every interaction carefully crafted. MG Événements became a canvas where technology meets artistry."
-        thirdDescription="The website is built with Next.js, Tailwind CSS, and Framer Motion, ensuring a seamless user experience across all devices."
+        secondDescription="The website serves as a digital showcase of their services, allowing clients to explore their offerings and seamlessly request quotes. The design emphasizes visual storytelling while maintaining a clean, professional aesthetic."
+        thirdDescription="Every interaction was carefully crafted to enhance user engagement. From smooth page transitions to responsive animations, the site delivers a polished experience that reflects MG Événements commitment to excellence."
         mobile1="/mgevenements/mobile1.png"
         mobile2="/mgevenements/mobile2.png"
         mobile3="/mgevenements/mobile3.png"
+        credits={{
+          name: "Eva Bardeau",
+          linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
+          text: "Special thanks to Eva for her invaluable design insights and skills as a front-end developer"
+        }}
       />
       <div ref={triggerRef}>
         <ProjectFooter nextProject={{
