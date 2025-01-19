@@ -44,6 +44,11 @@ export default function Home() {
         mobile1="/mgevenements/mobile1.png"
         mobile2="/mgevenements/mobile2.png"
         mobile3="/mgevenements/mobile3.png"
+        credits={{
+          name: "Eva Bardeau",
+          linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
+          text: "Special thanks to Eva for her invaluable design insights and skills as a front-end developer"
+        }}
       />
       <div ref={triggerRef}>
         <ProjectFooter nextProject={{

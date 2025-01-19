@@ -45,6 +45,11 @@ export default function Home() {
         mobile1="/mgedashboard/mobile1.png"
         mobile2="/mgedashboard/mobile2.png"
         mobile3="/mgedashboard/mobile3.png"
+        credits={{
+          name: "Eva Bardeau",
+          linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
+          text: "Special thanks to Eva for her valuable insights on how to improve the dashboard's user experience"
+        }}
       />
       <div ref={triggerRef}>
         <ProjectFooter nextProject={{
