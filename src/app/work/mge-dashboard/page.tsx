@@ -27,9 +27,7 @@ export default function Home() {
       <ProjectHeader 
         title="MGE Dashboard"
         role="Database & Development"
-        credits={{
-          design: ["Eva Bardeau"],
-        }}
+        techStack={["Next.js", "Tailwind CSS", "Shadcn/UI", "Supabase"]}
         location="Toulouse, France"
         year="2024"
       />

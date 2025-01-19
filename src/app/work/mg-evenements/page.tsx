@@ -27,9 +27,7 @@ export default function Home() {
       <ProjectHeader 
         title="MG Événements"
         role="Design & Development"
-        credits={{
-          design: ["Eva Bardeau"],
-        }}
+        techStack={["Next.js", "Tailwind CSS", "Supabase", "Framer Motion"]}
         location="Toulouse, France"
         year="2024"
       />
