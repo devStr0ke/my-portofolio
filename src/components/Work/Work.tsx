@@ -1,11 +1,26 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import Project from './Project';
 import Modal from './Modal';
-import { Link } from "next-transition-router";
 import ProjectCard from '../ProjectCard';
+import HighLightText from '../HighLightText';
 
-const projects = [
+interface Project {
+  title: string;
+  src: string;
+  color: string;
+  type: string;
+  year: string;
+  route: string;
+}
+
+interface WorkProps {
+  title?: string;
+  projects?: Project[];
+  useHighlight?: boolean;
+}
+
+const defaultProjects = [
   {
     title: "MG Événements",
     src: "mgevenements/main.png",
@@ -32,15 +47,23 @@ const projects = [
   },
 ]
 
-export const Work = () => {
+export const Work = ({ title = "Selected Work", projects = defaultProjects, useHighlight = false }: WorkProps) => {
   const [modal, setModal] = useState({active: false, index: 0});
 
   return (
     <section className="bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto">
-        <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
-          Selected Work
-        </span>
+        {title && (
+          useHighlight ? (
+            <div className="text-neutral-500 font-bold text-8xl uppercase mb-6 block tracking-tighter">
+              <HighLightText>{title}</HighLightText>
+            </div>
+          ) : (
+            <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
+              {title}
+            </span>
+          )
+        )}
         
         {/* Desktop view (lg and up) */}
         <div className="hidden lg:block">
