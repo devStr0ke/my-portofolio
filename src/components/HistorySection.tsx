@@ -39,7 +39,7 @@ export const HistorySection = () => {
     <section className="bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto">
         <motion.div className="flex flex-col">
-          <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest ml-0">
+          <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest ml-0">
             History
           </span>
           

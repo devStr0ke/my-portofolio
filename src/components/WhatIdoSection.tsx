@@ -37,7 +37,7 @@ export const WhatIdoSection = () => {
     >
       <div className="flex flex-col h-min max-w-[90%] lg:max-w-[68%] mx-auto">
         <motion.div className="flex flex-col">
-          <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
+          <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest">
             What I Do
           </span>
           
