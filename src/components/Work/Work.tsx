@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Project from './Project';
 import Modal from './Modal';
 import ProjectCard from '../ProjectCard';
-import HighLightText from '../HighLightText';
 
 interface Project {
   title: string;
@@ -17,7 +16,7 @@ interface Project {
 interface WorkProps {
   title?: string;
   projects?: Project[];
-  useHighlight?: boolean;
+  noTitle?: boolean;
 }
 
 const defaultProjects = [
@@ -47,19 +46,17 @@ const defaultProjects = [
   },
 ]
 
-export const Work = ({ title = "Selected Work", projects = defaultProjects, useHighlight = false }: WorkProps) => {
+export const Work = ({ title = "Selected Work", projects = defaultProjects, noTitle = false }: WorkProps) => {
   const [modal, setModal] = useState({active: false, index: 0});
 
   return (
     <section className="bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto">
         {title && (
-          useHighlight ? (
-            <div className="text-neutral-500 font-bold text-8xl uppercase mb-6 block tracking-tighter">
-              <HighLightText>{title}</HighLightText>
-            </div>
+          noTitle ? (
+            <></>
           ) : (
-            <span className="text-neutral-500 font-bold text-base uppercase mb-6 block tracking-widest">
+            <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest">
               {title}
             </span>
           )
