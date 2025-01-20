@@ -1,15 +1,23 @@
 "use client";
-import { Link } from "next-transition-router";
 import { FloatingNav } from "@/components/FloatingNav";
+import { Work } from "@/components/Work/Work";
+import { Spacer } from "@/components/Spacer";
 
 export default function Home() {
-
   return (
     <>
       <FloatingNav disableScroll={true} />
-      <div className="w-full h-[100vh] flex flex-col gap-8 justify-center items-center">
-        <h1 className="text-4xl font-bold text-center text-white">Work Page</h1>
-        <Link className="text-left text-white underline underline-offset-4" href="/">Home</Link>
+      <div className="w-full h-full">
+        <Spacer />
+        <div className="max-w-[90%] lg:max-w-[68%] mx-auto">
+          <div className="lg:max-w-none">
+            <span className="text-neutral-200 font-bold text-3xl sm:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl uppercase mb-6 block tracking-tighter">
+              Building for the web
+            </span>
+          </div>
+        </div>
+        <Work noTitle={true} />
+        <Spacer />
       </div>
     </>
   );

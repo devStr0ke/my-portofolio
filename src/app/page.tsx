@@ -9,6 +9,7 @@ import { FloatingNav } from "@/components/FloatingNav";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { Work } from "@/components/Work/Work";
 import { Spacer } from "@/components/Spacer";
+import { MyMottoSection } from "@/components/MyMottoSection";
 import Footer from "@/components/Footer/Footer";
 import { useEffect } from "react";
 import Lenis from 'lenis';
@@ -41,9 +42,9 @@ export default function Home() {
         <ProjectsSection />
         <Spacer size="sm" />
         <Work />
-        <Spacer mobileSize="md"size="xs" />
-        <TerminalContact />
-        <Spacer size="xs" />
+        <Spacer mobileSize="md"size="lg" />
+        <MyMottoSection />
+        <Spacer mobileSize="md"size="lg" />
         <Footer />
       </div>
     </>
