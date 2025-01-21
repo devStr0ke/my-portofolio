@@ -10,6 +10,7 @@ interface RoundedButtonProps {
   children: ReactNode;
   className?: string;
   color?: 'violet' | 'indigo' | 'neutral';
+  superscript?: string | number;
 }
 
 export const RoundedButton = ({ 
@@ -17,7 +18,8 @@ export const RoundedButton = ({
   icon: Icon, 
   children, 
   className = '',
-  color = 'violet' 
+  color = 'violet',
+  superscript
 }: RoundedButtonProps) => {
   const colorClasses = {
     violet: 'border-violet-300 text-violet-300 before:bg-violet-300',
@@ -50,6 +52,9 @@ export const RoundedButton = ({
     >
       {Icon && <Icon />}
       <span>{children}</span>
+      {superscript && (
+        <span className="absolute right-9 top-5 text-sm font-bold">{superscript}</span>
+      )}
     </Link>
   );
 };

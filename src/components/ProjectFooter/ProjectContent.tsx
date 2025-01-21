@@ -88,7 +88,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-[2]" />
         </div>
         <Spacer size='sm' mobileSize='sm' />
-        <RoundedButton href='/work' color='neutral' className='absolute bottom-20 z-[3]'>All work</RoundedButton>
+        <RoundedButton href='/work' color='neutral' superscript='3' className='absolute bottom-20 z-[3]'>All work</RoundedButton>
       </div>
     </div>
   )
