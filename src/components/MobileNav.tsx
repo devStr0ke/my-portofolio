@@ -1,7 +1,7 @@
 "use client";
 import { FaGithub, FaLinkedin} from "react-icons/fa";
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 export const MobileNav = () => {
   return (
@@ -11,6 +11,8 @@ export const MobileNav = () => {
 
 const Nav = () => {
     const [active, setActive] = useState(false);
+    const [isOverFooter, setIsOverFooter] = useState(false);
+    const { scrollY } = useScroll();
   
     React.useEffect(() => {
       if (active) {
@@ -23,10 +25,24 @@ const Nav = () => {
         document.body.style.overflow = 'unset';
       };
     }, [active]);
+
+    const checkIfOverFooter = (scrollPosition: number) => {
+      const footer = document.querySelector('#main-footer') || document.querySelector('#project-footer');
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        const hamburgerBottom = window.innerHeight * 0.05; // Approx position of hamburger
+        return footerRect.top <= hamburgerBottom;
+      }
+      return false;
+    };
+
+    useMotionValueEvent(scrollY, "change", (latest: number) => {
+      setIsOverFooter(checkIfOverFooter(latest));
+    });
   
     return (
       <>
-        <HamburgerButton active={active} setActive={setActive} />
+        <HamburgerButton active={active} setActive={setActive} isOverFooter={isOverFooter} />
         <AnimatePresence>
           {active && (
             <motion.div
@@ -134,9 +150,11 @@ const Logo = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) =
 const HamburgerButton = ({
   active,
   setActive,
+  isOverFooter
 }: {
   active: boolean;
   setActive: Dispatch<SetStateAction<boolean>>;
+  isOverFooter: boolean;
 }) => {
   return (
     <>
@@ -158,17 +176,17 @@ const HamburgerButton = ({
       >
         <motion.span
           variants={HAMBURGER_VARIANTS.top}
-          className="absolute block h-1 w-10 bg-neutral-500"
+          className={`absolute block h-1 w-10 ${isOverFooter && !active ? 'bg-neutral-950' : 'bg-neutral-500'}`}
           style={{ y: "-50%", left: "50%", x: "-50%" }}
         />
         <motion.span
           variants={HAMBURGER_VARIANTS.middle}
-          className="absolute block h-1 w-10 bg-neutral-500"
+          className={`absolute block h-1 w-10 ${isOverFooter && !active ? 'bg-neutral-950' : 'bg-neutral-500'}`}
           style={{ left: "50%", x: "-50%", top: "50%", y: "-50%" }}
         />
         <motion.span
           variants={HAMBURGER_VARIANTS.bottom}
-          className="absolute block h-1 w-5 bg-neutral-500"
+          className={`absolute block h-1 w-5 ${isOverFooter && !active ? 'bg-neutral-950' : 'bg-neutral-500'}`}
           style={{ x: "-50%", y: "50%" }}
         />
       </motion.button>
