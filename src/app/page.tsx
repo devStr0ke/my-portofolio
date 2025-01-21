@@ -8,6 +8,7 @@ import { ExperienceSection } from "@/components/ExperienceSection";
 import { FloatingNav } from "@/components/FloatingNav";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { Work } from "@/components/Work/Work";
+import { RoundedButton } from "@/components/RoundedButton";
 import { Spacer } from "@/components/Spacer";
 import { MyMottoSection } from "@/components/MyMottoSection";
 import Footer from "@/components/Footer/Footer";
@@ -42,6 +43,10 @@ export default function Home() {
         <ProjectsSection />
         <Spacer size="sm" />
         <Work />
+        <Spacer size="xxs" mobileSize="xxs" />
+        <div className="flex justify-center items-center">
+          <RoundedButton href='/work' color='light' superscript='3' className='flex justify-center items-center'>More work</RoundedButton>
+        </div>
         <Spacer mobileSize="md"size="lg" />
         <MyMottoSection />
         <Spacer mobileSize="md"size="lg" />
