@@ -1,6 +1,6 @@
 "use client";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TextFlip } from "./TextFlip";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import GravityIcon from "./GravityIcon";
@@ -14,16 +14,28 @@ export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
   const [visible, setVisible] = useState(disableScroll);
   const [isOverFooter, setIsOverFooter] = useState(false);
 
+  const checkIfOverFooter = (scrollPosition: number) => {
+    const footer = document.querySelector('#main-footer') || document.querySelector('.bg-indigo-600');
+    if (footer) {
+      const footerRect = footer.getBoundingClientRect();
+      const navBottom = window.innerHeight - 50; // Approximate nav items bottom position
+      return footerRect.top <= navBottom;
+    }
+    return false;
+  };
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (!disableScroll) {
       const shouldShow = latest > window.innerHeight * 3;
       setVisible(shouldShow);
     }
 
-    // Calculate if we're over the footer
-    const footerStart = document.documentElement.scrollHeight - window.innerHeight - 552;
-    setIsOverFooter(latest > footerStart);
+    setIsOverFooter(checkIfOverFooter(latest));
   });
+
+  const navLinkClass = isOverFooter 
+    ? "font-bold text-neutral-950 hover:text-neutral-950" 
+    : "font-bold text-neutral-500";
 
   return (
     <>
@@ -40,25 +52,25 @@ export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
       >
         <nav className="flex flex-col gap-3 capitalize text-right text-sm xl:text-base">
           <TextFlip 
-            className="font-bold text-neutral-500"
+            className={navLinkClass}
             href="#about"
           >
             About
           </TextFlip>
           <TextFlip 
-            className="font-bold text-neutral-500"
+            className={navLinkClass}
             href="#experience"
           >
             Experience
           </TextFlip>
           <TextFlip 
-            className="font-bold text-neutral-500"
+            className={navLinkClass}
             href="#projects"
           >
             Projects
           </TextFlip>
           <TextFlip 
-            className="font-bold text-neutral-500"
+            className={navLinkClass}
             href="#contact"
           >
             Contact
