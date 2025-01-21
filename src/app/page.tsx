@@ -35,17 +35,25 @@ export default function Home() {
         <AboutSection />
         <Spacer size="sm" />
         <WhatIdoSection />
+        <Spacer size="xxs" mobileSize="xxs" />
+        <div className="flex justify-center items-center">
+          <RoundedButton href='/about' color='light' className='flex justify-center items-center'>More about me</RoundedButton>
+        </div>
         <Spacer mobileSize="md" size="lg" />
         <ExperienceSection />
         <Spacer size="sm" />
         <HistorySection />
+        <Spacer size="xxs" mobileSize="xxs" />
+        <div className="flex justify-center items-center">
+          <RoundedButton href='/experience' color='light' className='flex justify-center items-center'>Detailed experience</RoundedButton>
+        </div>
         <Spacer mobileSize="md" size="lg" />
         <ProjectsSection />
         <Spacer size="sm" />
         <Work />
         <Spacer size="xxs" mobileSize="xxs" />
         <div className="flex justify-center items-center">
-          <RoundedButton href='/work' color='light' superscript='3' className='flex justify-center items-center'>More work</RoundedButton>
+          <RoundedButton href='/work' color='light' superscript='3' className='flex justify-center items-center'>All work</RoundedButton>
         </div>
         <Spacer mobileSize="md"size="lg" />
         <MyMottoSection />
