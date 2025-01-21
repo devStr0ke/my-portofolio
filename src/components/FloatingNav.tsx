@@ -1,6 +1,6 @@
 "use client";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { TextFlip } from "./TextFlip";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import GravityIcon from "./GravityIcon";
@@ -13,15 +13,24 @@ export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState(disableScroll);
   const [isOverFooter, setIsOverFooter] = useState(false);
+  const [isNavOverFooter, setIsNavOverFooter] = useState(false);
 
   const checkIfOverFooter = (scrollPosition: number) => {
-    const footer = document.querySelector('#main-footer') || document.querySelector('.bg-indigo-600');
+    const footer = document.querySelector('#main-footer');
     if (footer) {
       const footerRect = footer.getBoundingClientRect();
-      const navBottom = window.innerHeight - 50; // Approximate nav items bottom position
-      return footerRect.top <= navBottom;
+      
+      // Check for social icons (bottom position - 12vh from bottom)
+      const socialBottom = window.innerHeight * 0.9; // 100vh - 12vh = 88vh
+      const isSocialOver = footerRect.top <= socialBottom;
+      
+      // Check for nav links (higher position - 85vh from top)
+      const navBottom = window.innerHeight * 0.15; // 15vh from top
+      const isNavOver = footerRect.top <= navBottom;
+
+      return { isSocialOver, isNavOver };
     }
-    return false;
+    return { isSocialOver: false, isNavOver: false };
   };
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -30,10 +39,12 @@ export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
       setVisible(shouldShow);
     }
 
-    setIsOverFooter(checkIfOverFooter(latest));
+    const { isSocialOver, isNavOver } = checkIfOverFooter(latest);
+    setIsOverFooter(isSocialOver);
+    setIsNavOverFooter(isNavOver);
   });
 
-  const navLinkClass = isOverFooter 
+  const navLinkClass = isNavOverFooter 
     ? "font-bold text-neutral-950 hover:text-neutral-950" 
     : "font-bold text-neutral-500";
 
