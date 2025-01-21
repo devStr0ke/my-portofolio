@@ -7,16 +7,17 @@ import GravityIcon from "./GravityIcon";
 
 interface FloatingNavProps {
   disableScroll?: boolean;
+  footerId?: string;
 }
 
-export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
+export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }: FloatingNavProps) => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState(disableScroll);
   const [isOverFooter, setIsOverFooter] = useState(false);
   const [isNavOverFooter, setIsNavOverFooter] = useState(false);
 
   const checkIfOverFooter = (scrollPosition: number) => {
-    const footer = document.querySelector('#main-footer');
+    const footer = document.querySelector(`#${footerId}`);
     if (footer) {
       const footerRect = footer.getBoundingClientRect();
       
