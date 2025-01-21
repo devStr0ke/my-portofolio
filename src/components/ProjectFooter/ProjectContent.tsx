@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import ProjectCard from '@/components/ProjectCard'
 import { Spacer } from '../Spacer';
+import { RoundedButton } from '../RoundedButton';
 
 interface ProjectContentProps {
   nextProject: {
@@ -55,10 +56,10 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
         </p>
 
         <Link href={nextProject.href} className="relative z-[2] mb-56">
-            <h2 className='text-5xl sm:text-6xl md:text-8xl font-light text-neutral-950'>
-              {nextProject.title}
-            </h2>
-          </Link>
+          <h2 className='text-5xl sm:text-6xl md:text-8xl font-light text-neutral-950'>
+            {nextProject.title}
+          </h2>
+        </Link>
 
         <div className="relative w-full flex flex-col items-center">
           {/* The line */}
@@ -86,9 +87,8 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           {/* Indigo mask - positioned below the card */}
           <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-[2]" />
         </div>
-        
-      
         <Spacer size='sm' mobileSize='sm' />
+        <RoundedButton href='/work' color='neutral' className='absolute bottom-20 z-[3]'>All work</RoundedButton>
       </div>
     </div>
   )
