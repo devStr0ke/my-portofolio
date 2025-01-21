@@ -10,8 +10,9 @@ import {
   import { FaGithub, FaLinkedin} from "react-icons/fa";
   import HighLightText from "./HighLightText";
   import GravityIcon from "./GravityIcon";
-  import { TextFlip } from "./TextFlip";
+  import Magnetic from "@/components/Magnetic";
   import { GravityButton } from "./GravityButton";
+import Link from "next/link";
 
   export const HeroSection = () => {
     const targetRef = useRef(null);
@@ -94,12 +95,12 @@ import {
   
   const Links = () => {
     return (
-      <nav className="flex gap-6 capitalize text-base text-neutral-500">
-        <TextFlip className="font-bold" href="#about">About</TextFlip>
-        <TextFlip className="font-bold" href="#projects">Experience</TextFlip>
-        <TextFlip className="font-bold" href="#about">Projects</TextFlip>
-        <TextFlip className="font-bold" href="#contact">Contact</TextFlip>
-      </nav>
+      <div className="flex gap-6 capitalize text-base text-neutral-500">
+        <Magnetic><Link href="/about" className="font-bold uppercase cursor-pointer hover:text-indigo-600">About</Link></Magnetic>
+        <Magnetic><Link href="/experience" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Experience</Link></Magnetic>
+        <Magnetic><Link href="/work" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Work</Link></Magnetic>
+        <Magnetic><Link href="#contact" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Contact</Link></Magnetic>
+      </div>
     );
   };
   
