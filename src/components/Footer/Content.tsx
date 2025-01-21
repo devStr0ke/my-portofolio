@@ -32,12 +32,7 @@ const Section2 = () => {
 const Nav = () => {
     return (
         <div className='flex flex-col sm:flex-row shrink-0 gap-8 sm:gap-20'>
-            <div className='flex flex-col gap-1'>
-                <TextFlip href='#' className='text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-950'>ABOUT</TextFlip>
-                <TextFlip href='#' className='text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-950'>EXPERIENCE</TextFlip>
-                <TextFlip href='#' className='text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-950'>PROJECTS</TextFlip>
-                <TextFlip href='#' className='text-4xl sm:text-5xl md:text-7xl font-semibold text-neutral-950'>CONTACT</TextFlip>
-            </div>
+            <p className='text-neutral-950 font-bold text-3xl sm:text-5xl xl:text-7xl 3xl:text-8xl uppercase mb-6 block tracking-tighter'>Work in progress footer</p>
         </div>
     )
 }
