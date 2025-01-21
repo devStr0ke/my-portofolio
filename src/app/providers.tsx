@@ -6,6 +6,8 @@ import { TransitionRouter } from "next-transition-router";
 
 const routes: { [key: string]: string } = {
   "/": "· Home",
+  "/about": "· About",
+  "/experience": "· Experience",
   "/work": "· Work",
   "/work/mg-evenements": "· MG-Evenements",
   "/work/mge-dashboard": "· MGE-Dashboard",

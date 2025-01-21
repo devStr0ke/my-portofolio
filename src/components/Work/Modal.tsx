@@ -44,7 +44,7 @@ export default function Modal({modal, projects}: {modal: any, projects: any}) {
         variants={scaleAnimation} 
         initial="initial" 
         animate={active ? "enter" : "closed"}
-        className="h-[450px] w-[475px] absolute bg-white overflow-hidden pointer-events-none flex items-center justify-center"
+        className="h-[450px] w-[475px] absolute bg-white overflow-hidden pointer-events-none flex items-center justify-center z-10"
       >
         <div 
           style={{top: index * -100 + "%"}} 

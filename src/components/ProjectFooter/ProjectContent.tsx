@@ -5,6 +5,8 @@ import Link from 'next/link'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import ProjectCard from '@/components/ProjectCard'
+import { Spacer } from '../Spacer';
+import { RoundedButton } from '../RoundedButton';
 
 interface ProjectContentProps {
   nextProject: {
@@ -47,27 +49,29 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
   }, []);
 
   return (
-    <div 
-      className='bg-indigo-600 h-full w-full relative flex flex-col'
-    >
-      <p className='absolute top-20 font-bold left-1/2 -translate-x-1/2 text-2xl'>
-        Next project
-      </p>
+    <div className='bg-indigo-600 h-full w-full relative'>
+      <div className='absolute inset-0 flex flex-col items-center justify-end'>
+        <p className='text-2xl font-bold text-neutral-950 mb-20'>
+          Next project
+        </p>
 
-      <div 
-        className='relative z-10 p-8 sm:p-12 flex flex-col h-full items-center justify-end'
-      >
-        <div className="relative w-full flex flex-col items-center mb-8">
+        <Link href={nextProject.href} className="relative z-[2] mb-56">
+          <h2 className='text-5xl sm:text-6xl md:text-8xl font-light text-neutral-950'>
+            {nextProject.title}
+          </h2>
+        </Link>
+
+        <div className="relative w-full flex flex-col items-center">
           {/* The line */}
           <div 
             ref={lineRef}
-            className='w-[100%] sm:w-[90%] lg:w-[75%] h-[2px] bg-neutral-950 relative z-20'
+            className='w-[90%] sm:w-[90%] lg:w-[75%] h-[2px] bg-neutral-950 relative z-[4]'
           />
           
           {/* Project Card */}
           <div 
             ref={cardRef}
-            className="absolute w-[245px] sm:w-[400px] left-1/2 -translate-x-1/2 z-2"
+            className="absolute w-[245px] sm:w-[400px] left-1/2 -translate-x-1/2 z-[2]"
           >
             <ProjectCard 
               project={{
@@ -80,15 +84,11 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
             />
           </div>
 
-          {/* Indigo mask */}
-          <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-15" />
+          {/* Indigo mask - positioned below the card */}
+          <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-[2]" />
         </div>
-      
-        <Link href={nextProject.href} className="relative z-30">
-          <h2 className='text-4xl sm:text-6xl md:text-8xl font-light text-neutral-950'>
-            {nextProject.title}
-          </h2>
-        </Link>
+        <Spacer size='sm' mobileSize='sm' />
+        <RoundedButton href='/work' color='neutral' superscript='3' className='absolute bottom-20 z-[3]'>All work</RoundedButton>
       </div>
     </div>
   )

@@ -7,12 +7,32 @@ import GravityIcon from "./GravityIcon";
 
 interface FloatingNavProps {
   disableScroll?: boolean;
+  footerId?: string;
 }
 
-export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
+export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }: FloatingNavProps) => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState(disableScroll);
   const [isOverFooter, setIsOverFooter] = useState(false);
+  const [isNavOverFooter, setIsNavOverFooter] = useState(false);
+
+  const checkIfOverFooter = (scrollPosition: number) => {
+    const footer = document.querySelector(`#${footerId}`);
+    if (footer) {
+      const footerRect = footer.getBoundingClientRect();
+      
+      // Check for social icons (bottom position - 12vh from bottom)
+      const socialBottom = window.innerHeight * 0.9; // 100vh - 12vh = 88vh
+      const isSocialOver = footerRect.top <= socialBottom;
+      
+      // Check for nav links (higher position - 85vh from top)
+      const navBottom = window.innerHeight * 0.15; // 15vh from top
+      const isNavOver = footerRect.top <= navBottom;
+
+      return { isSocialOver, isNavOver };
+    }
+    return { isSocialOver: false, isNavOver: false };
+  };
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (!disableScroll) {
@@ -20,10 +40,14 @@ export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
       setVisible(shouldShow);
     }
 
-    // Calculate if we're over the footer
-    const footerStart = document.documentElement.scrollHeight - window.innerHeight - 552;
-    setIsOverFooter(latest > footerStart);
+    const { isSocialOver, isNavOver } = checkIfOverFooter(latest);
+    setIsOverFooter(isSocialOver);
+    setIsNavOverFooter(isNavOver);
   });
+
+  const navLinkClass = isNavOverFooter 
+    ? "font-bold text-neutral-950 hover:text-neutral-950" 
+    : "font-bold text-neutral-500";
 
   return (
     <>
@@ -40,25 +64,25 @@ export const FloatingNav = ({ disableScroll = false }: FloatingNavProps) => {
       >
         <nav className="flex flex-col gap-3 capitalize text-right text-sm xl:text-base">
           <TextFlip 
-            className="font-bold text-neutral-500"
+            className={navLinkClass}
             href="#about"
           >
             About
           </TextFlip>
           <TextFlip 
-            className="font-bold text-neutral-500"
+            className={navLinkClass}
             href="#experience"
           >
             Experience
           </TextFlip>
           <TextFlip 
-            className="font-bold text-neutral-500"
+            className={navLinkClass}
             href="#projects"
           >
             Projects
           </TextFlip>
           <TextFlip 
-            className="font-bold text-neutral-500"
+            className={navLinkClass}
             href="#contact"
           >
             Contact

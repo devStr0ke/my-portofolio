@@ -14,10 +14,11 @@ interface ProjectFooterProps {
 export default function ProjectFooter({ nextProject, triggerRef }: ProjectFooterProps) {
   return (
     <div 
-      className='relative h-[600px]'
+      id='project-footer'
+      className='relative h-[100vh]'
       style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
     >
-      <div className='fixed bottom-0 h-[600px] w-full'>
+      <div className='fixed bottom-0 h-[100vh] w-full'>
         <ProjectContent nextProject={nextProject} triggerRef={triggerRef} />
       </div>
     </div>

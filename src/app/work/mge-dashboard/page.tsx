@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <FloatingNav disableScroll={true} />
+      <FloatingNav disableScroll={true} footerId="project-footer" />
       <Spacer mobileSize="sm" size="md" />
       <ProjectHeader 
         title="MGE Dashboard"
