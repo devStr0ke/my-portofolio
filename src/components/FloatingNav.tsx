@@ -1,9 +1,10 @@
 "use client";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
-import { TextFlip } from "./TextFlip";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import Magnetic from "./Magnetic";
 import GravityIcon from "./GravityIcon";
+import Link from "next/link";
 
 interface FloatingNavProps {
   disableScroll?: boolean;
@@ -47,14 +48,14 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
 
   const navLinkClass = isNavOverFooter 
     ? "font-bold text-neutral-950 hover:text-neutral-950" 
-    : "font-bold text-neutral-500";
+    : "font-bold text-neutral-500 hover:text-indigo-600";
 
   return (
     <>
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ 
-          y: visible ? 0 : -100,
+          y: visible ? 0 : -150,
           opacity: visible ? 1 : 0
         }}
         transition={{
@@ -62,34 +63,27 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
         }}
         className="fixed top-12 right-6 xl:right-12 2xl:right-16 z-50 hidden lg:block"
       >
-        <nav className="flex flex-col gap-3 capitalize text-right text-sm xl:text-base">
-          <TextFlip 
-            className={navLinkClass}
-            href="#about"
-          >
-            About
-          </TextFlip>
-          <TextFlip 
-            className={navLinkClass}
-            href="#experience"
-          >
-            Experience
-          </TextFlip>
-          <TextFlip 
-            className={navLinkClass}
-            href="#projects"
-          >
-            Projects
-          </TextFlip>
-          <TextFlip 
-            className={navLinkClass}
-            href="#contact"
-          >
-            Contact
-          </TextFlip>
+        <nav className="flex flex-col gap-1 uppercase text-right text-sm xl:text-base">
+          <Magnetic>
+            <Link href="/about" className={navLinkClass}>About</Link>
+          </Magnetic>
+          <Magnetic>
+            <Link href="/experience" className={navLinkClass}>
+              Experience
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link href="/work" className={navLinkClass}>
+              Work
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link href="#contact" className={navLinkClass}>
+              Contact
+            </Link>
+          </Magnetic>
         </nav>
       </motion.div>
-
       {/* Social Icons */}
       <motion.div
         initial={{ y: 100, opacity: 0 }}

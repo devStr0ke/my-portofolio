@@ -65,7 +65,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           {/* The line */}
           <div 
             ref={lineRef}
-            className='w-[90%] sm:w-[90%] lg:w-[75%] h-[2px] bg-neutral-950 relative z-[4]'
+            className='w-[90%] sm:w-[90%] lg:w-[75%] h-[1px] bg-neutral-950 relative z-[4]'
           />
           
           {/* Project Card */}
@@ -88,7 +88,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-[2]" />
         </div>
         <Spacer size='sm' mobileSize='sm' />
-        <RoundedButton href='/work' color='neutral' superscript='3' className='absolute bottom-20 z-[3]'>All work</RoundedButton>
+        <RoundedButton href='/work' color='neutral' superscript='3' backgroundColor='#0a0a0a' className='absolute bottom-20 z-[3]'>All work</RoundedButton>
       </div>
     </div>
   )
