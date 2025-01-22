@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { RoundedButton } from '../RoundedButton';
 import Modal from '../Work/Modal';
 import TableProject from './TableProject';
 
@@ -75,46 +74,53 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
         {/* Filter Buttons */}
         <div className="flex justify-between items-center mb-8">
           <div className="flex gap-4">
-            <button
+            <RoundedButton
+              href="#"
               onClick={() => setFilter('All')}
-              className={`px-6 py-2 rounded-full ${
-                filter === 'All' 
-                  ? 'bg-neutral-900 text-neutral-100' 
-                  : 'bg-transparent text-neutral-500'
-              }`}
+              color="light"
+              size="custom"
+              customSize={{
+                width: 'w-[130px]',
+                padding: 'py-7',
+              }}
+              active={filter === 'All'}
             >
               All
-            </button>
-            <button
+            </RoundedButton>
+            <RoundedButton
+              href="#"
               onClick={() => setFilter('Full Stack')}
-              className={`px-6 py-2 rounded-full ${
-                filter === 'Full Stack' 
-                  ? 'bg-neutral-900 text-neutral-100' 
-                  : 'bg-transparent text-neutral-500'
-              }`}
+              color="light"
+              active={filter === 'Full Stack'}
+              size="custom"
+              customSize={{
+                width: 'w-[200px]',
+                padding: 'py-7',
+                superscriptRight: 'right-12 top-5',
+              }}
+              superscript={fullStackCount}
             >
-              Full Stack<sup className="ml-1">{fullStackCount}</sup>
-            </button>
-            <button
+              Full Stack
+            </RoundedButton>
+            <RoundedButton
+              href="#"
               onClick={() => setFilter('Front End')}
-              className={`px-6 py-2 rounded-full ${
-                filter === 'Front End' 
-                  ? 'bg-neutral-900 text-neutral-100' 
-                  : 'bg-transparent text-neutral-500'
-              }`}
+              color="light"
+              active={filter === 'Front End'}
+              size="custom"
+              customSize={{
+                width: 'w-[200px]',
+                padding: 'py-7',
+                superscriptRight: 'right-12 top-5',
+              }}
+              superscript={frontEndCount}
             >
-              Front End<sup className="ml-1">{frontEndCount}</sup>
-            </button>
+              Front End
+            </RoundedButton>
           </div>
           
-          {/* Placeholder for right-side buttons */}
+          {/* Right-side buttons */}
           <div className="flex gap-4">
-            <button className="p-2 rounded-full bg-neutral-900">
-              {/* Add icon/content later */}
-            </button>
-            <button className="p-2 rounded-full bg-transparent border border-zinc-800">
-              {/* Add icon/content later */}
-            </button>
           </div>
         </div>
 
