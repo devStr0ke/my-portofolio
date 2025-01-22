@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, ReactElement, RefAttributes } from 'react';
 import gsap from 'gsap';
 
@@ -7,12 +9,23 @@ interface MagneticProps {
 
 export default function Magnetic({ children }: MagneticProps) {
   const magnetic = useRef<HTMLDivElement>(null);
+  const isLargeScreen = useRef(false);
 
   useEffect(() => {
+    // Check screen size
+    const checkScreenSize = () => {
+      isLargeScreen.current = window.innerWidth >= 1024;
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
     const xTo = gsap.quickTo(magnetic.current, "x", {duration: 1, ease: "elastic.out(1, 0.3)"});
     const yTo = gsap.quickTo(magnetic.current, "y", {duration: 1, ease: "elastic.out(1, 0.3)"});
 
     const moveMagnetic = (e: MouseEvent) => {
+      if (!isLargeScreen.current) return; // Skip effect on small screens
+      
       const { clientX, clientY } = e;
       const bounds = magnetic.current?.getBoundingClientRect();
       if (!bounds) return;
@@ -24,6 +37,7 @@ export default function Magnetic({ children }: MagneticProps) {
     };
 
     const resetMagnetic = () => {
+      if (!isLargeScreen.current) return; // Skip effect on small screens
       xTo(0);
       yTo(0);
     };
@@ -35,6 +49,7 @@ export default function Magnetic({ children }: MagneticProps) {
     }
 
     return () => {
+      window.removeEventListener('resize', checkScreenSize);
       if (element) {
         element.removeEventListener("mousemove", moveMagnetic);
         element.removeEventListener("mouseleave", resetMagnetic);
