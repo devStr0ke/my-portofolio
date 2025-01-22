@@ -44,16 +44,20 @@ export default function TableProject({
 
         {/* Content */}
         <div 
-          className="grid grid-cols-4 relative z-8 py-10 text-neutral-500 hover:text-neutral-950 transition-colors duration-300 w-full"
+          className="flex items-center relative z-8 py-10 text-neutral-500 hover:text-neutral-950 transition-colors duration-300 w-full gap-8"
           onMouseEnter={() => { setModal({ active: true, index }) }} 
           onMouseLeave={() => { setModal({ active: false, index }) }}
         >
-          <span className="text-2xl font-medium transition-all duration-400 group-hover:-translate-x-[10px] w-full">
+          <span className="text-xl xl:text-2xl font-medium transition-all duration-400 group-hover:-translate-x-[10px] w-[35%]">
             {title}
           </span>
-          <span className="transition-all duration-400 w-full">{location}</span>
-          <span className="transition-all duration-400 w-full">{services}</span>
-          <span className="transition-all duration-400 group-hover:translate-x-[10px] w-full">
+          <span className="transition-all duration-400 w-[25%]">
+            {location}
+          </span>
+          <span className="transition-all duration-400 w-[35%]">
+            {services}
+          </span>
+          <span className="transition-all duration-400 group-hover:translate-x-[10px] w-[15%]">
             {year}
           </span>
         </div>

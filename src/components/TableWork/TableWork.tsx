@@ -55,18 +55,18 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
   const [modal, setModal] = useState({active: false, index: 0});
 
   return (
-    <section className="bg-neutral-950 text-neutral-100">
-      <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto">
+    <section className="bg-neutral-950 text-neutral-100 w-full">
+      <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto w-full">
         {/* Header */}
-        <div className="hidden lg:grid grid-cols-4 text-xs text-neutral-500 mb-4">
-          <span className="w-full">CLIENT</span>
-          <span className="w-full">LOCATION</span>
-          <span className="w-full">SERVICES</span>
-          <span className="w-full">YEAR</span>
+        <div className="hidden lg:flex items-center text-xs text-neutral-500 mb-4 w-full gap-8">
+          <span className="w-[35%]">CLIENT</span>
+          <span className="w-[25%]">LOCATION</span>
+          <span className="w-[35%]">SERVICES</span>
+          <span className="w-[15%]">YEAR</span>
         </div>
         
-        {/* Desktop view (lg and up) */}
-        <div className="hidden lg:block w-full">
+        {/* Projects */}
+        <div className="w-full">
           {projects.map((project, index) => (
             <TableProject 
               key={index}
@@ -74,24 +74,6 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
               {...project}
               setModal={setModal} 
             />
-          ))}
-        </div>
-
-        {/* Mobile view */}
-        <div className="lg:hidden space-y-8 w-full">
-          {projects.map((project, index) => (
-            <Link href={project.route} key={index}>
-              <div className="space-y-2 py-8 w-full">
-                <h2 className="text-3xl font-semibold text-neutral-100">
-                  {project.title}
-                </h2>
-                <div className="flex justify-between items-center text-sm text-neutral-500 w-full">
-                  <span>{project.services}</span>
-                  <span>{project.year}</span>
-                </div>
-              </div>
-              <div className="h-px w-full bg-zinc-800" />
-            </Link>
           ))}
         </div>
 
