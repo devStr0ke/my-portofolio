@@ -80,7 +80,7 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
           counts={counts}
         />
 
-        <Spacer size="xs" mobileSize="xs" />
+        <Spacer size="xs" mobileSize="xxs" />
 
         {/* Header */}
         <div className="hidden lg:flex items-center text-xs text-neutral-500 mb-4 w-full gap-8">
@@ -91,7 +91,7 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
         </div>
         
         {/* Projects */}
-        <div className="w-full">
+        <div className="hidden lg:block w-full">
           {filteredProjects.map((project, index) => (
             <TableProject 
               key={index}
