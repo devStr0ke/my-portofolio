@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
-import { RoundedButton } from '../RoundedButton';
+import { FilterButtons } from './FilterButtons';
 import Modal from '../Work/Modal';
 import TableProject from './TableProject';
+import { Spacer } from '../Spacer';
 
 interface Project {
   title: string;
@@ -59,8 +60,10 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
   const [filter, setFilter] = useState<'All' | 'Full Stack' | 'Front End'>('All');
 
   // Count projects by type
-  const fullStackCount = projects.filter(p => p.type.includes('Full Stack')).length;
-  const frontEndCount = projects.filter(p => p.type.includes('Front End')).length;
+  const counts = {
+    fullStack: projects.filter(p => p.type.includes('Full Stack')).length,
+    frontEnd: projects.filter(p => p.type.includes('Front End')).length,
+  };
 
   // Filter projects based on selected filter
   const filteredProjects = projects.filter(project => {
@@ -71,58 +74,13 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
   return (
     <section className="bg-neutral-950 text-neutral-100 w-full">
       <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto w-full">
-        {/* Filter Buttons */}
-        <div className="flex justify-between items-center mb-8">
-          <div className="flex gap-4">
-            <RoundedButton
-              href="#"
-              onClick={() => setFilter('All')}
-              color="light"
-              size="custom"
-              customSize={{
-                width: 'w-[130px]',
-                padding: 'py-7',
-              }}
-              active={filter === 'All'}
-            >
-              All
-            </RoundedButton>
-            <RoundedButton
-              href="#"
-              onClick={() => setFilter('Full Stack')}
-              color="light"
-              active={filter === 'Full Stack'}
-              size="custom"
-              customSize={{
-                width: 'w-[200px]',
-                padding: 'py-7',
-                superscriptRight: 'right-12 top-5',
-              }}
-              superscript={fullStackCount}
-            >
-              Full Stack
-            </RoundedButton>
-            <RoundedButton
-              href="#"
-              onClick={() => setFilter('Front End')}
-              color="light"
-              active={filter === 'Front End'}
-              size="custom"
-              customSize={{
-                width: 'w-[200px]',
-                padding: 'py-7',
-                superscriptRight: 'right-12 top-5',
-              }}
-              superscript={frontEndCount}
-            >
-              Front End
-            </RoundedButton>
-          </div>
-          
-          {/* Right-side buttons */}
-          <div className="flex gap-4">
-          </div>
-        </div>
+        <FilterButtons 
+          filter={filter}
+          setFilter={setFilter}
+          counts={counts}
+        />
+
+        <Spacer size="xs" mobileSize="xs" />
 
         {/* Header */}
         <div className="hidden lg:flex items-center text-xs text-neutral-500 mb-4 w-full gap-8">
