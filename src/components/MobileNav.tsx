@@ -122,7 +122,7 @@ const Logo = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) =
         transition: { delay: 0.5, duration: 0.5, ease: "easeInOut" },
       }}
       exit={{ opacity: 0, y: -12 }}
-      href="#"
+      href="/"
       onClick={() => setActive(false)}
       className="grid h-20 w-20 place-content-center rounded-br-xl rounded-tl-xl bg-neutral-950 transition-colors"
     >
@@ -230,15 +230,15 @@ const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>
 const LINKS = [
   {
     title: "About",
-    href: "#about",
+    href: "/about",
   },
   {
     title: "Experience",
-    href: "#experience",
+    href: "/experience",
   },
   {
-    title: "Projects",
-    href: "#projects",
+    title: "Work",
+    href: "/work",
   },
   {
     title: "Contact",
