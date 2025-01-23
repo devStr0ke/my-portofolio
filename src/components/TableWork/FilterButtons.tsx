@@ -20,8 +20,8 @@ export const FilterButtons = ({ filter, setFilter, counts }: FilterButtonsProps)
           color="light"
           size="custom"
           customSize={{
-            width: 'w-[70px] text-xs sm:w-[130px] sm:text-base',
-            padding: 'py-3 sm:py-5 md:py-7',
+            width: 'w-[80px] text-xs sm:w-[130px] sm:text-base',
+            padding: 'py-5 sm:py-5 md:py-7',
           }}
           active={filter === 'All'}
         >
@@ -34,9 +34,9 @@ export const FilterButtons = ({ filter, setFilter, counts }: FilterButtonsProps)
           active={filter === 'Full Stack'}
           size="custom"
           customSize={{
-            width: 'w-[110px] text-xs sm:w-[180px] sm:text-base md:w-[220px]',
-            padding: 'py-3 sm:py-5 md:py-7',
-            superscriptRight: 'right-5 top-1 text-[0.55rem] sm:right-11 sm:top-3 md:text-xs md:right-14 md:top-6',
+            width: 'w-[120px] text-xs sm:w-[180px] sm:text-base md:w-[220px]',
+            padding: 'py-5 sm:py-5 md:py-7',
+            superscriptRight: 'right-6 top-5 text-[0.55rem] sm:right-11 sm:top-5 md:text-xs md:right-14 md:top-6',
           }}
           superscript={counts.fullStack}
         >
@@ -49,9 +49,9 @@ export const FilterButtons = ({ filter, setFilter, counts }: FilterButtonsProps)
           active={filter === 'Front End'}
           size="custom"
           customSize={{
-            width: 'w-[110px] text-xs sm:w-[180px] sm:text-base md:w-[220px]',
-            padding: 'py-3 sm:py-5 md:py-7',
-            superscriptRight: 'right-5 top-1 text-[0.55rem] sm:right-11 sm:top-3 md:text-xs md:right-14 md:top-6',
+            width: 'w-[120px] text-xs sm:w-[180px] sm:text-base md:w-[220px]',
+            padding: 'py-5 sm:py-5 md:py-7',
+            superscriptRight: 'right-6 top-5 text-[0.55rem] sm:right-11 sm:top-5 md:text-xs md:right-14 md:top-6',
           }}
           superscript={counts.frontEnd}
         >

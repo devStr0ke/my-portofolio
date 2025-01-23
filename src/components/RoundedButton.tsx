@@ -58,7 +58,7 @@ export const RoundedButton = ({
   const manageMouseLeave = () => {
     timeoutId = setTimeout(() => {
       timeline.current?.play();
-    }, 300);
+    }, 400);
   }
 
   const colorClasses = {
@@ -84,7 +84,7 @@ export const RoundedButton = ({
         className={`
           relative flex items-center justify-center gap-2 
           overflow-hidden rounded-full border border-neutral-700
-          cursor-pointer transition-colors duration-300
+          cursor-pointer
           ${sizeClasses[size]}
           ${colorClasses[color]}
           ${activeClass}
@@ -99,18 +99,18 @@ export const RoundedButton = ({
           }
         }}
       >
-        {Icon && <Icon className="relative z-10 transition-colors duration-400" />}
-        <span className="relative z-10 transition-colors duration-400 whitespace-nowrap">
+        {Icon && <Icon className="relative z-10 lg:transition-colors lg:duration-400" />}
+        <span className="relative z-10 lg:transition-colors lg:duration-400 whitespace-nowrap">
           {children}
         </span>
         {superscript && (
           <sup 
             className={`
-              absolute text-sm font-bold hover:text-neutral-950 z-10 
-              transition-colors duration-400
+              absolute font-bold hover:text-neutral-950 z-10 
+              lg:transition-colors lg:duration-400
               ${size === 'custom' && customSize?.superscriptRight 
                 ? customSize.superscriptRight 
-                : 'right-16 top-5'}
+                : 'right-16 top-7'}
             `}
           >
             {superscript}

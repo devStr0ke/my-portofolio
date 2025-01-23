@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { FilterButtons } from './FilterButtons';
 import Modal from '../Work/Modal';
 import TableProject from './TableProject';
+import ProjectCard from '../ProjectCard';
 import { Spacer } from '../Spacer';
 
 interface Project {
@@ -90,14 +91,25 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
           <span className="w-[15%]">YEAR</span>
         </div>
         
-        {/* Projects */}
-        <div className="hidden lg:block w-full">
+        {/* Projects table lg view */}
+        <div className="hidden h-[75vh] lg:block w-full">
           {filteredProjects.map((project, index) => (
             <TableProject 
               key={index}
               index={index} 
               {...project}
               setModal={setModal} 
+            />
+          ))}
+        </div>
+
+        {/* Mobile view */}
+        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-28 sm:gap-8">
+          {filteredProjects.map((project, index) => (
+            <ProjectCard 
+              key={index}
+              project={project}
+              index={index}
             />
           ))}
         </div>
