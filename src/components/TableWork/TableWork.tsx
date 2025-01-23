@@ -14,7 +14,7 @@ interface Project {
   src: string;
   color: string;
   route: string;
-  type: 'Design' | 'Development' | string; // Add type for filtering
+  type: 'Full Stack' | 'Front End' | string;
 }
 
 interface TableWorkProps {
@@ -54,19 +54,18 @@ const defaultProjects = [
     route: "/work/halcyon-labs",
     type: "Front End"
   },
-]
+];
 
 export const TableWork = ({ title = "Selected Work", projects = defaultProjects, noTitle = false }: TableWorkProps) => {
   const [modal, setModal] = useState({active: false, index: 0});
   const [filter, setFilter] = useState<'All' | 'Full Stack' | 'Front End'>('All');
+  const [view, setView] = useState<'grid' | 'list'>('list');
 
-  // Count projects by type
   const counts = {
     fullStack: projects.filter(p => p.type.includes('Full Stack')).length,
     frontEnd: projects.filter(p => p.type.includes('Front End')).length,
   };
 
-  // Filter projects based on selected filter
   const filteredProjects = projects.filter(project => {
     if (filter === 'All') return true;
     return project.type.includes(filter);
@@ -79,32 +78,51 @@ export const TableWork = ({ title = "Selected Work", projects = defaultProjects,
           filter={filter}
           setFilter={setFilter}
           counts={counts}
+          view={view}
+          setView={setView}
         />
 
         <Spacer size="xs" mobileSize="xxs" />
 
-        {/* Header */}
-        <div className="hidden lg:flex items-center text-xs text-neutral-500 mb-4 w-full gap-8">
-          <span className="w-[35%]">CLIENT</span>
-          <span className="w-[25%]">LOCATION</span>
-          <span className="w-[35%]">SERVICES</span>
-          <span className="w-[15%]">YEAR</span>
-        </div>
-        
-        {/* Projects table lg view */}
-        <div className="hidden h-[75vh] lg:block w-full">
-          {filteredProjects.map((project, index) => (
-            <TableProject 
-              key={index}
-              index={index} 
-              {...project}
-              setModal={setModal} 
-            />
-          ))}
-        </div>
+        {/* Desktop view - List */}
+        {view === 'list' && (
+          <div className="hidden lg:block">
+            <div className="flex items-center text-xs text-neutral-500 mb-4 w-full gap-8">
+              <span className="w-[35%]">CLIENT</span>
+              <span className="w-[25%]">LOCATION</span>
+              <span className="w-[35%]">SERVICES</span>
+              <span className="w-[15%]">YEAR</span>
+            </div>
+            
+            {/* Projects table */}
+            <div className="w-full h-[50vh]">
+              {filteredProjects.map((project, index) => (
+                <TableProject 
+                  key={index}
+                  index={index} 
+                  {...project}
+                  setModal={setModal} 
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
-        {/* Mobile view */}
-        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-28 sm:gap-8">
+        {/* Desktop view - Grid */}
+        {view === 'grid' && (
+          <div className="hidden lg:grid lg:grid-cols-2 gap-8">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard 
+                key={index}
+                project={project}
+                index={index}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Mobile view - Always Grid */}
+        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
             <ProjectCard 
               key={index}
