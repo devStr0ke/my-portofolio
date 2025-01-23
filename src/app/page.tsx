@@ -35,7 +35,7 @@ export default function Home() {
         <AboutSection />
         <Spacer size="sm" />
         <WhatIdoSection />
-        <Spacer size="xxs" mobileSize="xxs" />
+        <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
           <RoundedButton href='/about' color='light' className='flex justify-center items-center'>More about me</RoundedButton>
         </div>
@@ -43,7 +43,7 @@ export default function Home() {
         <ExperienceSection />
         <Spacer size="sm" />
         <HistorySection />
-        <Spacer size="xxs" mobileSize="xxs" />
+        <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
           <RoundedButton href='/experience' color='light' className='flex justify-center items-center'>Detailed experience</RoundedButton>
         </div>
@@ -51,7 +51,7 @@ export default function Home() {
         <ProjectsSection />
         <Spacer size="sm" />
         <Work />
-        <Spacer size="xxs" mobileSize="xxs" />
+        <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
           <RoundedButton href='/work' color='light' superscript='3' className='flex justify-center items-center'>All work</RoundedButton>
         </div>

@@ -1,24 +1,24 @@
 "use client";
 import { FloatingNav } from "@/components/FloatingNav";
-import { Work } from "@/components/Work/Work";
+import { TableWork } from "@/components/TableWork/TableWork";
 import { Spacer } from "@/components/Spacer";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
     <>
       <FloatingNav disableScroll={true} />
       <div className="w-full h-full">
-        <Spacer />
+        <Spacer mobileSize="sm" size="md" />
         <div className="max-w-[90%] lg:max-w-[68%] mx-auto">
-          <div className="lg:max-w-none">
-            <span className="text-neutral-200 font-bold text-3xl sm:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl uppercase mb-6 block tracking-tighter">
-              Building for the web
-            </span>
-          </div>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal mb-16 md:mb-32 text-neutral-500">
+            Building for the web
+          </h1>
         </div>
-        <Work noTitle={true} />
+        <TableWork noTitle={true} />
         <Spacer />
       </div>
+      <Footer />
     </>
   );
 }

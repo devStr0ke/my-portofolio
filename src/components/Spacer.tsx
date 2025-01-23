@@ -1,11 +1,11 @@
 interface SpacerProps {
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  mobileSize?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  mobileSize?: 'xxxs' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
 }
 
 const sizes = {
-  xxs: 'md:h-24', // 48px
+  xxs: 'md:h-14', // 48px
   xs: 'md:h-36', // 96px
   sm: 'md:h-48', // 96px
   md: 'md:h-64', // 128px
@@ -14,6 +14,7 @@ const sizes = {
 };
 
 const mobileSizes = {
+  xxxs: 'h-12',
   xxs: 'h-20', // 48px
   xs: 'h-32', // 96px
   sm: 'h-48', // 96px

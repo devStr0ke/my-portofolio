@@ -37,7 +37,7 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (!disableScroll) {
-      const shouldShow = latest > window.innerHeight * 3;
+      const shouldShow = latest > window.innerHeight;
       setVisible(shouldShow);
     }
 

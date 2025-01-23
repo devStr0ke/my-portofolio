@@ -33,16 +33,16 @@ import Link from "next/link";
     return (
       <section
         ref={targetRef}
-        className="h-[300vh] bg-neutral-950 text-neutral-100"
+        className="h-[100vh] bg-neutral-950 text-neutral-100"
       >
         <div className="sticky top-0 flex h-screen flex-col justify-between overflow-hidden">
           <Nav />
           <CenterCopy />
           <motion.p
             style={{ skewX, x }}
-            className="origin-bottom-left whitespace-nowrap text-5xl font-black uppercase leading-[0.85] md:text-7xl md:leading-[0.85]"
+            className="origin-bottom-left whitespace-nowrap text-6xl font-black uppercase leading-[0.85] md:text-8xl md:leading-[0.85]"
           >
-            Full Stack Developer • Next.js Expert • Creative Problem Solver • Building Digital Experiences
+            Full Stack Developer • Creative Problem Solver • Full Stack Developer • Creative Problem Solver
           </motion.p>
           <ScrollArrow />
         </div>

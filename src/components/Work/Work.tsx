@@ -76,7 +76,7 @@ export const Work = ({ title = "Selected Work", projects = defaultProjects, noTi
         </div>
 
         {/* Tablet and Mobile view */}
-        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2  gap-28 sm:gap-8">
           {projects.map((project, index) => (
             <ProjectCard 
               key={index} 
