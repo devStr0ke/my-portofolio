@@ -1,6 +1,6 @@
 "use client";
 import { FloatingNav } from "@/components/FloatingNav";
-import ZoomParallax from "@/components/AboutComponent/ZoomParallax";
+import ZoomParallax from "../../components/AboutComponent/ZoomParallax";
 import Description from "@/components/AboutComponent/Description";
 import Section from "@/components/AboutComponent/Section";
 import { Spacer } from "@/components/Spacer";
@@ -17,7 +17,8 @@ const descriptionText = [
   { text: "about" },
   { text: "combat sports," },
   { text: "particularly" },
-  { text: "submission grappling", color: "rgb(99 102 241)" },
+  { text: "submission", color: "rgb(99 102 241)" },
+  { text: "grappling", color: "rgb(99 102 241)" },
 ];
 
 export default function Home() {
@@ -44,9 +45,13 @@ export default function Home() {
           </h1>
         </div>
         <ZoomParallax />
+        <Spacer size="sm" />
         <Description descriptionText={descriptionText} />
+        <Spacer size="sm" />
         <Section imageSrc="/about/limouxFight.png" text="2023-11 - Limoux Fight" />
+        <Spacer size="sm" />
         <Description descriptionText={descriptionText} />
+        <Spacer size="sm" />
         <Section imageSrc="/about/limouxFight.png" text="2023-11 - Limoux Fight" />
         <Spacer />
       </div>

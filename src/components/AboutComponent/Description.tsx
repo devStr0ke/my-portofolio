@@ -10,11 +10,10 @@ interface DescriptionProps {
 
 export default function Description({ descriptionText }: DescriptionProps) {
   return (
-    <div className='flex justify-center my-40 h-screen'>
+    <div className='flex justify-center items-center'>
       <Character 
         paragraph={descriptionText}  
         customContainerClass="w-full max-w-[90%] lg:max-w-[68%] mx-auto" 
-        textAlign="center"
       />
     </div>
   )
