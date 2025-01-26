@@ -123,6 +123,7 @@ export default function ZoomParallax() {
                                                 src={image.bw}
                                                 fill
                                                 alt="image"
+                                                priority
                                                 className="object-cover transition-opacity duration-1000"
                                                 style={{
                                                     opacity: hoveredIndex === index ? 0 : 1
@@ -133,6 +134,7 @@ export default function ZoomParallax() {
                                             <Image
                                                 src={image.color}
                                                 fill
+                                                priority
                                                 alt="image"
                                                 className="object-cover transition-opacity duration-1000"
                                                 style={{
@@ -164,6 +166,7 @@ export default function ZoomParallax() {
                                 src={image.bw}
                                 fill
                                 alt="image"
+                                priority
                                 className="object-cover transition-opacity duration-500"
                                 style={{
                                     opacity: hoveredIndex === index ? 0 : 1
@@ -174,6 +177,7 @@ export default function ZoomParallax() {
                                 src={image.color}
                                 fill
                                 alt="image"
+                                priority
                                 className="object-cover transition-opacity duration-500"
                                 style={{
                                     opacity: hoveredIndex === index ? 1 : 0
