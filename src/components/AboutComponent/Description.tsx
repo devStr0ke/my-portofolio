@@ -5,6 +5,7 @@ interface DescriptionProps {
   descriptionText: Array<{
     text: string;
     color?: string;
+    
   }>;
 }
 
@@ -14,6 +15,7 @@ export default function Description({ descriptionText }: DescriptionProps) {
       <Character 
         paragraph={descriptionText}  
         customContainerClass="w-full max-w-[90%] lg:max-w-[68%] mx-auto" 
+        textAlign='center'
       />
     </div>
   )
