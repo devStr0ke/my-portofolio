@@ -37,6 +37,21 @@ const descriptionText2 = [
   { text: "experiences", color: "rgb(99 102 241)" },
 ];
 
+const descriptionText3 = [
+  { text: "I'm" },
+  { text: "an" },
+  { text: "espresso" },
+  { text: "aficionado," },
+  { text: "with" },
+  { text: "a" },
+  { text: "keen" },
+  { text: "interest" },
+  { text: "in" },
+  { text: "drinking", color: "rgb(99 102 241)" },
+  { text: "quality", color: "rgb(99 102 241)" },
+  { text: "espresso", color: "rgb(99 102 241)" },
+];
+
 export default function Home() {
 
   useEffect( () => {
@@ -69,7 +84,9 @@ export default function Home() {
         <Description descriptionText={descriptionText2} />
         <Spacer size="sm" />
         <MultipleImageSection />
-        <Spacer />
+        <Spacer size="sm" />
+        <Description descriptionText={descriptionText3} />
+        <Spacer size="sm" />
       </div>
       <Footer />
     </>
