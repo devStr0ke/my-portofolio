@@ -8,6 +8,7 @@ interface Picture {
     bwSrc: string;
     scale: any;
     className: string;
+    sizes: string;
 }
 
 export default function ZoomParallax() {
@@ -28,43 +29,50 @@ export default function ZoomParallax() {
             src: '/about/colored/fightHexa.png',
             bwSrc: '/about/bw/fightHexa.png',
             scale: scale4,
-            className: 'w-[25vw] h-[25vh]'
+            className: 'w-[25vw] h-[25vh]',
+            sizes: '(max-width: 2048px) 100vw, 35vw'
         },
         {
             src: '/about/colored/limouxFight.png',
             bwSrc: '/about/bw/limouxFight.png',
             scale: scale5,
-            className: 'w-[35vw] h-[30vh] -top-[30vh] left-[5vw]'
+            className: 'w-[35vw] h-[30vh] -top-[30vh] left-[5vw]',
+            sizes: '(max-width: 2048px) 100vw, 35vw'
         },
         {
             src: '/about/colored/hercules.png',
             bwSrc: '/about/bw/hercules.png',
             scale: scale6,
-            className: 'w-[20vw] h-[45vh] -top-[10vh] -left-[24vw]'
+            className: 'w-[20vw] h-[45vh] -top-[10vh] -left-[24vw]',
+            sizes: '(max-width: 1011px) 100vw, 35vw'
         },
         {
             src: '/about/colored/bangkok.png',
             bwSrc: '/about/bw/bangkok.png',
             scale: scale5,
-            className: 'w-[15vw] h-[25vh] left-[21.5vw]'
+            className: 'w-[15vw] h-[25vh] left-[21.5vw]',
+            sizes: '(max-width: 1011px) 100vw, 35vw'
         },
         {
             src: '/about/colored/coffee.png',
             bwSrc: '/about/bw/coffee.png',
             scale: scale6,
-            className: 'w-[15vw] h-[30vh] top-[29.5vh] -left-[2vw]'
+            className: 'w-[15vw] h-[30vh] top-[29.5vh] -left-[2vw]',
+            sizes: '(max-width: 1011px) 100vw, 35vw'
         },
         {
             src: '/about/colored/algarve.png',
             bwSrc: '/about/bw/algarve.png',
             scale: scale8,
-            className: 'w-[15vw] h-[30vh] top-[30vh] -left-[18vw]'
+            className: 'w-[15vw] h-[30vh] top-[30vh] -left-[18vw]',
+            sizes: '(max-width: 1011px) 100vw, 35vw'
         },
         {
             src: '/about/colored/limoux.png',
             bwSrc: '/about/bw/limoux.png',
             scale: scale9,
-            className: 'w-[15vw] h-[20vh] top-[25.5vh] left-[14vw]'
+            className: 'w-[15vw] h-[20vh] top-[25.5vh] left-[14vw]',
+            sizes: '(max-width: 1011px) 100vw, 35vw'
         }
     ]
 
@@ -76,7 +84,7 @@ export default function ZoomParallax() {
             <div className="hidden md:block">
                 <div ref={container} className="h-[300vh] relative">
                     <div className="sticky top-0 h-screen overflow-hidden">
-                        {pictures.map(({src, bwSrc, scale, className}, index) => (
+                        {pictures.map(({src, bwSrc, scale, className, sizes}, index) => (
                             <motion.div 
                                 key={index} 
                                 style={{scale}} 
@@ -100,6 +108,7 @@ export default function ZoomParallax() {
                                         style={{
                                             opacity: hoveredIndex === index ? 0 : 1
                                         }}
+                                        sizes={sizes}
                                     />
                                     {/* Colored Image */}
                                     <Image
@@ -110,6 +119,7 @@ export default function ZoomParallax() {
                                         style={{
                                             opacity: hoveredIndex === index ? 1 : 0
                                         }}
+                                        sizes={sizes}
                                     />
                                 </div>
                             </motion.div>
