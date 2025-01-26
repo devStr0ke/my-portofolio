@@ -63,6 +63,7 @@ export default function Modal({modal, projects}: {modal: any, projects: any}) {
                   width={450}
                   height={0}
                   alt="image"
+                  priority
                   className="h-auto rounded-lg"
                 />
               </div>

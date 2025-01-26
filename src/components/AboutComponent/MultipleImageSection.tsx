@@ -103,6 +103,7 @@ const Column = ({ images, y, className = "" }: ColumnProps) => {
                       src={`/about/bw/${src}`}
                       alt='image'
                       fill
+                      priority
                       sizes="(max-width: 1011px) 100vw"
                       className={`object-cover transition-opacity duration-500 ${hoveredIndex === i ? 'opacity-0' : 'opacity-100'}`}
                   />
@@ -110,6 +111,7 @@ const Column = ({ images, y, className = "" }: ColumnProps) => {
                       src={`/about/colored/${src}`}
                       alt='image'
                       fill
+                      priority
                       sizes="(max-width: 1011px) 100vw"
                       className={`object-cover transition-opacity duration-500 absolute top-0 left-0 ${hoveredIndex === i ? 'opacity-100' : 'opacity-0'}`}
                   />
