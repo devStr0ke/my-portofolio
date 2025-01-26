@@ -29,7 +29,6 @@ export default function MultipleImageSection() {
     const y = useTransform(scrollYProgress, [0, 1], [0, height * 2])
     const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3])
     const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25])
-    const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3])
 
     useEffect(() => {
         const lenis = new Lenis()
@@ -67,7 +66,7 @@ export default function MultipleImageSection() {
                 <Column 
                     images={[images[3], images[4], images[5]]} 
                     y={y2}
-                    className="-top-[95%] hidden sm:flex"
+                    className="-top-[95%] hidden lg:flex"
                 />
                 <Column 
                     images={[images[6], images[7], images[8]]} 
@@ -86,24 +85,34 @@ interface ColumnProps {
 }
 
 const Column = ({ images, y, className = "" }: ColumnProps) => {
-    return (
-        <motion.div 
-            className={`relative h-full w-full sm:w-1/2 lg:w-1/3 min-w-[250px] flex flex-col gap-8 ${className}`}
-            style={{ y }}
-        >
-            {images.map((src, i) => (
-                <div 
-                    key={i} 
-                    className="h-full w-full relative overflow-hidden"
-                >
-                    <Image 
-                        src={`/about/bw/${src}`}
-                        alt='image'
-                        fill
-                        className="object-cover"
-                    />
-                </div>
-            ))}
-        </motion.div>
-    )
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+      <motion.div 
+          className={`relative h-full w-full sm:w-1/2 lg:w-1/3 min-w-[250px] flex flex-col gap-8 ${className}`}
+          style={{ y }}
+      >
+          {images.map((src, i) => (
+              <div 
+                  key={i} 
+                  className="h-full w-full relative overflow-hidden"
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+              >
+                  <Image 
+                      src={`/about/bw/${src}`}
+                      alt='image'
+                      fill
+                      className={`object-cover transition-opacity duration-500 ${hoveredIndex === i ? 'opacity-0' : 'opacity-100'}`}
+                  />
+                  <Image 
+                      src={`/about/colored/${src}`}
+                      alt='image'
+                      fill
+                      className={`object-cover transition-opacity duration-500 absolute top-0 left-0 ${hoveredIndex === i ? 'opacity-100' : 'opacity-0'}`}
+                  />
+              </div>
+          ))}
+      </motion.div>
+  )
 }
