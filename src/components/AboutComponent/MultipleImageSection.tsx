@@ -67,12 +67,12 @@ export default function MultipleImageSection() {
                 <Column 
                     images={[images[3], images[4], images[5]]} 
                     y={y2}
-                    className="-top-[95%]"
+                    className="-top-[95%] hidden sm:flex"
                 />
                 <Column 
                     images={[images[6], images[7], images[8]]} 
                     y={y3}
-                    className="-top-[45%]"
+                    className="-top-[45%] hidden lg:flex"
                 />
             </div>
         </main>
@@ -88,7 +88,7 @@ interface ColumnProps {
 const Column = ({ images, y, className = "" }: ColumnProps) => {
     return (
         <motion.div 
-            className={`relative h-full w-1/3 min-w-[250px] flex flex-col gap-8 ${className}`}
+            className={`relative h-full w-full sm:w-1/2 lg:w-1/3 min-w-[250px] flex flex-col gap-8 ${className}`}
             style={{ y }}
         >
             {images.map((src, i) => (
