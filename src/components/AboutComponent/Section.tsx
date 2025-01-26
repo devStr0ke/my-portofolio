@@ -31,7 +31,8 @@ export default function Section({ imageSrc, mobileImageSrc, text }: SectionProps
                     {/* Desktop Image */}
                     <Image 
                         src={imageSrc} 
-                        fill 
+                        fill
+                        priority
                         alt="background image" 
                         className="object-cover hidden lg:block"
                         sizes="100vw"
@@ -39,7 +40,8 @@ export default function Section({ imageSrc, mobileImageSrc, text }: SectionProps
                     {/* Mobile Image */}
                     <Image 
                         src={mobileImageSrc || imageSrc} // Fallback to desktop image if mobile not provided
-                        fill 
+                        fill
+                        priority
                         alt="background image" 
                         className="object-cover block lg:hidden"
                         sizes="100vw"

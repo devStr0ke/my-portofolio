@@ -87,6 +87,7 @@ export default function ProjectSection({
             src={macImage}
             alt={`${title} mac preview`}
             fill
+            priority
             className="object-contain"
           />
         </div>
@@ -113,6 +114,7 @@ export default function ProjectSection({
                   src={mobile1}
                   alt={`${title} mobile preview 1`}
                   fill
+                  priority
                   className="object-contain"
                 />
               </div>
@@ -123,6 +125,7 @@ export default function ProjectSection({
                   src={mobile2}
                   alt={`${title} mobile preview 2`}
                   fill
+                  priority
                   className="object-contain"
                 />
               </div>
@@ -133,6 +136,7 @@ export default function ProjectSection({
                   src={mobile3}
                   alt={`${title} mobile preview 3`}
                   fill
+                  priority
                   className="object-contain"
                 />
               </div>
@@ -159,6 +163,7 @@ export default function ProjectSection({
             src={macImage2}
             alt={`${title} mac preview`}
             fill
+            priority
             className="object-contain"
           />
         </div>
