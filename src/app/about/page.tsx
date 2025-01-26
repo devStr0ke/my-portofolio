@@ -3,12 +3,13 @@ import { FloatingNav } from "@/components/FloatingNav";
 import ZoomParallax from "../../components/AboutComponent/ZoomParallax";
 import Description from "@/components/AboutComponent/Description";
 import Section from "@/components/AboutComponent/Section";
+import MultipleImageSection from "@/components/AboutComponent/MultipleImageSection";
 import { Spacer } from "@/components/Spacer";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "lenis";
 import { useEffect } from "react";
 
-const descriptionText = [
+const descriptionText1 = [
   { text: "Beyond" },
   { text: "my" },
   { text: "technical expertise" },
@@ -19,6 +20,21 @@ const descriptionText = [
   { text: "particularly" },
   { text: "submission", color: "rgb(99 102 241)" },
   { text: "grappling", color: "rgb(99 102 241)" },
+];
+
+const descriptionText2 = [
+  { text: "Exploring" },
+  { text: "the" },
+  { text: "world" },
+  { text: "fuels" },
+  { text: "my" },
+  { text: "curiosity" },
+  { text: "for" },
+  { text: "new" },
+  { text: "adventures", color: "rgb(99 102 241)" },
+  { text: "discoveries", color: "rgb(99 102 241)" },
+  { text: "and" },
+  { text: "experiences", color: "rgb(99 102 241)" },
 ];
 
 export default function Home() {
@@ -46,13 +62,13 @@ export default function Home() {
         </div>
         <ZoomParallax />
         <Spacer size="sm" />
-        <Description descriptionText={descriptionText} />
+        <Description descriptionText={descriptionText1} />
         <Spacer size="sm" />
-        <Section imageSrc="/about/bw/limouxFight.png" text="2023-11 - Limoux Fight" />
+        <Section imageSrc="/about/bw/limouxFight.png" mobileImageSrc="/about/bw/limoux.png" text="2023-11 - Limoux Fight" />
         <Spacer size="sm" />
-        <Description descriptionText={descriptionText} />
+        <Description descriptionText={descriptionText2} />
         <Spacer size="sm" />
-        <Section imageSrc="/about/bw/limouxFight.png" text="2023-11 - Limoux Fight" />
+        <MultipleImageSection />
         <Spacer />
       </div>
       <Footer />
