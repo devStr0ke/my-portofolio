@@ -80,92 +80,91 @@ export default function ZoomParallax() {
 
     return (
       <>
-            {/* Desktop View */}
-            <div className="hidden md:block">
-                <div ref={container} className="h-[300vh] relative">
-                    <div className="sticky top-0 h-screen overflow-hidden">
-                        {pictures.map(({src, bwSrc, scale, className, sizes}, index) => (
-                            <motion.div 
-                                key={index} 
-                                style={{scale}} 
-                                className="absolute w-full h-full top-0 flex items-center justify-center"
+        {/* Desktop View */}
+        <div className="hidden lg:block">
+            <div ref={container} className="h-[300vh] relative">
+                <div className="sticky top-0 h-screen overflow-hidden">
+                    {pictures.map(({src, bwSrc, scale, className, sizes}, index) => (
+                        <motion.div 
+                            key={index} 
+                            style={{scale}} 
+                            className="absolute w-full h-full top-0 flex items-center justify-center"
+                        >
+                            <div 
+                                className={`relative ${className}`}
+                                style={{
+                                    zIndex: hoveredIndex === index ? 50 : 10,
+                                    pointerEvents: 'auto'
+                                }}
+                                onMouseOver={() => setHoveredIndex(index)}
+                                onMouseOut={() => setHoveredIndex(null)}
                             >
-                                <div 
-                                    className={`relative ${className}`}
+                                {/* Black and White Image */}
+                                <Image
+                                    src={bwSrc}
+                                    fill
+                                    alt="image"
+                                    className="object-cover transition-opacity duration-1000"
                                     style={{
-                                        zIndex: hoveredIndex === index ? 50 : 10,
-                                        pointerEvents: 'auto'
+                                        opacity: hoveredIndex === index ? 0 : 1
                                     }}
-                                    onMouseEnter={() => setHoveredIndex(index)}
-                                    onMouseLeave={() => setHoveredIndex(null)}
-                                >
-                                    {/* Black and White Image */}
-                                    <Image
-                                        src={bwSrc}
-                                        fill
-                                        alt="image"
-                                        className="object-cover transition-opacity duration-1000"
-                                        style={{
-                                            opacity: hoveredIndex === index ? 0 : 1
-                                        }}
-                                        sizes={sizes}
-                                    />
-                                    {/* Colored Image */}
-                                    <Image
-                                        src={src}
-                                        fill
-                                        alt="image"
-                                        className="object-cover transition-opacity duration-1000"
-                                        style={{
-                                            opacity: hoveredIndex === index ? 1 : 0
-                                        }}
-                                        sizes={sizes}
-                                    />
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                                    sizes={sizes}
+                                />
+                                {/* Colored Image */}
+                                <Image
+                                    src={src}
+                                    fill
+                                    alt="image"
+                                    className="object-cover transition-opacity duration-1000"
+                                    style={{
+                                        opacity: hoveredIndex === index ? 1 : 0
+                                    }}
+                                    sizes={sizes}
+                                />
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
+        </div>
 
-          {/* Mobile View */}
-          <div className="block md:hidden">
-              <div className="grid grid-cols-2 gap-4 px-4">
-                  {pictures.map(({src, bwSrc}, index) => (
-                      <div 
-                          key={index} 
-                          className={`relative z-20 ${
-                              index === 0 ? 'col-span-2 aspect-video' : 'aspect-square'
-                          } w-full`}
-                          onTouchStart={() => setHoveredIndex(index)}
-                          onTouchEnd={() => setHoveredIndex(null)}
-                      >
-                          {/* Black and White Image */}
-                          <Image
-                              src={bwSrc}
-                              fill
-                              alt="image"
-                              className="object-cover rounded-lg transition-opacity duration-500"
-                              style={{
-                                  opacity: hoveredIndex === index ? 0 : 1
-                              }}
-                              sizes="(max-width: 768px) 100vw, 50vw"
-                          />
-                          {/* Colored Image */}
-                          <Image
-                              src={src}
-                              fill
-                              alt="image"
-                              className="object-cover rounded-lg transition-opacity duration-500"
-                              style={{
-                                  opacity: hoveredIndex === index ? 1 : 0
-                              }}
-                              sizes="(max-width: 768px) 100vw, 50vw"
-                          />
-                      </div>
-                  ))}
-              </div>
-          </div>
-      </>
+        {/* Mobile View */}
+        <div className="block lg:hidden">
+            <div className="grid grid-cols-2 gap-4 px-4">
+                {pictures.map(({src, bwSrc}, index) => (
+                    <div 
+                        key={index} 
+                        className={`relative z-20 ${
+                            index === 0 ? 'col-span-2 aspect-video' : 'aspect-square'
+                        } w-full`}
+                        onClick={() => setHoveredIndex(index)}
+                    >
+                        {/* Black and White Image */}
+                        <Image
+                            src={bwSrc}
+                            fill
+                            alt="image"
+                            className="object-cover transition-opacity duration-500"
+                            style={{
+                                opacity: hoveredIndex === index ? 0 : 1
+                            }}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        {/* Colored Image */}
+                        <Image
+                            src={src}
+                            fill
+                            alt="image"
+                            className="object-cover transition-opacity duration-500"
+                            style={{
+                                opacity: hoveredIndex === index ? 1 : 0
+                            }}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    </>
   )
 }

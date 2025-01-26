@@ -48,11 +48,11 @@ export default function Home() {
         <Spacer size="sm" />
         <Description descriptionText={descriptionText} />
         <Spacer size="sm" />
-        <Section imageSrc="/about/limouxFight.png" text="2023-11 - Limoux Fight" />
+        <Section imageSrc="/about/bw/limouxFight.png" text="2023-11 - Limoux Fight" />
         <Spacer size="sm" />
         <Description descriptionText={descriptionText} />
         <Spacer size="sm" />
-        <Section imageSrc="/about/limouxFight.png" text="2023-11 - Limoux Fight" />
+        <Section imageSrc="/about/bw/limouxFight.png" text="2023-11 - Limoux Fight" />
         <Spacer />
       </div>
       <Footer />
