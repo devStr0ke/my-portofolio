@@ -28,7 +28,7 @@ export default function MultipleImageSection() {
     const { height } = dimension;
     const y = useTransform(scrollYProgress, [0, 1], [0, height * 2])
     const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3])
-    const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25])
+    const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.3])
 
     useEffect(() => {
         const lenis = new Lenis()
@@ -61,7 +61,7 @@ export default function MultipleImageSection() {
                 <Column 
                     images={[images[0], images[1], images[2]]} 
                     y={y}
-                    className="-top-[45%]"
+                    className="-top-[45%] hidden sm:flex"
                 />
                 <Column 
                     images={[images[3], images[4], images[5]]} 
@@ -71,7 +71,7 @@ export default function MultipleImageSection() {
                 <Column 
                     images={[images[6], images[7], images[8]]} 
                     y={y3}
-                    className="-top-[45%] hidden lg:flex"
+                    className="-top-[45%]"
                 />
             </div>
         </main>
@@ -103,12 +103,14 @@ const Column = ({ images, y, className = "" }: ColumnProps) => {
                       src={`/about/bw/${src}`}
                       alt='image'
                       fill
+                      sizes="(max-width: 1011px) 100vw"
                       className={`object-cover transition-opacity duration-500 ${hoveredIndex === i ? 'opacity-0' : 'opacity-100'}`}
                   />
                   <Image 
                       src={`/about/colored/${src}`}
                       alt='image'
                       fill
+                      sizes="(max-width: 1011px) 100vw"
                       className={`object-cover transition-opacity duration-500 absolute top-0 left-0 ${hoveredIndex === i ? 'opacity-100' : 'opacity-0'}`}
                   />
               </div>
