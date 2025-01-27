@@ -69,12 +69,22 @@ import Link from "next/link";
   
   const Logo = () => {
     return (
-      <a 
-        href="/" 
-        className="absolute right-4 top-1/2 h-fit -translate-y-1/2 translate-x-0 text-2xl font-bold text-neutral-100 md:right-1/2 md:translate-x-1/2"
-      >
-        Samuel Coelho
-      </a>
+      <div className="absolute right-4 top-1/2 h-fit -translate-y-1/2 translate-x-0 text-2xl font-bold md:right-1/2 md:translate-x-1/2">
+        <nav className="flex flex-col gap-1 uppercase text-left text-sm xl:text-base">
+        <Magnetic>
+            <div className="group relative inline-block overflow-hidden">
+              <Link href="/" className={`flex cursor-pointer group text-neutral-100 font-bold`}>
+                <p className="m-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:rotate-[360deg]">©</p>
+                <div className="flex relative overflow-hidden whitespace-nowrap ml-[5px] transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:pr-[30px]">
+                  <p className="relative transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-x-full">Code by</p>
+                  <p className="relative transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] pl-[0.3em] group-hover:-translate-x-[68px] xl:group-hover:-translate-x-[78px]">Samuel</p>
+                  <p className="absolute left-[133px] xl:left-[145px] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] pl-[0.3em] group-hover:-translate-x-[75px]">Coelho</p>
+                </div>
+              </Link>
+            </div>
+          </Magnetic>
+        </nav>
+      </div>
     );
   };
   
