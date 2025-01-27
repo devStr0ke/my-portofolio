@@ -50,7 +50,7 @@ export default function Home() {
         <ProjectFooter nextProject={{
           title: "MG Événements",
           href: "/work/mg-evenements",
-          image: "/mgevenements/main.png",
+          nextProjectName: "mgevenements",
           color: "#737373"
         }} triggerRef={triggerRef as React.RefObject<HTMLDivElement>} />
       </div>

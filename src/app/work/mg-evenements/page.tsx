@@ -49,7 +49,7 @@ export default function Home() {
         <ProjectFooter nextProject={{
           title: "MGE Dashboard",
           href: "/work/mge-dashboard",
-          image: "/mgedashboard/main.png",
+          nextProjectName: "mgedashboard",
           color: "#e5e5e5"
         }} triggerRef={triggerRef as React.RefObject<HTMLDivElement>} />
       </div>
