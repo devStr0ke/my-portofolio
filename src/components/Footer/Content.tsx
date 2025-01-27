@@ -32,7 +32,7 @@ const Section2 = () => {
 const Nav = () => {
     return (
         <div className='flex flex-col sm:flex-row shrink-0 gap-8 sm:gap-20'>
-            <p className='text-neutral-950 font-bold text-3xl sm:text-5xl xl:text-7xl 3xl:text-8xl uppercase mb-6 block tracking-tighter'>Work in progress footer</p>
+            <p className='text-neutral-950 font-bold text-3xl sm:text-5xl xl:text-7xl 3xl:text-8xl uppercase mb-6 block tracking-tighter'></p>
         </div>
     )
 }

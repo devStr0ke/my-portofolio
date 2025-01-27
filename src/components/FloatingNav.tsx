@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Magnetic from "./Magnetic";
 import GravityIcon from "./GravityIcon";
 import Link from "next/link";
+import Image from "next/image";
 
 interface FloatingNavProps {
   disableScroll?: boolean;
@@ -52,6 +53,42 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
 
   return (
     <>
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ 
+          y: visible ? 0 : -150,
+          opacity: visible ? 1 : 0
+        }}
+        transition={{
+          duration: 0.2
+        }}
+        className="fixed top-12 left-6 xl:left-12 2xl:left-16 z-50 hidden lg:block"
+      >
+        <nav className="flex flex-col gap-1 uppercase text-left text-sm xl:text-base">
+          <Magnetic>
+            <div className="group relative inline-block overflow-hidden">
+              <Link href="/" className={`flex cursor-pointer group ${isNavOverFooter ? 'text-neutral-950 hover:text-neutral-950' : 'text-neutral-500 hover:text-indigo-600'} font-bold`}>
+                <Image
+                  src={isNavOverFooter ? "/logoFooter.svg" : "/logo.svg"}
+                  alt="Logo"
+                  width={40} 
+                  height={40}
+                  priority={true}
+                  className={`transition-transform duration-300 ${isNavOverFooter ? '' : 'group-hover:hidden'}`}
+                />
+                <Image
+                  src="/logoHover.svg"
+                  alt="Logo Hover"
+                  width={40} 
+                  height={40}
+                  priority={true}
+                  className={`transition-transform hidden duration-300 ${isNavOverFooter ? 'hidden' : 'group-hover:block'}`}
+                />
+              </Link>
+            </div>
+          </Magnetic>
+        </nav>
+      </motion.div>
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ 
