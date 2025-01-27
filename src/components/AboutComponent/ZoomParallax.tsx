@@ -16,81 +16,74 @@ export default function ZoomParallax() {
 
     const images = [
         {
-            bw: '/about/bw/fightHexa.png',
-            color: '/about/colored/fightHexa.png',
+            name: 'fightHexa.png',
             position: {
                 left: '50%',
                 top: '50%',
                 transform: 'translate(-50%, -50%)'
             },
             size: 'w-[25vw] h-[25vh]',
-            sizes: '(max-width: 2048px) 100vw, 35vw'
+            sizes: '(max-width: 2048px) 100vw'
         },
         {
-            bw: '/about/bw/limouxFight.png',
-            color: '/about/colored/limouxFight.png',
+            name: 'limouxFight.png',
             position: {
                 left: '55%',
                 top: '20%',
                 transform: 'translate(-50%, -50%)'
             },
             size: 'w-[35vw] h-[30vh]',
-            sizes: '(max-width: 2048px) 100vw, 35vw'
+            sizes: '(max-width: 2048px) 100vw'
         },
         {
-            bw: '/about/bw/hercules.png',
-            color: '/about/colored/hercules.png',
+            name: 'hercules.png',
             position: {
                 left: '26%',
                 top: '40%',
                 transform: 'translate(-50%, -50%)'
             },
             size: 'w-[20vw] h-[45vh]',
-            sizes: '(max-width: 1011px) 100vw, 35vw'
+            sizes: '(max-width: 1011px) 100vw'
         },
         {
-            bw: '/about/bw/bangkok.png',
-            color: '/about/colored/bangkok.png',
+            name: 'bangkok.png',
             position: {
                 left: '71.5%',
                 top: '50%',
                 transform: 'translate(-50%, -50%)'
             },
             size: 'w-[15vw] h-[25vh]',
-            sizes: '(max-width: 1011px) 100vw, 35vw'
+            sizes: '(max-width: 1011px) 100vw'
         },
         {
-            bw: '/about/bw/coffee.png',
-            color: '/about/colored/coffee.png',
+            name: 'coffee.png',
             position: {
                 left: '48%',
                 top: '79.5%',
                 transform: 'translate(-50%, -50%)'
             },
             size: 'w-[15vw] h-[30vh]',
-            sizes: '(max-width: 1011px) 100vw, 35vw'
+            sizes: '(max-width: 1011px) 100vw'
         },
         {
-            bw: '/about/bw/algarve.png',
-            color: '/about/colored/algarve.png',
+            name: 'algarve.png',
             position: {
                 left: '32%',
                 top: '80%',
                 transform: 'translate(-50%, -50%)'
             },
             size: 'w-[15vw] h-[30vh]',
-            sizes: '(max-width: 1011px) 100vw, 35vw'
+            sizes: '(max-width: 1011px) 100vw'
         },
         {
-            bw: '/about/bw/limoux.png',
-            color: '/about/colored/limoux.png',
+            name: 'limoux.png',
             position: {
                 left: '64%',
                 top: '75.5%',
                 transform: 'translate(-50%, -50%)'
             },
             size: 'w-[15vw] h-[20vh]',
-            sizes: '(max-width: 1011px) 100vw, 35vw'
+            sizes: '(max-width: 1011px) 100vw'
         }
     ];
 
@@ -120,7 +113,7 @@ export default function ZoomParallax() {
                                         <div className="relative w-full h-full">
                                             {/* Black and White Image */}
                                             <Image
-                                                src={image.bw}
+                                                src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/bw/${image.name}`}
                                                 fill
                                                 alt="image"
                                                 priority
@@ -132,7 +125,7 @@ export default function ZoomParallax() {
                                             />
                                             {/* Colored Image */}
                                             <Image
-                                                src={image.color}
+                                                src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/colored/${image.name}`}
                                                 fill
                                                 priority
                                                 alt="image"
@@ -163,7 +156,7 @@ export default function ZoomParallax() {
                             onClick={() => setHoveredIndex(index)}
                         >
                             <Image
-                                src={image.bw}
+                                src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/bw/${image.name}`}
                                 fill
                                 alt="image"
                                 priority
@@ -174,7 +167,7 @@ export default function ZoomParallax() {
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />
                             <Image
-                                src={image.color}
+                                src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/colored/${image.name}`}
                                 fill
                                 alt="image"
                                 priority
