@@ -9,6 +9,7 @@ const routes: { [key: string]: string } = {
   "/about": "· About",
   "/experience": "· Experience",
   "/work": "· Work",
+  "/contact": "· Contact",
   "/work/mg-evenements": "· MG-Evenements",
   "/work/mge-dashboard": "· MGE-Dashboard",
   "/work/halcyon-labs": "· Halcyon-Labs",

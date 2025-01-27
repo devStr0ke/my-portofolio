@@ -65,13 +65,13 @@ export const RoundedButton = ({
     violet: 'border-violet-300 text-violet-300',
     indigo: 'border-indigo-300 text-indigo-300',
     neutral: 'border-neutral-950 text-neutral-950 hover:border-neutral-950 hover:text-indigo-600 font-bold',
-    light: 'border-neutral-700 text-neutral-500 hover:text-neutral-950 font-bold',
+    light: 'border-neutral-700 text-neutral-300 hover:text-neutral-950 font-bold',
   };
 
   const sizeClasses = {
     small: 'w-[130px] py-7',
     default: 'w-[220px] py-7',
-    large: 'w-[260px] py-7',
+    large: 'w-[300px] py-7',
     custom: `${customSize?.width} ${customSize?.padding}`,
   };
 
