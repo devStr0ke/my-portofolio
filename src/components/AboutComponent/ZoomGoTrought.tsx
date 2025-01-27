@@ -16,10 +16,10 @@ export default function ZoomImageGrow() {
   const images = [
     {
       name: "coffeePortugal.png",
-      size: { width: 250, height: 250 },
+      size: { width: 300, height: 300 },
       position: { top: '22%', left: '30%' },
       zIndex: 1,
-      speed: 1,
+      speed: 0.01,
       vanishPoint: 0.4
     },
     {
@@ -27,12 +27,12 @@ export default function ZoomImageGrow() {
       size: { width: 200, height: 150 },
       position: { top: '30%', left: '60%' },
       zIndex: 2,
-      speed: 0.1,
+      speed: 1,
       vanishPoint: 0.55
     },
     {
       name: "grains.png",
-      size: { width: 300, height: 400 },
+      size: { width: 350, height: 400 },
       position: { top: '50%', left: '40%' },
       zIndex: 3,
       speed: 0.05,
@@ -48,10 +48,10 @@ export default function ZoomImageGrow() {
     },
     {
       name: "sanzone.png",
-      size: { width: 200, height: 110 },
+      size: { width: 250, height: 110 },
       position: { top: '20%', left: '25%' },
       zIndex: 5,
-      speed: 0.01,
+      speed: 2,
       vanishPoint: 0.4
     }
   ];
@@ -89,23 +89,34 @@ export default function ZoomImageGrow() {
       <div className="absolute top-0 left-0 w-full h-full">
         {images.map((image, index) => (
           <motion.div
-            key={index}
-            className="absolute"
-            style={{
+              key={index}
+              className="absolute"
+              style={{
               y: yTransforms[index],
               opacity: opacityTransforms[index],
               top: image.position.top,
               left: image.position.left,
               zIndex: image.zIndex
-            }}
+              }}
           >
-            <Image
-              src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/bw/${image.name}`}
-              alt={image.name}
-              width={image.size.width}
-              height={image.size.height}
-              objectFit="contain"
-            />
+              <div className="relative w-full h-full transition duration-1000 group">
+              <Image
+                  src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/bw/${image.name}`}
+                  alt={image.name}
+                  width={image.size.width}
+                  height={image.size.height}
+                  objectFit="contain"
+                  className="absolute inset-0 transition duration-400 group-hover:opacity-0"
+              />
+              <Image
+                  src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/colored/${image.name}`}
+                  alt={image.name}
+                  width={image.size.width}
+                  height={image.size.height}
+                  objectFit="contain"
+                  className="transition duration-400 group-hover:opacity-100"
+              />
+              </div>
           </motion.div>
         ))}
       </div>
