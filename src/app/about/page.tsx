@@ -65,6 +65,20 @@ const descriptionText3 = [
   { text: "espresso", color: "rgb(99 102 241)" },
 ];
 
+const descriptionText4 = [
+  { text: "Now" },
+  { text: "you" },
+  { text: "know" },
+  { text: "me" },
+  { text: "better." },
+  { text: "Put" },
+  { text: "a" },
+  { text: "face" },
+  { text: "to" },
+  { text: "the" },
+  { text: "code." }
+];
+
 export default function Home() {
 
   useEffect( () => {
@@ -101,6 +115,8 @@ export default function Home() {
         <Description descriptionText={descriptionText3} />
         <ZoomGoTrought />
         <Spacer size="sm" />
+        <Description descriptionText={descriptionText4} />
+        <Spacer mobileSize="md"size="lg" />
       </div>
       <Footer />
     </>
