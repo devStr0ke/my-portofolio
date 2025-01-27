@@ -4,37 +4,50 @@ import ZoomParallax from "../../components/AboutComponent/ZoomParallax";
 import Description from "@/components/AboutComponent/Description";
 import Section from "@/components/AboutComponent/Section";
 import MultipleImageSection from "@/components/AboutComponent/MultipleImageSection";
+import ZoomGoTrought  from "@/components/AboutComponent/ZoomGoTrought";
 import { Spacer } from "@/components/Spacer";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "lenis";
 import { useEffect } from "react";
 
 const descriptionText1 = [
-  { text: "Beyond" },
-  { text: "my" },
-  { text: "technical expertise" },
   { text: "I'm" },
-  { text: "passionate" },
-  { text: "about" },
-  { text: "combat sports," },
-  { text: "particularly" },
+  { text: "a" },
   { text: "submission", color: "rgb(99 102 241)" },
   { text: "grappling", color: "rgb(99 102 241)" },
+  { text: "coach" },
+  { text: "aiming" },
+  { text: "to" },
+  { text: "share" },
+  { text: "my" },
+  { text: "knowledge" },
+  { text: "with" },
+  { text: "athletes" },
+  { text: "focused" },
+  { text: "on" },
+  { text: "details" },
+  { text: "and" },
+  { text: "excellence" }
 ];
 
 const descriptionText2 = [
-  { text: "Exploring" },
+  { text: "I" },
+  { text: "also" },
+  { text: "love" },
+  { text: "to" },
+  { text: "explore" },
   { text: "the" },
-  { text: "world" },
+  { text: "world," },
+  { text: "it" },
   { text: "fuels" },
   { text: "my" },
   { text: "curiosity" },
   { text: "for" },
   { text: "new" },
-  { text: "adventures", color: "rgb(99 102 241)" },
+  { text: "adventures,", color: "rgb(99 102 241)" },
   { text: "discoveries", color: "rgb(99 102 241)" },
   { text: "and" },
-  { text: "experiences", color: "rgb(99 102 241)" },
+  { text: "experiences", color: "rgb(99 102 241)" }
 ];
 
 const descriptionText3 = [
@@ -50,6 +63,20 @@ const descriptionText3 = [
   { text: "drinking", color: "rgb(99 102 241)" },
   { text: "quality", color: "rgb(99 102 241)" },
   { text: "espresso", color: "rgb(99 102 241)" },
+];
+
+const descriptionText4 = [
+  { text: "Now" },
+  { text: "you" },
+  { text: "know" },
+  { text: "me" },
+  { text: "better." },
+  { text: "Put" },
+  { text: "a" },
+  { text: "face" },
+  { text: "to" },
+  { text: "the" },
+  { text: "code." }
 ];
 
 export default function Home() {
@@ -86,7 +113,10 @@ export default function Home() {
         <MultipleImageSection />
         <Spacer size="sm" />
         <Description descriptionText={descriptionText3} />
+        <ZoomGoTrought />
         <Spacer size="sm" />
+        <Description descriptionText={descriptionText4} />
+        <Spacer mobileSize="md"size="lg" />
       </div>
       <Footer />
     </>
