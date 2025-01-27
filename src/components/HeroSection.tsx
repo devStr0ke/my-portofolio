@@ -109,7 +109,7 @@ import Link from "next/link";
         <Magnetic><Link href="/about" className="font-bold uppercase cursor-pointer hover:text-indigo-600">About</Link></Magnetic>
         <Magnetic><Link href="/experience" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Experience</Link></Magnetic>
         <Magnetic><Link href="/work" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Work</Link></Magnetic>
-        <Magnetic><Link href="#contact" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Contact</Link></Magnetic>
+        <Magnetic><Link href="/contact" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Contact</Link></Magnetic>
       </div>
     );
   };

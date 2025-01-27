@@ -115,7 +115,7 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
             </Link>
           </Magnetic>
           <Magnetic>
-            <Link href="#contact" className={navLinkClass}>
+            <Link href="/contact" className={navLinkClass}>
               Contact
             </Link>
           </Magnetic>
