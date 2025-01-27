@@ -116,6 +116,7 @@ export default function ProjectSection({
               fill
               priority
               className="object-contain"
+              sizes="(max-width: 751px) 100vw"
             />
           </div>
           <div className="relative w-[25%] aspect-[9/19]">
@@ -125,6 +126,7 @@ export default function ProjectSection({
               fill
               priority
               className="object-contain"
+              sizes="(max-width: 751px) 100vw"
             />
           </div>
           <div className="relative w-[25%] aspect-[9/19]">
@@ -134,6 +136,7 @@ export default function ProjectSection({
               fill
               priority
               className="object-contain"
+              sizes="(max-width: 751px) 100vw"
             />
           </div>
         </div>
