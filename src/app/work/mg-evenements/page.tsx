@@ -34,16 +34,11 @@ export default function Home() {
       <Spacer mobileSize="xs" size="xs" />
       <ProjectSection
         title="MG Événements"
-        mainImage="/mgevenements/main.png"
-        macImage="/mgevenements/mac.png"
-        macImage2="/mgevenements/mac2.png"
+        projectName="mgevenements"
         websiteUrl="https://mgevenements.fr/"
         firstDescription="MG Événements is a boutique event planning agency based in Toulouse, France. I crafted their digital presence to reflect their dedication to creating unforgettable moments, with a design that balances elegance and functionality."
         secondDescription="The website serves as a digital showcase of their services, allowing clients to explore their offerings and seamlessly request quotes. The design emphasizes visual storytelling while maintaining a clean, professional aesthetic."
         thirdDescription="Every interaction was carefully crafted to enhance user engagement. From smooth page transitions to responsive animations, the site delivers a polished experience that reflects MG Événements commitment to excellence."
-        mobile1="/mgevenements/mobile1.png"
-        mobile2="/mgevenements/mobile2.png"
-        mobile3="/mgevenements/mobile3.png"
         credits={{
           name: "Eva Bardeau",
           linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
@@ -54,7 +49,7 @@ export default function Home() {
         <ProjectFooter nextProject={{
           title: "MGE Dashboard",
           href: "/work/mge-dashboard",
-          image: "/mgedashboard/main.png",
+          nextProjectName: "mgedashboard",
           color: "#e5e5e5"
         }} triggerRef={triggerRef as React.RefObject<HTMLDivElement>} />
       </div>

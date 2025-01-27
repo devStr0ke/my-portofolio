@@ -23,12 +23,14 @@ interface TableWorkProps {
   noTitle?: boolean;
 }
 
+const baseUrl = 'https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/';
+
 const defaultProjects = [
   {
     title: "MG Événements",
     location: "Toulouse, France",
     services: "Conception & Development",
-    src: "mgevenements/main.png",
+    src: `${baseUrl}mgevenements/main.png`,
     color: "#737373",
     year: "2024",
     route: "/work/mg-evenements",
@@ -38,7 +40,7 @@ const defaultProjects = [
     title: "MGE Dashboard",
     location: "Toulouse, France",
     services: "Conception & Development",
-    src: "mgedashboard/main.png",
+    src: `${baseUrl}mgedashboard/main.png`,
     color: "#e5e5e5",
     year: "2024",
     route: "/work/mge-dashboard",
@@ -48,7 +50,7 @@ const defaultProjects = [
     title: "Halcyon Labs",
     location: "Toulouse, France",
     services: "UI/UX Design",
-    src: "halcyon/main.png",
+    src: `${baseUrl}halcyon/main.png`,
     color: "#000000",
     year: "2022",
     route: "/work/halcyon-labs",

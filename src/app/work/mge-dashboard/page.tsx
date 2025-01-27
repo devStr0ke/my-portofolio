@@ -34,17 +34,12 @@ export default function Home() {
       <Spacer mobileSize="xs" size="xs" />
       <ProjectSection
         title="MGE Dashboard"
-        mainImage="/mgedashboard/main.png"
-        macImage="/mgedashboard/mac.png"
-        macImage2="/mgedashboard/mac2.png"
+        projectName="mgedashboard"
         websiteUrl="https://github.com/Void-Software-Inc/mge-dashboard"
         buttonLabel="Visit GitHub Repo"
         firstDescription="MGE Dashboard is a custom-built administrative interface designed specifically for MG Événements. This powerful tool seamlessly integrates with their client-facing website, enabling real-time database management and quote processing, creating a fluid workflow between client interactions and business operations."
         secondDescription="At its core, the dashboard provides comprehensive CRUD operations for product management, with instant synchronization to the main website. Every update made in the dashboard is immediately reflected on MG Événements' client platform, ensuring consistent and up-to-date information across all touchpoints."
         thirdDescription="The quote management system streamlines client communication by centralizing all incoming requests from the website. This integration creates a seamless pipeline from client inquiry to quote processing, enabling MG Événements to respond promptly and manage their business operations efficiently."
-        mobile1="/mgedashboard/mobile1.png"
-        mobile2="/mgedashboard/mobile2.png"
-        mobile3="/mgedashboard/mobile3.png"
         credits={{
           name: "Eva Bardeau",
           linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
@@ -55,7 +50,7 @@ export default function Home() {
         <ProjectFooter nextProject={{
           title: "Halcyon Labs",
           href: "/work/halcyon-labs",
-          image: "/halcyon/main.png",
+          nextProjectName: "halcyon",
           color: "#000000"
         }} triggerRef={triggerRef as React.RefObject<HTMLDivElement>} />
       </div>

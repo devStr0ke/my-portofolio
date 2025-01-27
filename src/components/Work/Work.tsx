@@ -19,10 +19,12 @@ interface WorkProps {
   noTitle?: boolean;
 }
 
+const baseUrl = 'https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/';
+
 const defaultProjects = [
   {
     title: "MG Événements",
-    src: "mgevenements/main.png",
+    src: `${baseUrl}mgevenements/main.png`,
     color: "#737373",
     type: "Conception & Development",
     year: "2024",
@@ -30,7 +32,7 @@ const defaultProjects = [
   },
   {
     title: "MGE Dashboard",
-    src: "mgedashboard/main.png",
+    src: `${baseUrl}mgedashboard/main.png`,
     color: "#e5e5e5",
     type: "Conception & Development",
     year: "2024",
@@ -38,7 +40,7 @@ const defaultProjects = [
   },
   {
     title: "Halcyon Labs",
-    src: "halcyon/main.png",
+    src: `${baseUrl}halcyon/main.png`,
     color: "#000000",
     type: "UI/UX Design",
     year: "2022",

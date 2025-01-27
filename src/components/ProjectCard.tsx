@@ -31,9 +31,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     });
   };
 
-  // Ensure the image path starts with a forward slash for the public directory
-  const imagePath = project.src.startsWith('/') ? project.src : `/${project.src}`;
-
   return (
     <Link href={project.route}>
       <div className="space-y-4 relative group">
@@ -47,11 +44,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         >
           <div className="w-full h-full relative">
             <Image 
-              src={imagePath}
+              src={project.src}
               alt={project.title}
               fill
               priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 1927px) 100vw"
               className="object-contain"
             />
           </div>

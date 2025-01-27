@@ -100,7 +100,7 @@ const Column = ({ images, y, className = "" }: ColumnProps) => {
                   onMouseLeave={() => setHoveredIndex(null)}
               >
                   <Image 
-                      src={`/about/bw/${src}`}
+                      src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/bw/${src}`}
                       alt='image'
                       fill
                       priority
@@ -108,7 +108,7 @@ const Column = ({ images, y, className = "" }: ColumnProps) => {
                       className={`object-cover transition-opacity duration-500 ${hoveredIndex === i ? 'opacity-0' : 'opacity-100'}`}
                   />
                   <Image 
-                      src={`/about/colored/${src}`}
+                      src={`https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/colored/${src}`}
                       alt='image'
                       fill
                       priority

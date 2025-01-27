@@ -79,7 +79,7 @@ export default function Home() {
         <Spacer size="sm" />
         <Description descriptionText={descriptionText1} />
         <Spacer size="sm" />
-        <Section imageSrc="/about/bw/limouxFight.png" mobileImageSrc="/about/bw/limoux.png" text="2023-11 - Limoux Fight" />
+        <Section imageSrc="limouxFight.png" mobileSrc="limoux.png" text="2023-11 - Limoux Fight" />
         <Spacer size="sm" />
         <Description descriptionText={descriptionText2} />
         <Spacer size="sm" />
