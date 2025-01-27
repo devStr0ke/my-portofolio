@@ -8,17 +8,12 @@ import Character from '@/components/Character';
 
 interface ProjectSectionProps {
   title: string;
-  mainImage: string;
-  macImage: string;
-  macImage2: string;
+  projectName: string; // New prop for project name
   websiteUrl?: string;
   buttonLabel?: string;
   firstDescription?: string;
   secondDescription?: string;
   thirdDescription?: string;
-  mobile1?: string;
-  mobile2?: string;
-  mobile3?: string;
   credits?: {
     name: string;
     linkedIn: string;
@@ -28,18 +23,25 @@ interface ProjectSectionProps {
 
 export default function ProjectSection({ 
   title, 
-  mainImage, 
-  macImage, 
-  macImage2, 
+  projectName, 
   websiteUrl, 
   buttonLabel, 
   firstDescription, 
   secondDescription, 
   thirdDescription, 
-  mobile1, 
-  mobile2, 
-  mobile3, 
-  credits }: ProjectSectionProps) {
+  credits 
+}: ProjectSectionProps) {
+  // Base URL for images
+  const baseUrl = `https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/${projectName}`;
+
+  // Construct image URLs
+  const mainImage = `${baseUrl}/main.png`;
+  const macImage = `${baseUrl}/mac.png`;
+  const macImage2 = `${baseUrl}/mac2.png`;
+  const mobile1 = `${baseUrl}/mobile1.png`;
+  const mobile2 = `${baseUrl}/mobile2.png`;
+  const mobile3 = `${baseUrl}/mobile3.png`;
+
   return (
     <>
       <div className="w-full lg:max-w-[85%] mx-auto relative">
@@ -105,45 +107,37 @@ export default function ProjectSection({
       <Spacer mobileSize="xxs" size="xs" />
 
       {/* Mobile Showcase */}
-      {(mobile1 || mobile2 || mobile3) && (
-        <div className="w-full max-w-[100%] lg:max-w-[80%] mx-auto">
-          <div className="relative w-full aspect-[16/9] flex items-center justify-center gap-4 lg:gap-12">
-            {mobile1 && (
-              <div className="relative w-[25%] aspect-[9/19]">
-                <Image 
-                  src={mobile1}
-                  alt={`${title} mobile preview 1`}
-                  fill
-                  priority
-                  className="object-contain"
-                />
-              </div>
-            )}
-            {mobile2 && (
-              <div className="relative w-[25%] aspect-[9/19]">
-                <Image 
-                  src={mobile2}
-                  alt={`${title} mobile preview 2`}
-                  fill
-                  priority
-                  className="object-contain"
-                />
-              </div>
-            )}
-            {mobile3 && (
-              <div className="relative w-[25%] aspect-[9/19]">
-                <Image 
-                  src={mobile3}
-                  alt={`${title} mobile preview 3`}
-                  fill
-                  priority
-                  className="object-contain"
-                />
-              </div>
-            )}
+      <div className="w-full max-w-[100%] lg:max-w-[80%] mx-auto">
+        <div className="relative w-full aspect-[16/9] flex items-center justify-center gap-4 lg:gap-12">
+          <div className="relative w-[25%] aspect-[9/19]">
+            <Image 
+              src={mobile1}
+              alt={`${title} mobile preview 1`}
+              fill
+              priority
+              className="object-contain"
+            />
+          </div>
+          <div className="relative w-[25%] aspect-[9/19]">
+            <Image 
+              src={mobile2}
+              alt={`${title} mobile preview 2`}
+              fill
+              priority
+              className="object-contain"
+            />
+          </div>
+          <div className="relative w-[25%] aspect-[9/19]">
+            <Image 
+              src={mobile3}
+              alt={`${title} mobile preview 3`}
+              fill
+              priority
+              className="object-contain"
+            />
           </div>
         </div>
-      )}
+      </div>
 
       <Spacer mobileSize="xxs" size="xs" />
 
