@@ -4,7 +4,6 @@ import ZoomParallax from "../../components/AboutComponent/ZoomParallax";
 import Description from "@/components/AboutComponent/Description";
 import Section from "@/components/AboutComponent/Section";
 import MultipleImageSection from "@/components/AboutComponent/MultipleImageSection";
-import ZoomGoTrought  from "@/components/AboutComponent/ZoomGoTrought";
 import { Spacer } from "@/components/Spacer";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "lenis";
@@ -51,30 +50,31 @@ const descriptionText2 = [
 ];
 
 const descriptionText3 = [
-  { text: "I'm" },
-  { text: "an" },
+  { text: "I" },
+  { text: "love" },
   { text: "espresso" },
-  { text: "aficionado," },
-  { text: "with" },
-  { text: "a" },
-  { text: "keen" },
-  { text: "interest" },
-  { text: "in" },
-  { text: "drinking", color: "rgb(99 102 241)" },
+  { text: "and" },
+  { text: "good" },
+  { text: "food," },
+  { text: "always" },
+  { text: "seeking", color: "rgb(99 102 241)" },
   { text: "quality", color: "rgb(99 102 241)" },
-  { text: "espresso", color: "rgb(99 102 241)" },
+  { text: "experiences", color: "rgb(99 102 241)" },
 ];
 
 const descriptionText4 = [
-  { text: "Now" },
+  { text: "I" },
+  { text: "hope" },
   { text: "you" },
+  { text: "enjoyed" },
+  { text: "getting" },
+  { text: "to" },
   { text: "know" },
   { text: "me" },
-  { text: "better." },
-  { text: "Put" },
-  { text: "a" },
-  { text: "face" },
-  { text: "to" },
+  { text: "better," },
+  { text: "the", color: "rgb(99 102 241)" },
+  { text: "person", color: "rgb(99 102 241)" },
+  { text: "behind", color: "rgb(99 102 241)" },
   { text: "the" },
   { text: "code." }
 ];
@@ -113,7 +113,8 @@ export default function Home() {
         <MultipleImageSection />
         <Spacer size="sm" />
         <Description descriptionText={descriptionText3} />
-        <ZoomGoTrought />
+        <Spacer size="sm" />
+        <Section imageSrc="takoAndEspresso.png" mobileSrc="minifundi.png" text="" />
         <Spacer size="sm" />
         <Description descriptionText={descriptionText4} />
         <Spacer mobileSize="md"size="lg" />
