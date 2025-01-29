@@ -29,7 +29,7 @@ export default function Project({ index, title, route, setModal }: ProjectProps)
 
         {/* Desktop Layout (lg and up) */}
         <div 
-          className="hidden lg:flex justify-between items-center relative z-8 py-10 text-neutral-500 hover:text-neutral-950 transition-colors duration-300"
+          className="hidden lg:flex justify-between items-center relative z-8 py-10 text-neutral-500 hover:text-neutral-950"
           onMouseEnter={() => { setModal({ active: true, index }) }} 
           onMouseLeave={() => { setModal({ active: false, index }) }}
         >

@@ -40,11 +40,11 @@ export default function Home() {
         firstDescription="MGE Dashboard is a custom-built administrative interface designed specifically for MG Événements. This powerful tool seamlessly integrates with their client-facing website, enabling real-time database management and quote processing, creating a fluid workflow between client interactions and business operations."
         secondDescription="At its core, the dashboard provides comprehensive CRUD operations for product management, with instant synchronization to the main website. Every update made in the dashboard is immediately reflected on MG Événements' client platform, ensuring consistent and up-to-date information across all touchpoints."
         thirdDescription="The quote management system streamlines client communication by centralizing all incoming requests from the website. This integration creates a seamless pipeline from client inquiry to quote processing, enabling MG Événements to respond promptly and manage their business operations efficiently."
-        credits={{
-          name: "Eva Bardeau",
-          linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
-          text: "Special thanks to Eva for her valuable insights on how to improve the dashboard's user experience"
-        }}
+        //credits={{
+        //  name: "Eva Bardeau",
+        //  linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
+        //  text: "Special thanks to Eva for her valuable insights on how to improve the dashboard's user experience"
+        //}}
       />
       <div ref={triggerRef}>
         <ProjectFooter nextProject={{

@@ -44,7 +44,7 @@ export default function TableProject({
 
         {/* Content */}
         <div 
-          className="flex items-center relative z-8 py-10 text-neutral-500 hover:text-neutral-950 transition-colors duration-300 w-full gap-8"
+          className="flex items-center relative z-8 py-10 text-neutral-500 hover:text-neutral-950 w-full gap-8"
           onMouseEnter={() => { setModal({ active: true, index }) }} 
           onMouseLeave={() => { setModal({ active: false, index }) }}
         >

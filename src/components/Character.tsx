@@ -7,7 +7,7 @@ type HighlightedWord = {
   color?: string;
 }
 
-type TextSize = 'sm' | 'md' | 'lg' | 'xl';
+type TextSize = 'sm' | 'xl';
 type TextAlign = 'start' | 'center' | 'end';
 
 type ParagraphProps = {
@@ -19,10 +19,8 @@ type ParagraphProps = {
 }
 
 const TEXT_SIZES = {
-  sm: "text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl",
-  md: "text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl",
-  lg: "text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl",
-  xl: "text-[2.5rem] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[5.2rem] 2xl:text-[5.2rem] 3xl:text-8xl",
+  sm: "text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-[2.2rem] 2xl:text-[2.9rem]",
+  xl: "text-[2.3rem] sm:text-5xl xl:text-[3.8rem] 2xl:text-[5rem]",
 } as const;
 
 export default function Paragraph({ 

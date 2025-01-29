@@ -4,9 +4,11 @@ import { RoundedButton } from '../RoundedButton';
 export default function Content() {
   return (
     <div className="relative h-full w-full">
-      <div className='bg-indigo-600 text-white py-72 px-4 sm:px-12 h-full w-full flex flex-col justify-between'>
-        <Section1 />
-        <Section2 />
+      <div className='bg-indigo-600 text-white h-full w-full min-h-screen flex items-center justify-center'>
+        <div className='flex flex-col items-center gap-2 w-full max-w-[100%]'>
+          <Section1 />
+          <Section2 />
+        </div>
       </div>
       <div className="absolute bottom-12 left-0 w-full max-w-screen-lg px-4 sm:px-12">
         <Section3 />
@@ -17,14 +19,15 @@ export default function Content() {
 
 const Section1 = () => {
   return (
-    <div className='flex flex-col items-center justify-center h-full gap-8'>
+    <div className='flex flex-col items-center justify-center gap-8 w-full'>
       <h1 className='text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-semibold text-neutral-950'>
-        Let’s collaborate
+        Let's collaborate
       </h1>
-      <div className='w-full border-t border-neutral-950 mt-4'></div>
+      <div className='w-full border-t border-neutral-950'></div>
     </div>
   );
 }
+
 
 const Section2 = () => {
   return (

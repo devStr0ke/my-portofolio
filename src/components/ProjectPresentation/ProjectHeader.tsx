@@ -21,17 +21,17 @@ export default function ProjectHeader({ title, role, techStack, location, year }
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Role/Services Column */}
         <div>
-          <h3 className="text-xs sm:text-sm text-neutral-500 mb-4">ROLE / SERVICES</h3>
-          <div className="border-t border-zinc-800 pt-2 md:pt-8">
-            <p className="text-md sm:text-lg text-neutral-500">{role}</p>
+          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">ROLE / SERVICES</h3>
+          <div className="border-t border-zinc-800 pt-2 md:pt-6">
+            <p className="text-sm 2xl:text-base text-neutral-500">{role}</p>
           </div>
         </div>
 
          {/* Tech Stack Column */}
          <div>
-          <h3 className="text-xs sm:text-sm text-neutral-500 mb-4">TECH STACK</h3>
-          <div className="border-t-[0.25px] border-zinc-800 pt-2 md:pt-8">
-            <p className="text-md sm:text-lg text-neutral-500">
+          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">TECH STACK</h3>
+          <div className="border-t-[0.25px] border-zinc-800 pt-2 md:pt-6">
+            <p className="text-sm 2xl:text-base text-neutral-500">
               {techStack.join(', ')}
             </p>
           </div>
@@ -39,9 +39,9 @@ export default function ProjectHeader({ title, role, techStack, location, year }
 
         {/* Location & Year Column */}
         <div>
-          <h3 className="text-xs sm:text-sm text-neutral-500 mb-4">LOCATION & YEAR</h3>
-          <div className="border-t-[0.25px] border-zinc-800 pt-2 md:pt-8">
-            <p className="text-md sm:text-lg text-neutral-500">{location} © {year}</p>
+          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">LOCATION & YEAR</h3>
+          <div className="border-t-[0.25px] border-zinc-800 pt-2 md:pt-6">
+            <p className="text-sm 2xl:text-base text-neutral-500">{location} © {year}</p>
           </div>
         </div>
       </div>
