@@ -50,8 +50,8 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
 
   return (
     <div className='bg-indigo-600 h-full w-full relative'>
-      <div className='absolute inset-0 flex flex-col items-center justify-end'>
-        <p className='text-2xl font-bold text-neutral-950 mb-20'>
+      <div className='absolute inset-0 flex flex-col gap-8 items-center justify-end'>
+        <p className='text-2xl font-bold text-neutral-950'>
           Next project
         </p>
 
@@ -87,8 +87,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           {/* Indigo mask - positioned below the card */}
           <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-[2]" />
         </div>
-        <Spacer size='sm' mobileSize='sm' />
-        <RoundedButton href='/work' color='neutral' superscript='3' backgroundColor='#0a0a0a' className='absolute bottom-20 z-[3]'>All work</RoundedButton>
+        <RoundedButton href='/work' color='neutral' superscript='3' backgroundColor='#0a0a0a' className='z-[3] mb-10'>All work</RoundedButton>
       </div>
     </div>
   )
