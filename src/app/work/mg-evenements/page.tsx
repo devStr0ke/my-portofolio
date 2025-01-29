@@ -39,11 +39,11 @@ export default function Home() {
         firstDescription="MG Événements is a boutique event planning agency based in Toulouse, France. I crafted their digital presence to reflect their dedication to creating unforgettable moments, with a design that balances elegance and functionality."
         secondDescription="The website serves as a digital showcase of their services, allowing clients to explore their offerings and seamlessly request quotes. The design emphasizes visual storytelling while maintaining a clean, professional aesthetic."
         thirdDescription="Every interaction was carefully crafted to enhance user engagement. From smooth page transitions to responsive animations, the site delivers a polished experience that reflects MG Événements commitment to excellence."
-        credits={{
-          name: "Eva Bardeau",
-          linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
-          text: "Special thanks to Eva for her invaluable design insights and skills as a front-end developer"
-        }}
+        //credits={{
+        //  name: "Eva Bardeau",
+        //  linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
+        //  text: "Special thanks to Eva for her invaluable design insights and skills as a front-end developer"
+        //}}
       />
       <div ref={triggerRef}>
         <ProjectFooter nextProject={{

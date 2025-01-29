@@ -14,11 +14,11 @@ interface ProjectSectionProps {
   firstDescription?: string;
   secondDescription?: string;
   thirdDescription?: string;
-  credits?: {
-    name: string;
-    linkedIn: string;
-    text: string;
-  };
+  //credits?: {
+  //  name: string;
+  //  linkedIn: string;
+  //  text: string;
+  //};
 }
 
 export default function ProjectSection({ 
@@ -29,7 +29,7 @@ export default function ProjectSection({
   firstDescription, 
   secondDescription, 
   thirdDescription, 
-  credits 
+  //credits 
 }: ProjectSectionProps) {
   // Base URL for images
   const baseUrl = `https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/${projectName}`;
@@ -166,7 +166,7 @@ export default function ProjectSection({
         </div>
       </div>
 
-      {/* Credits Section */}
+      {/* Credits Section 
       {credits && (
         <div className="w-full max-w-[90%] lg:max-w-[68%] mx-auto mb-32">
           <h3 className="text-xs sm:text-sm text-neutral-500 mb-4 text-center">CREDITS</h3>
@@ -184,7 +184,7 @@ export default function ProjectSection({
             </p>
           </div>
         </div>
-      )}
+      )}*/}
     </>
   );
 }

@@ -40,11 +40,11 @@ export default function Home() {
         firstDescription="Halcyon Labs is a decentralized application built on the Sui blockchain that reimagines whitelist distribution through gamification. The project transforms the traditional whitelist process into an engaging experience where users participate in a unique lottery system."
         secondDescription="Users can mint virtual water bottles on the blockchain, with full bottles representing successful whitelist entries. Empty bottles aren't worthless - collect five of them, and you can try your luck again, adding a strategic layer to the experience."
         thirdDescription="I designed and developed the front-end interface, focusing on creating an intuitive user experience that seamlessly connects with the blockchain. The result is a smooth, engaging platform that makes Web3 technology accessible and fun."
-        credits={{
-          name: "Thouny",
-          linkedIn: "https://github.com/thounyy",
-          text: "Special thanks to Thouny for his collaboration on the project"
-        }}
+        //credits={{
+        //  name: "Thouny",
+        //  linkedIn: "https://github.com/thounyy",
+        //  text: "Special thanks to Thouny for his collaboration on the project"
+        //}}
       />
       <div ref={triggerRef}>
         <ProjectFooter nextProject={{
