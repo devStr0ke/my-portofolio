@@ -23,9 +23,9 @@ export const GravityButton = ({
   children, 
   className = "", 
   href, 
-  label = "View My Work • See My Projects • View My Skills • Contact Me •",
+  label = "View My Work • View My Skills • Contact Me•",
   icon = <MdOutlineArrowDownward className="text-5xl" />,
-  size = 'lg',
+  size = 'md',
   static: isStatic = false
 }: GravityButtonProps) => {
   const ref = useRef<HTMLButtonElement | HTMLAnchorElement>(null);

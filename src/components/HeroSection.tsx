@@ -40,7 +40,7 @@ import Link from "next/link";
           <CenterCopy />
           <motion.p
             style={{ skewX, x }}
-            className="origin-bottom-left whitespace-nowrap text-6xl font-black uppercase leading-[0.85] md:text-8xl md:leading-[0.85]"
+            className="origin-bottom-left whitespace-nowrap text-6xl font-black uppercase leading-[0.85] md:text-7xl 2xl:text-8xl md:leading-[0.85]"
           >
             Full Stack Developer • Creative Problem Solver • Full Stack Developer • Creative Problem Solver
           </motion.p>
@@ -117,7 +117,7 @@ import Link from "next/link";
   const CenterCopy = () => {
     return (
       <div className="flex flex-col items-center justify-center mx-auto w-full text-center">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1 className="text-4xl sm:text-6xl md:text-6xl 2xl:text-8xl">
           <div className="text-neutral-500 mb-1">
             <HighLightText>Software engineer,</HighLightText>
           </div>
@@ -132,7 +132,7 @@ import Link from "next/link";
           </div>
         </h1>
         <GravityButton className="mt-8" href="#about">
-          View My Work
+          
         </GravityButton>
       </div>
     );
