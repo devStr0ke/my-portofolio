@@ -1,6 +1,7 @@
 "use client";
 import { FloatingNav } from "@/components/FloatingNav";
 import { Spacer } from "@/components/Spacer";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "lenis";
 import { useEffect } from "react";
@@ -29,6 +30,7 @@ export default function Home() {
             Lets get in touch
           </h1>
         </div>
+        <ContactForm />
       </div>
       <Footer />
     </>
