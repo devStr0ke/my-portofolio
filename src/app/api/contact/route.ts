@@ -8,7 +8,7 @@ const RECIPIENT_EMAIL = 'samuel.coelho@voidsoftware.pro';
 export async function POST(request: Request) {
   try {
     const formData = await request.json();
-    const { name, email, subject, message } = formData;
+    const { name, email, organization, subject, message } = formData;
 
     const { data, error } = await resend.emails.send({
       from: 'contact@voidsoftware.pro',
@@ -17,6 +17,7 @@ export async function POST(request: Request) {
       react: EmailTemplate({ 
         name, 
         email, 
+        organization,
         subject, 
         message 
       }),

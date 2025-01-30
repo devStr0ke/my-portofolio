@@ -20,12 +20,25 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [invalidFields, setInvalidFields] = useState<string[]>([]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    
+    // Check required fields
+    const requiredFields = ['name', 'email', 'subject', 'message'];
+    const emptyFields = requiredFields.filter(field => !formData[field as keyof FormData]);
+    
+    if (emptyFields.length > 0) {
+      setInvalidFields(emptyFields);
+      setError('Please fill in all required fields');
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
     setSuccess(false);
+    setInvalidFields([]);
 
     try {
       const response = await fetch('/api/contact', {
@@ -60,7 +73,12 @@ const ContactForm = () => {
             label="What's your name?"
             name="name"
             value={formData.name}
-            onChange={(value) => setFormData({ ...formData, name: value })}
+            onChange={(value) => {
+              setFormData({ ...formData, name: value });
+              setInvalidFields(prev => prev.filter(f => f !== 'name'));
+            }}
+            required
+            isInvalid={invalidFields.includes('name')}
           />
 
           <FormField
@@ -69,8 +87,12 @@ const ContactForm = () => {
             name="email"
             type="email"
             value={formData.email}
-            onChange={(value) => setFormData({ ...formData, email: value })}
+            onChange={(value) => {
+              setFormData({ ...formData, email: value });
+              setInvalidFields(prev => prev.filter(f => f !== 'email'));
+            }}
             required
+            isInvalid={invalidFields.includes('email')}
           />
 
           <FormField
@@ -86,8 +108,12 @@ const ContactForm = () => {
             label="What's the subject of your message?"
             name="subject"
             value={formData.subject}
-            onChange={(value) => setFormData({ ...formData, subject: value })}
+            onChange={(value) => {
+              setFormData({ ...formData, subject: value });
+              setInvalidFields(prev => prev.filter(f => f !== 'subject'));
+            }}
             required
+            isInvalid={invalidFields.includes('subject')}
           />
 
           <FormField
@@ -96,12 +122,16 @@ const ContactForm = () => {
             name="message"
             type="textarea"
             value={formData.message}
-            onChange={(value) => setFormData({ ...formData, message: value })}
+            onChange={(value) => {
+              setFormData({ ...formData, message: value });
+              setInvalidFields(prev => prev.filter(f => f !== 'message'));
+            }}
             required
+            isInvalid={invalidFields.includes('message')}
           />
 
           {error && (
-            <p className="text-red-500 flex items-center gap-2">
+            <p className="text-indigo-600 flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -159,23 +189,28 @@ interface FormFieldProps {
   value: string;
   onChange: (value: string) => void;
   required?: boolean;
+  isInvalid?: boolean;
 }
 
-const FormField = ({ number, label, name, type = "text", value, onChange, required }: FormFieldProps) => {
+const FormField = ({ number, label, name, type = "text", value, onChange, required, isInvalid }: FormFieldProps) => {
   const placeholders: { [key: string]: string } = {
-    name: "Baki Hanma",
-    email: "baki@example.com",
-    organization: "Void Software",
+    name: "John Doe",
+    email: "john@example.com",
+    organization: "Acme Corp",
     subject: "Website Development Project",
     message: "Tell us about your project...",
   };
 
+  const baseInputClasses = "w-full bg-transparent text-xl text-neutral-400 focus:outline-none focus:text-white transition-colors placeholder:text-neutral-600 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset]";
+  const invalidClasses = isInvalid ? "border-indigo-600 focus:border-indigo-600" : "";
+
   return (
-    <div className="border-b border-neutral-800 pb-6">
+    <div className={`border-b ${isInvalid ? 'border-indigo-500' : 'border-neutral-800'} pb-6`}>
       <div className="flex gap-4 items-baseline mb-4">
         <span className="text-sm text-neutral-500">{number}</span>
-        <label htmlFor={name} className="text-2xl font-light">
+        <label htmlFor={name} className={`text-2xl font-light ${isInvalid ? 'text-indigo-600' : ''}`}>
           {label}
+          {required && <span className="text-indigo-600 ml-1">*</span>}
         </label>
       </div>
       {type === "textarea" ? (
@@ -188,7 +223,7 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
           rows={4}
           placeholder={placeholders[name]}
           autoComplete="off"
-          className="w-full bg-transparent text-xl text-neutral-400 focus:outline-none focus:text-white transition-colors resize-none placeholder:text-neutral-600 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset]"
+          className={`${baseInputClasses} ${invalidClasses} resize-none`}
         />
       ) : (
         <input
@@ -200,7 +235,7 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
           required={required}
           placeholder={placeholders[name]}
           autoComplete="off"
-          className="w-full bg-transparent text-xl text-neutral-400 focus:outline-none focus:text-white transition-colors placeholder:text-neutral-600 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset]"
+          className={`${baseInputClasses} ${invalidClasses}`}
         />
       )}
     </div>
