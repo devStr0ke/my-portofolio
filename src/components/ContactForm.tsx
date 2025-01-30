@@ -83,7 +83,7 @@ const ContactForm = () => {
 
           <FormField
             number="04"
-            label="What services are you looking for?"
+            label="What's the subject of your message?"
             name="subject"
             value={formData.subject}
             onChange={(value) => setFormData({ ...formData, subject: value })}
@@ -162,6 +162,14 @@ interface FormFieldProps {
 }
 
 const FormField = ({ number, label, name, type = "text", value, onChange, required }: FormFieldProps) => {
+  const placeholders: { [key: string]: string } = {
+    name: "Baki Hanma",
+    email: "baki@example.com",
+    organization: "Void Software",
+    subject: "Website Development Project",
+    message: "Tell us about your project...",
+  };
+
   return (
     <div className="border-b border-neutral-800 pb-6">
       <div className="flex gap-4 items-baseline mb-4">
@@ -178,7 +186,9 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
           onChange={(e) => onChange(e.target.value)}
           required={required}
           rows={4}
-          className="w-full bg-transparent text-xl text-neutral-400 focus:outline-none focus:text-white transition-colors resize-none"
+          placeholder={placeholders[name]}
+          autoComplete="off"
+          className="w-full bg-transparent text-xl text-neutral-400 focus:outline-none focus:text-white transition-colors resize-none placeholder:text-neutral-600 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset]"
         />
       ) : (
         <input
@@ -188,7 +198,9 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
           value={value}
           onChange={(e) => onChange(e.target.value)}
           required={required}
-          className="w-full bg-transparent text-xl text-neutral-400 focus:outline-none focus:text-white transition-colors"
+          placeholder={placeholders[name]}
+          autoComplete="off"
+          className="w-full bg-transparent text-xl text-neutral-400 focus:outline-none focus:text-white transition-colors placeholder:text-neutral-600 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset]"
         />
       )}
     </div>
