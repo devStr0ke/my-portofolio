@@ -14,6 +14,7 @@ import {
   interface EmailTemplateProps {
     name: string;
     email: string;
+    organization: string;
     subject: string;
     message: string;
   }
@@ -21,6 +22,7 @@ import {
   export const EmailTemplate = ({
     name,
     email,
+    organization,
     subject,
     message,
   }: EmailTemplateProps) => {
@@ -45,6 +47,13 @@ import {
                   <Text style={label}>Email :</Text>
                   <Text style={value}>{email}</Text>
                 </Section>
+  
+                {organization && (
+                  <Section style={infoRow}>
+                    <Text style={label}>Organisation :</Text>
+                    <Text style={value}>{organization}</Text>
+                  </Section>
+                )}
   
                 <Section style={infoRow}>
                   <Text style={label}>Objet :</Text>
