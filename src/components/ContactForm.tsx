@@ -131,7 +131,7 @@ const ContactForm = () => {
           />
 
           {error && (
-            <p className="text-indigo-600 flex items-center gap-2">
+            <p className="text-indigo-600 flex items-center gap-2 justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -166,18 +166,17 @@ const ContactForm = () => {
             </p>
           )}
 
-          <RoundedButton
-            href="#"
-            onClick={(e: any) => handleSubmit(e)}
-            color="light"
-            size="custom"
-            customSize={{ width: 'w-full sm:w-[220px]', padding: 'py-7' }}
-            className="disabled:opacity-50 disabled:cursor-not-allowed"
-
-
-          >
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </RoundedButton>
+          <div className="flex justify-center">
+            <RoundedButton
+              href="#"
+              onClick={(e: any) => handleSubmit(e)}
+              color="light"
+              size="custom"
+              customSize={{ width: 'w-[220px]', padding: 'py-7' }}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </RoundedButton>
+          </div>
         </form>
       </div>
     </section>
@@ -214,8 +213,9 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
 
   const baseInputClasses = "w-full bg-transparent text-base sm:text-lg text-neutral-400 focus:outline-none focus:text-neutral-200 transition-colors [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset] md:pl-[84px] pl-[45px] -mt-8";
   const placeholderClasses = isInvalid 
-    ? "placeholder:text-red-500" 
+    ? "placeholder:text-indigo-600" 
     : "placeholder:text-neutral-600";
+
 
   return (
     <div className={`border-b border-neutral-800 pb-6 ${number === "01" ? "border-t pt-6" : ""} ${name === "message" ? "pb-24" : ""}`}>

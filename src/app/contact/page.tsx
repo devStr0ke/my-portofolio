@@ -31,6 +31,7 @@ export default function Home() {
           </h1>
         </div>
         <ContactForm />
+        <Spacer mobileSize="sm" size="md" />
       </div>
       <Footer />
     </>
