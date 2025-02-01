@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { motion } from "framer-motion";
+import { RoundedButton } from "./RoundedButton";
 
 interface FormData {
   name: string;
@@ -65,7 +65,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="min-h-screen bg-neutral-950 text-white py-16 px-4">
+    <section className="min-h-screen bg-neutral-950 text-white py-6 px-4">
       <div className="max-w-3xl mx-auto">
         <form onSubmit={handleSubmit} className="space-y-12">
           <FormField
@@ -131,7 +131,7 @@ const ContactForm = () => {
           />
 
           {error && (
-            <p className="text-indigo-600 flex items-center gap-2">
+            <p className="text-indigo-600 flex items-center gap-2 justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -166,15 +166,17 @@ const ContactForm = () => {
             </p>
           )}
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-white text-black px-8 py-3 rounded-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </motion.button>
+          <div className="flex justify-center">
+            <RoundedButton
+              href="#"
+              onClick={(e: any) => handleSubmit(e)}
+              color="light"
+              size="custom"
+              customSize={{ width: 'w-[220px]', padding: 'py-7' }}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </RoundedButton>
+          </div>
         </form>
       </div>
     </section>
@@ -194,50 +196,47 @@ interface FormFieldProps {
 
 const FormField = ({ number, label, name, type = "text", value, onChange, required, isInvalid }: FormFieldProps) => {
   const placeholders: { [key: string]: string } = {
-    name: "John Doe",
-    email: "john@example.com",
-    organization: "Acme Corp",
+    name: "Samuel Coelho",
+    email: "samuel.coelho@voidsoftware.pro",
+    organization: "Void Software",
     subject: "Website Development Project",
     message: "Tell us about your project...",
   };
 
-  const baseInputClasses = "w-full bg-transparent text-xl text-neutral-400 focus:outline-none focus:text-white transition-colors placeholder:text-neutral-600 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset]";
-  const invalidClasses = isInvalid ? "border-indigo-600 focus:border-indigo-600" : "";
+
+  const errorPlaceholders: { [key: string]: string } = {
+    name: "Name required",
+    email: "Email required",
+    subject: "Subject required",
+    message: "Message required",
+  };
+
+  const baseInputClasses = "w-full bg-transparent text-base sm:text-lg text-neutral-400 focus:outline-none focus:text-neutral-200 transition-colors [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset] md:pl-[84px] pl-[45px] -mt-8";
+  const placeholderClasses = isInvalid 
+    ? "placeholder:text-indigo-600" 
+    : "placeholder:text-neutral-600";
+
 
   return (
-    <div className={`border-b ${isInvalid ? 'border-indigo-500' : 'border-neutral-800'} pb-6`}>
-      <div className="flex gap-4 items-baseline mb-4">
-        <span className="text-sm text-neutral-500">{number}</span>
-        <label htmlFor={name} className={`text-2xl font-light ${isInvalid ? 'text-indigo-600' : ''}`}>
+    <div className={`border-b border-neutral-800 pb-6 ${number === "01" ? "border-t pt-6" : ""} ${name === "message" ? "pb-24" : ""}`}>
+      <div className="flex mb-8">
+        <span className="text-xs flex items-center text-neutral-500 w-[24px] md:w-[40px] mr-[22px] md:mr-[44px] opacity-50">{number}</span>
+        <label htmlFor={name} className="text-lg sm:text-xl text-neutral-300 font-light">
           {label}
           {required && <span className="text-indigo-600 ml-1">*</span>}
         </label>
       </div>
-      {type === "textarea" ? (
-        <textarea
-          id={name}
-          name={name}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          required={required}
-          rows={4}
-          placeholder={placeholders[name]}
-          autoComplete="off"
-          className={`${baseInputClasses} ${invalidClasses} resize-none`}
-        />
-      ) : (
-        <input
-          type={type}
-          id={name}
-          name={name}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          required={required}
-          placeholder={placeholders[name]}
-          autoComplete="off"
-          className={`${baseInputClasses} ${invalidClasses}`}
-        />
-      )}
+      <input
+        type={type}
+        id={name}
+        name={name}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        required={required}
+        placeholder={isInvalid ? errorPlaceholders[name] : placeholders[name]}
+        autoComplete="off"
+        className={`${baseInputClasses} ${placeholderClasses}`}
+      />
     </div>
   );
 };
