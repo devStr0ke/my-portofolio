@@ -195,11 +195,12 @@ interface FormFieldProps {
 const FormField = ({ number, label, name, type = "text", value, onChange, required, isInvalid }: FormFieldProps) => {
   const placeholders: { [key: string]: string } = {
     name: "Samuel Coelho",
-    email: "samuel@voidsoftware.pro",
+    email: "samuel.coelho@voidsoftware.pro",
     organization: "Void Software",
     subject: "Website Development Project",
     message: "Tell us about your project...",
   };
+
 
   const errorPlaceholders: { [key: string]: string } = {
     name: "Name required",
@@ -208,16 +209,16 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
     message: "Message required",
   };
 
-  const baseInputClasses = "w-full bg-transparent text-lg text-neutral-400 focus:outline-none focus:text-neutral-200 transition-colors [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset] pl-[84px] -mt-8";
+  const baseInputClasses = "w-full bg-transparent text-base sm:text-lg text-neutral-400 focus:outline-none focus:text-neutral-200 transition-colors [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset] md:pl-[84px] pl-[45px] -mt-8";
   const placeholderClasses = isInvalid 
     ? "placeholder:text-red-500" 
     : "placeholder:text-neutral-600";
 
   return (
     <div className={`border-b border-neutral-800 pb-6 ${number === "01" ? "border-t pt-6" : ""} ${name === "message" ? "pb-24" : ""}`}>
-      <div className="flex items-start mb-8">
-        <span className="text-sm text-neutral-500 w-[40px] mr-[44px] opacity-50">{number}</span>
-        <label htmlFor={name} className="text-xl text-neutral-300 font-light">
+      <div className="flex mb-8">
+        <span className="text-xs flex items-center text-neutral-500 w-[24px] md:w-[40px] mr-[22px] md:mr-[44px] opacity-50">{number}</span>
+        <label htmlFor={name} className="text-lg sm:text-xl text-neutral-300 font-light">
           {label}
           {required && <span className="text-indigo-600 ml-1">*</span>}
         </label>
