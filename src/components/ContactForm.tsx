@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { motion } from "framer-motion";
+import { RoundedButton } from "./RoundedButton";
 
 interface FormData {
   name: string;
@@ -166,15 +166,18 @@ const ContactForm = () => {
             </p>
           )}
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-white text-black px-8 py-3 rounded-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-            type="submit"
-            disabled={isSubmitting}
+          <RoundedButton
+            href="#"
+            onClick={(e: any) => handleSubmit(e)}
+            color="light"
+            size="custom"
+            customSize={{ width: 'w-full sm:w-[220px]', padding: 'py-7' }}
+            className="disabled:opacity-50 disabled:cursor-not-allowed"
+
+
           >
             {isSubmitting ? "Sending..." : "Send Message"}
-          </motion.button>
+          </RoundedButton>
         </form>
       </div>
     </section>

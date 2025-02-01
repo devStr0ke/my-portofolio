@@ -22,7 +22,7 @@ interface RoundedButtonProps {
   superscript?: string | number;
   size?: 'default' | 'large' | 'small' | 'custom';
   customSize?: SizeConfig;
-  onClick?: () => void;
+  onClick?: (e: any) => void;
   active?: boolean;
 }
 
@@ -95,7 +95,7 @@ export const RoundedButton = ({
         onClick={(e) => {
           if (onClick) {
             e.preventDefault();
-            onClick();
+            onClick(e);
           }
         }}
       >
