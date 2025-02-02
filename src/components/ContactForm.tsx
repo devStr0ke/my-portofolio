@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { RoundedButton } from "./RoundedButton";
+import Modal from "./Modal";
 
 interface FormData {
   name: string;
@@ -19,7 +20,7 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [invalidFields, setInvalidFields] = useState<string[]>([]);
 
   const handleSubmit = async (e: FormEvent) => {
@@ -37,7 +38,6 @@ const ContactForm = () => {
 
     setIsSubmitting(true);
     setError(null);
-    setSuccess(false);
     setInvalidFields([]);
 
     try {
@@ -49,7 +49,8 @@ const ContactForm = () => {
 
       if (!response.ok) throw new Error('Failed to send message');
       
-      setSuccess(true);
+      setIsModalOpen(true);
+      setError(null);
       setFormData({
         name: "",
         email: "",
@@ -148,24 +149,6 @@ const ContactForm = () => {
             </p>
           )}
 
-          {success && (
-            <p className="text-green-500 flex items-center gap-2 justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-5 h-5"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Message sent successfully!
-            </p>
-          )}
-
           <div className="flex justify-center">
             <RoundedButton
               href="#"
@@ -179,6 +162,11 @@ const ContactForm = () => {
           </div>
         </form>
       </div>
+
+      <Modal 
+        isOpen={isModalOpen} 
+        setIsOpen={setIsModalOpen}
+      />
     </section>
   );
 };
