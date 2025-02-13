@@ -36,7 +36,7 @@ const Section2 = () => {
         Get in touch
       </RoundedButton>
       <RoundedButton color='neutral' size='large' backgroundColor='#0a0a0a' href="mailto:samuel.coelho@voidsoftware.pro">
-        samuel.coelho@voidsoftware.com
+        samuel.coelho@voidsoftware.pro
       </RoundedButton>
     </div>
   );
