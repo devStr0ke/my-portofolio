@@ -35,7 +35,7 @@ const Section2 = () => {
       <RoundedButton color='neutral' backgroundColor='#0a0a0a' href="/contact">
         Get in touch
       </RoundedButton>
-      <RoundedButton color='neutral' size='large' backgroundColor='#0a0a0a' href="mailto:samuel.coelho@voidsoftware.com">
+      <RoundedButton color='neutral' size='large' backgroundColor='#0a0a0a' href="mailto:samuel.coelho@voidsoftware.pro">
         samuel.coelho@voidsoftware.com
       </RoundedButton>
     </div>
