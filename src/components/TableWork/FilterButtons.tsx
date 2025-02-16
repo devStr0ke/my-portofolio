@@ -23,10 +23,11 @@ export const FilterButtons = ({ filter, setFilter, counts, view, setView }: Filt
           color="light"
           size="custom"
           customSize={{
-            width: 'w-[80px] text-xs sm:w-[100px] xl:w-[130px] sm:text-base',
+            width: 'w-[80px] text-xs sm:w-[100px] xl:w-[130px] sm:text-sm',
             padding: 'py-4 sm:py-5 xl:py-7',
           }}
           active={filter === 'All'}
+          className='font-orbitron'
         >
           All
         </RoundedButton>
@@ -36,12 +37,13 @@ export const FilterButtons = ({ filter, setFilter, counts, view, setView }: Filt
           color="light"
           size="custom"
           customSize={{
-            width: 'w-[120px] text-xs sm:w-[150px] sm:text-base xl:w-[220px]',
+            width: 'w-[120px] text-xs sm:w-[150px] sm:text-sm xl:w-[220px]',
             padding: 'py-4 sm:py-5 xl:py-7',
-            superscriptRight: 'right-6 top-5 text-[0.55rem] sm:right-7 sm:top-6 xl:text-xs xl:right-14 xl:top-6',
+            superscriptRight: 'right-4 top-4 text-[0.55rem] sm:right-7 sm:top-5 xl:text-xs xl:right-14',
           }}
           active={filter === 'Full Stack'}
           superscript={counts.fullStack}
+          className='font-orbitron'
         >
           Full Stack
         </RoundedButton>
@@ -51,12 +53,13 @@ export const FilterButtons = ({ filter, setFilter, counts, view, setView }: Filt
           color="light"
           size="custom"
           customSize={{
-            width: 'w-[120px] text-xs sm:w-[150px] sm:text-base xl:w-[220px]',
+            width: 'w-[120px] text-xs sm:w-[150px] sm:text-sm xl:w-[220px]',
             padding: 'py-4 sm:py-5 xl:py-7',
-            superscriptRight: 'right-6 top-5 text-[0.55rem] sm:right-7 sm:top-6 xl:text-xs xl:right-14 xl:top-6',
+            superscriptRight: 'right-5 top-4 text-[0.55rem] sm:right-7 sm:top-5 xl:text-xs xl:right-14',
           }}
           active={filter === 'Front End'}
           superscript={counts.frontEnd}
+          className='font-orbitron'
         >
           Front End
         </RoundedButton>

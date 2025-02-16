@@ -40,7 +40,7 @@ import Link from "next/link";
           <CenterCopy />
           <motion.p
             style={{ skewX, x }}
-            className="origin-bottom-left whitespace-nowrap text-6xl font-black uppercase leading-[0.85] md:text-7xl 2xl:text-8xl md:leading-[0.85]"
+            className="font-orbitron origin-bottom-left whitespace-nowrap text-6xl font-black uppercase leading-[0.85] md:text-7xl 2xl:text-8xl md:leading-[0.85]"
           >
             Full Stack Developer • Creative Problem Solver • Full Stack Developer • Creative Problem Solver
           </motion.p>
@@ -105,7 +105,7 @@ import Link from "next/link";
   
   const Links = () => {
     return (
-      <div className="flex gap-6 capitalize text-base text-neutral-500">
+      <div className="flex gap-6 capitalize text-sm xl:text-base text-neutral-500 font-orbitron">
         <Magnetic><Link href="/about" className="font-bold uppercase cursor-pointer hover:text-indigo-600">About</Link></Magnetic>
         <Magnetic><Link href="/experience" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Experience</Link></Magnetic>
         <Magnetic><Link href="/work" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Work</Link></Magnetic>
@@ -141,7 +141,7 @@ import Link from "next/link";
   const ScrollArrow = () => {
     return (
       <>
-        <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-500 lg:block">
+        <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-500 lg:block font-orbitron">
           <span
             style={{
               writingMode: "vertical-lr",
@@ -151,7 +151,7 @@ import Link from "next/link";
           </span>
           <FiArrowDown className="mx-auto mt-2" />
         </div>
-        <div className="absolute right-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-500 lg:block">
+        <div className="absolute right-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-500 lg:block font-orbitron">
           <span
             style={{
               writingMode: "vertical-lr",

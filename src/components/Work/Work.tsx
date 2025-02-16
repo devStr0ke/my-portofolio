@@ -58,7 +58,7 @@ export const Work = ({ title = "Selected Work", projects = defaultProjects, noTi
           noTitle ? (
             <></>
           ) : (
-            <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest">
+            <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest font-orbitron">
               {title}
             </span>
           )

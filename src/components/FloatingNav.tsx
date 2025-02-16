@@ -100,7 +100,7 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
         }}
         className="fixed top-12 right-6 xl:right-12 2xl:right-16 z-50 hidden lg:block"
       >
-        <nav className="flex flex-col gap-1 uppercase text-right text-sm xl:text-base">
+        <nav className="flex flex-col gap-1 uppercase text-right text-sm xl:text-base font-orbitron">
           <Magnetic>
             <Link href="/about" className={navLinkClass}>About</Link>
           </Magnetic>

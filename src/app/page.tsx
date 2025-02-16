@@ -37,7 +37,7 @@ export default function Home() {
         <WhatIdoSection />
         <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
-          <RoundedButton href='/about' color='light' className='flex justify-center items-center'>More about me</RoundedButton>
+          <RoundedButton href='/about' color='light' className='flex justify-center items-center font-orbitron'>More about me</RoundedButton>
         </div>
         <Spacer mobileSize="md" size="lg" />
         <ExperienceSection />
@@ -45,7 +45,7 @@ export default function Home() {
         <HistorySection />
         <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
-          <RoundedButton href='/experience' color='light' className='flex justify-center items-center'>Detailed experience</RoundedButton>
+          <RoundedButton href='/experience' color='light' className='flex justify-center items-center font-orbitron'>Detailed experience</RoundedButton>
         </div>
         <Spacer mobileSize="md" size="lg" />
         <ProjectsSection />
@@ -53,7 +53,7 @@ export default function Home() {
         <Work />
         <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
-          <RoundedButton href='/work' color='light' superscript='3' className='flex justify-center items-center'>All work</RoundedButton>
+          <RoundedButton href='/work' color='light' superscript='3' className='flex justify-center items-center font-orbitron'>All work</RoundedButton>
         </div>
         <Spacer mobileSize="md"size="lg" />
         <MyMottoSection />

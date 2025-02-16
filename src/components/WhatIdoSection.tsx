@@ -37,7 +37,7 @@ export const WhatIdoSection = () => {
     >
       <div className="flex flex-col h-min max-w-[90%] lg:max-w-[68%] mx-auto">
         <motion.div className="flex flex-col">
-          <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest">
+          <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest font-orbitron">
             What I Do
           </span>
           
@@ -79,7 +79,7 @@ const WhatIdoItem = ({
       <div className="flex items-center justify-between pb-9 relative z-8 py-6">
         <div className="flex w-full items-center justify-between">
           <div>
-            <p className="mb-1.5 text-2xl tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl font-black text-neutral-500 relative group-hover:text-neutral-950 transition-colors duration-300">
+            <p className="mb-1.5 text-2xl tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl font-bold text-neutral-500 relative group-hover:text-neutral-950 transition-colors duration-300">
               {title}
             </p>
             <p className="text-xs sm:text-sm tracking-tight font-semibold text-neutral-400 group-hover:text-neutral-950 transition-colors duration-300">

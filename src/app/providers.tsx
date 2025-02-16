@@ -5,14 +5,14 @@ import { gsap } from "gsap";
 import { TransitionRouter } from "next-transition-router";
 
 const routes: { [key: string]: string } = {
-  "/": "· Home",
-  "/about": "· About",
-  "/experience": "· Experience",
-  "/work": "· Work",
-  "/contact": "· Contact",
-  "/work/mg-evenements": "· MG-Evenements",
-  "/work/mge-dashboard": "· MGE-Dashboard",
-  "/work/halcyon-labs": "· Halcyon-Labs",
+  "/": "Home",
+  "/about": "About",
+  "/experience": "Experience",
+  "/work": "Work",
+  "/contact": "Contact",
+  "/work/mg-evenements": "MG-Evenements",
+  "/work/mge-dashboard": "MGE-Dashboard",
+  "/work/halcyon-labs": "Halcyon-Labs",
 };
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -73,7 +73,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         ref={layer}
         className="fixed inset-0 z-[9999] translate-y-full bg-indigo-600 flex items-center justify-center"
       >
-        <span className="text-4xl font-light text-white">
+        <span className="text-4xl font-light text-white font-orbitron">
           {routes[currentRoute] || '· ' + currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)}
         </span>
       </div>
