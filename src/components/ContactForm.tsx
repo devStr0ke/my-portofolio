@@ -188,7 +188,7 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
     email: "samuel.coelho@voidsoftware.pro",
     organization: "Void Software",
     subject: "Website Development Project",
-    message: "Tell us about your project...",
+    message: "Tell me about your project...",
   };
 
 
