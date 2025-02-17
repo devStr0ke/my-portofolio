@@ -1,21 +1,14 @@
 "use client";
 import { FloatingNav } from "@/components/FloatingNav";
 import { Spacer } from "@/components/Spacer";
-import { projects } from "./data";
 import StickyCard from "@/components/CardTest/StickyCard";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "lenis";
-import { useEffect, useRef } from "react";
-import { useScroll } from "framer-motion";
+import { useEffect } from "react";  
 
 
 export default function Home() {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start start', 'end end']
-  })
-
+  
   useEffect( () => {
     const lenis = new Lenis()
 
@@ -31,6 +24,11 @@ export default function Home() {
     {
       title: "Front-End Development",
       description: "Specializing in React, Next.js, and TypeScript to build modern, responsive web applications. Proficient in creating seamless user experiences with advanced animations and interactions using Framer Motion and GSAP.",
+      features: [
+        "CMS Integration",
+        "Motion & Animations",
+        "3D Development"
+      ],
       number: "01",
       color: "#0a0a0a"
     },
@@ -73,6 +71,7 @@ export default function Home() {
               title={experience.title}
               description={experience.description}
               color={experience.color}
+              features={experience.features}
             />
           ))}
         </div>
