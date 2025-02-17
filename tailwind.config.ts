@@ -62,7 +62,7 @@ export default {
 		},
 		fontFamily: {
 			orbitron: ['Orbitron', 'sans-serif']
-		}
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,7 +1,7 @@
 "use client";
 import { FloatingNav } from "@/components/FloatingNav";
 import { Spacer } from "@/components/Spacer";
-import StickyCard from "@/components/CardTest/StickyCard";
+import StickyCard from "@/components/StickyCard";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "lenis";
 import { useEffect } from "react";  
@@ -74,6 +74,7 @@ export default function Home() {
             My Experience
           </h1>
         </div>
+        <Spacer mobileSize="xxs" size="xxs" />
         <div className="relative">
           {experiences.map((experience, i) => (
             <StickyCard
