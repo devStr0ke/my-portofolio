@@ -1,6 +1,6 @@
 'use client'
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface CardProps {
   i: number;
@@ -54,8 +54,7 @@ const Card = ({ i, title, description, features, color }: CardProps) => {
               </div>
             )}
           </div>
-
-          <div className="text-neutral-500 hidden lg:block text-xl sm:text-2xl md:text-3xl">
+          <div className="text-neutral-500 text-xl sm:text-2xl md:text-3xl h-min">
             {i === 0 && '★'}
             {i === 1 && '⬡'}
             {i === 2 && '▲'}
@@ -64,7 +63,7 @@ const Card = ({ i, title, description, features, color }: CardProps) => {
         </div>
 
         {/* Mobile layout (hidden on lg and above) */}
-        <div className="flex flex-col gap-8 p-8 lg:hidden">
+        <div className="flex flex-col gap-8 p-6 lg:hidden">
           <div className="flex items-center gap-4">
             <span className="text-neutral-500 text-base sm:text-lg md:text-xl font-orbitron">
               {String(i + 1).padStart(2, '0')}

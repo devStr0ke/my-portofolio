@@ -29,7 +29,7 @@ export default function Home() {
         "Software Engineering",
         "Business Information Systems",
       ],
-      color: "#0a0a0a"
+      color: "#0a0a0a",
     },
     {
       title: "INSPI Internship",
@@ -39,17 +39,17 @@ export default function Home() {
         "Ruby Backend Development",
         "UI/UX Redesign",
       ],
-      color: "#0a0a0a"
+      color: "#0a0a0a",
     },
     {
       title: "Dassault Systèmes",
-      description: "Joined as a full-stack developer through a work-study program during my 4th and 5th year of MIAGE. Part of the migration from Vue.js to React.js while maintaining and improving core functionalities.",
+      description: "Joined as a full-stack developer through a work-study program during my 4th and 5th year of MIAGE (2022-2024). Led the migration from Vue.js to React.js while maintaining and improving core functionalities.",
       features: [
         "React.js Migration",
         "Ruby Backend Development",
         "Performance Optimization"
       ],
-      color: "#0a0a0a"
+      color: "#0a0a0a",
     },
     {
       title: "Freelance Web3 Developer",
@@ -59,7 +59,7 @@ export default function Home() {
         "Smart Contract Integration",
         "DApp Development"
       ],
-      color: "#0a0a0a"
+      color: "#0a0a0a",
     }
   ];
 
