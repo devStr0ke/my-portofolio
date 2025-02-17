@@ -14,7 +14,7 @@ interface CardProps {
 const Card = ({ i, title, description, features, color }: CardProps) => {
   const container = useRef<HTMLDivElement>(null);
   const isNarrowScreen = useMediaQuery({ maxHeight: 749 });
-  const dontShowFeatures = useMediaQuery({ maxHeight: 633 });
+  const dontShowFeatures = useMediaQuery({ maxHeight: 632 });
   
   return (
     <div 
