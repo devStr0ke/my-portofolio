@@ -188,7 +188,7 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
     email: "samuel.coelho@voidsoftware.pro",
     organization: "Void Software",
     subject: "Website Development Project",
-    message: "Tell us about your project...",
+    message: "Tell me about your project...",
   };
 
 
@@ -199,7 +199,7 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
     message: "Message required",
   };
 
-  const baseInputClasses = "w-full bg-transparent text-base sm:text-lg text-neutral-400 focus:outline-none focus:text-neutral-200 transition-colors [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset] md:pl-[84px] pl-[45px] -mt-8";
+  const baseInputClasses = "w-full bg-transparent text-base sm:text-lg text-neutral-400 focus:outline-none focus:text-neutral-200 transition-colors [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset] md:pl-[84px] pl-[32px] -mt-8";
   const placeholderClasses = isInvalid 
     ? "placeholder:text-indigo-600" 
     : "placeholder:text-neutral-600";
@@ -208,8 +208,8 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
   return (
     <div className={`border-b border-neutral-800 pb-6 ${number === "01" ? "border-t pt-6" : ""} ${name === "message" ? "pb-24" : ""}`}>
       <div className="flex mb-8">
-        <span className="text-xs flex items-center text-neutral-500 w-[24px] md:w-[40px] mr-[22px] md:mr-[44px] opacity-50">{number}</span>
-        <label htmlFor={name} className="text-lg sm:text-xl text-neutral-300 font-light">
+        <span className="text-xs flex items-center text-neutral-500 w-[24px] md:w-[40px] mr-[8px] md:mr-[44px] opacity-50">{number}</span>
+        <label htmlFor={name} className="text-md sm:text-xl text-neutral-300 font-light">
           {label}
           {required && <span className="text-indigo-600 ml-1">*</span>}
         </label>

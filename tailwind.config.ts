@@ -59,6 +59,9 @@ export default {
 		  transitionDuration: {
 			'400': '400ms',
 			'1000': '1000ms'
+		},
+		fontFamily: {
+			orbitron: ['Orbitron', 'sans-serif']
 		}
   	}
   },

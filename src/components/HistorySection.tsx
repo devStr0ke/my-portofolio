@@ -11,8 +11,8 @@ const historyItems: HistoryItem[] = [
   {
     year: "NOW",
     title: "Freelance Developer",
-    company: "I work with different clients",
-    description: "Developed a Shopify-like application for managing stock and quotes."
+    company: "Frontend developer at gmove",
+    description: "Currently working on a multisig dapp for the gmove project."
   },
   {
     year: "2023",
@@ -39,7 +39,7 @@ export const HistorySection = () => {
     <section className="bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto">
         <motion.div className="flex flex-col">
-          <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest ml-0">
+          <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest ml-0 font-orbitron">
             History
           </span>
           

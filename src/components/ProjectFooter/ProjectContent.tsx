@@ -51,12 +51,12 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
   return (
     <div className='bg-indigo-600 h-full w-full relative'>
       <div className='absolute inset-0 flex flex-col gap-8 items-center justify-end'>
-        <p className='text-2xl font-bold text-neutral-950'>
+        <p className='text-2xl font-bold text-neutral-950 font-orbitron'>
           Next project
         </p>
 
         <Link href={nextProject.href} className="relative z-[2] mb-56">
-          <h2 className='text-5xl sm:text-6xl md:text-8xl font-light text-neutral-950'>
+          <h2 className='text-5xl sm:text-6xl md:text-8xl font-light text-neutral-950 font-orbitron'>
             {nextProject.title}
           </h2>
         </Link>
@@ -87,7 +87,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           {/* Indigo mask - positioned below the card */}
           <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-[2]" />
         </div>
-        <RoundedButton href='/work' color='neutral' superscript='3' backgroundColor='#0a0a0a' className='z-[3] mb-10'>All work</RoundedButton>
+        <RoundedButton href='/work' color='neutral' superscript='3' backgroundColor='#0a0a0a' className='z-[3] mb-10 font-orbitron'>All work</RoundedButton>
       </div>
     </div>
   )
