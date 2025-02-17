@@ -22,32 +22,43 @@ export default function Home() {
 
   const experiences = [
     {
-      title: "Front-End Development",
-      description: "Specializing in React, Next.js, and TypeScript to build modern, responsive web applications. Proficient in creating seamless user experiences with advanced animations and interactions using Framer Motion and GSAP.",
+      title: "MIAGE Master's Degree",
+      description: "Completed a comprehensive 5-year Master's program in Computer Science (MIAGE) at Paul Sabatier University from 2019 to 2024. The program provided a strong foundation in both technical and business aspects of information systems.",
       features: [
-        "CMS Integration",
-        "Motion & Animations",
-        "3D Development"
+        "Computer Science Fundamentals",
+        "Software Engineering",
+        "Business Information Systems",
       ],
-      number: "01",
       color: "#0a0a0a"
     },
     {
-      title: "UI/UX Design",
-      description: "Creating intuitive and visually appealing interfaces using Tailwind CSS and modern design principles. Strong focus on responsive design, accessibility, and performance optimization.",
-      number: "02",
+      title: "INSPI Internship",
+      description: "Completed a 6-month internship at INSPI from April to September 2022, focusing on modernizing their application infrastructure. Part of the frontend redesign initiative while gaining valuable full-stack development experience.",
+      features: [
+        "Vue.js Frontend Development",
+        "Ruby Backend Development",
+        "UI/UX Redesign",
+      ],
       color: "#0a0a0a"
     },
     {
-      title: "State Management",
-      description: "Expert in implementing complex state management solutions using Redux, Zustand, and React Context. Experience with real-time data synchronization and optimizing application performance.",
-      number: "03",
+      title: "Dassault Systèmes",
+      description: "Joined as a full-stack developer through a work-study program during my 4th and 5th year of MIAGE. Part of the migration from Vue.js to React.js while maintaining and improving core functionalities.",
+      features: [
+        "React.js Migration",
+        "Ruby Backend Development",
+        "Performance Optimization"
+      ],
       color: "#0a0a0a"
     },
     {
-      title: "API Integration",
-      description: "Skilled in integrating RESTful APIs and GraphQL endpoints, implementing efficient data fetching strategies, and managing complex data flows in modern web applications.",
-      number: "04",
+      title: "Freelance Web3 Developer",
+      description: "Currently working with GMove on account.tech, developing a Smart Account protocol for the Sui blockchain. Focusing on creating intuitive and secure interfaces for Web3 applications.",
+      features: [
+        "UI/UX Engineering",
+        "Smart Contract Integration",
+        "DApp Development"
+      ],
       color: "#0a0a0a"
     }
   ];
@@ -76,6 +87,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <Spacer mobileSize="sm" size="md" />
       <Footer />
     </>
   );

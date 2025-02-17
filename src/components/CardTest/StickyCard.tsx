@@ -32,7 +32,7 @@ const Card = ({ i, title, description, features, color }: CardProps) => {
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-neutral-300 mb-8 font-semibold">
               {title}
             </h2>
-            <p className="text-neutral-400 text-lg mb-12">
+            <p className="text-neutral-400 text-sm sm:text-lg mb-12">
               {description}
             </p>
             
@@ -46,7 +46,7 @@ const Card = ({ i, title, description, features, color }: CardProps) => {
                     <span className="text-neutral-500 text-sm">
                       {(index + 1).toString().padStart(2, '0')}
                     </span>
-                    <span className="text-neutral-300 text-xl">
+                    <span className="text-neutral-300 text-md sm:text-lg md:text-xl lg:text-2xl font-semibold">
                       {feature}
                     </span>
                   </div>
@@ -55,7 +55,7 @@ const Card = ({ i, title, description, features, color }: CardProps) => {
             )}
           </div>
 
-          <div className="text-neutral-500 text-xl sm:text-2xl md:text-3xl">
+          <div className="text-neutral-500 hidden lg:block text-xl sm:text-2xl md:text-3xl">
             {i === 0 && '★'}
             {i === 1 && '⬡'}
             {i === 2 && '▲'}
