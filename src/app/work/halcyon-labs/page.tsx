@@ -51,7 +51,7 @@ export default function Home() {
           title: "Account Tech Multisig",
           href: "/work/account-tech-multisig",
           nextProjectName: "accounttechmultisig",
-          color: "#bcefda"
+          color: "#28282B"
         }} triggerRef={triggerRef as React.RefObject<HTMLDivElement>} />
       </div>
     </>

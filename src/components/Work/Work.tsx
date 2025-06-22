@@ -23,6 +23,14 @@ const baseUrl = 'https://supabase.mge-dashboard.pro/storage/v1/object/public/por
 
 const defaultProjects = [
   {
+    title: "Account Tech Multisig",
+    src: `${baseUrl}accounttechmultisig/main.png`,
+    color: "#28282B",
+    type: "Front-End Development & Smart Contract Integration",
+    year: "2025",
+    route: "/work/account-tech-multisig"
+  },
+  {
     title: "Account Tech DAO",
     src: `${baseUrl}accounttechdao/main.png`,
     color: "#00b9a6",

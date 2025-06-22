@@ -31,7 +31,7 @@ const defaultProjects = [
     location: "Remote",
     services: "Front-End Development & Smart Contract Integration",
     src: `${baseUrl}accounttechmultisig/main.png`,
-    color: "#B28FFF", //teal color
+    color: "#28282B",
     year: "2025",
     route: "/work/account-tech-multisig",
     type: "Full Stack"
@@ -41,7 +41,7 @@ const defaultProjects = [
     location: "Remote",
     services: "Front-End Development & Smart Contract Integration",
     src: `${baseUrl}accounttechdao/main.png`,
-    color: "#bcefda", //teal color
+    color: "#00b9a6", //teal color
     year: "2025",
     route: "/work/account-tech-dao",
     type: "Full Stack"

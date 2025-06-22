@@ -38,9 +38,9 @@ export default function Home() {
         websiteUrl="https://multisig.account.tech/"
         buttonLabel="Visit Live Website"
         isMobileShowcase={false}
-        firstDescription="The Multisig app by Account.Tech is a secure coordination tool on the Sui blockchain that enables trusted groups to manage assets and actions through collective approval. Built on the same intent-based architecture as the DAO, it offers a robust and flexible approach to shared governance."
-        secondDescription="Unlike the DAO, participation in a Multisig requires explicit invitation to a Smart Account. Once inside, members can propose and vote on-chain for actions like token transfers, upgrades, and asset management, all governed by secure, transparent rules native to Sui."
-        thirdDescription="I contributed to both the front-end development and smart contract integration of the Multisig app, focusing on crafting a secure and intuitive experience for invited users. The result is a high-trust, low-friction platform that enables seamless collective decision-making in Web3 environments."
+        firstDescription="Account.Tech’s Multisig is a decentralized coordination tool built on the Sui blockchain that allows trusted groups to manage shared assets and operations securely. It enables on-chain execution through a powerful intent-based system, combining flexibility with strong access control."
+        secondDescription="Users gain access to a Multisig Smart Account by invitation, allowing them to create proposals and vote on key actions such as token transfers, contract upgrades, or asset management. Every interaction is fully on-chain, transparent, and enforced by Sui-native logic."
+        thirdDescription="I contributed to both the front-end development and smart contract integration of the Multisig application, focusing on delivering a seamless and secure experience for authorized participants. The result is a clean, responsive platform that brings trust and structure to collective decision-making."
         //credits={{
         //  name: "Thouny",
         //  linkedIn: "https://github.com/thounyy",
