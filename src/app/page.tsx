@@ -53,7 +53,7 @@ export default function Home() {
         <Work />
         <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
-          <RoundedButton href='/work' color='light' superscript='3' className='flex justify-center items-center font-orbitron'>All work</RoundedButton>
+          <RoundedButton href='/work' color='light' superscript='5' className='flex justify-center items-center font-orbitron'>All work</RoundedButton>
         </div>
         <Spacer mobileSize="md"size="lg" />
         <MyMottoSection />

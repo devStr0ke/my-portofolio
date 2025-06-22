@@ -13,6 +13,8 @@ const routes: { [key: string]: string } = {
   "/work/mg-evenements": "MG-Evenements",
   "/work/mge-dashboard": "MGE-Dashboard",
   "/work/halcyon-labs": "Halcyon-Labs",
+  "/work/account-tech-multisig": "Account-Tech-Multisig",
+  "/work/account-tech-dao": "Account-Tech-DAO",
 };
 
 export function Providers({ children }: { children: React.ReactNode }) {

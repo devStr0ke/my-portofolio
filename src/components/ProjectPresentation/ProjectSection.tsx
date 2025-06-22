@@ -11,6 +11,8 @@ interface ProjectSectionProps {
   projectName: string; // New prop for project name
   websiteUrl?: string;
   buttonLabel?: string;
+  buttonTopOffset?: string; // New optional prop for button positioning
+  isMobileShowcase?: boolean; // New optional prop for mobile showcase
   firstDescription?: string;
   secondDescription?: string;
   thirdDescription?: string;
@@ -25,7 +27,9 @@ export default function ProjectSection({
   title, 
   projectName, 
   websiteUrl, 
-  buttonLabel, 
+  buttonLabel,
+  buttonTopOffset = '-top-12', // Default value
+  isMobileShowcase = true, // Default value
   firstDescription, 
   secondDescription, 
   thirdDescription, 
@@ -38,6 +42,7 @@ export default function ProjectSection({
   const mainImage = `${baseUrl}/main.png`;
   const macImage = `${baseUrl}/mac.png`;
   const macImage2 = `${baseUrl}/mac2.png`;
+  const macImage3 = `${baseUrl}/mac3.png`;
   const mobile1 = `${baseUrl}/mobile1.png`;
   const mobile2 = `${baseUrl}/mobile2.png`;
   const mobile3 = `${baseUrl}/mobile3.png`;
@@ -47,7 +52,7 @@ export default function ProjectSection({
       <div className="w-full lg:max-w-[85%] mx-auto relative">
         {/* Website Link */}
         {websiteUrl && (
-          <div className="absolute -top-12 right-10 sm:right-20 md:right-32 lg:right-32 xl:right-40 2xl:right-56 z-10">
+          <div className={`absolute ${buttonTopOffset} right-10 sm:right-20 md:right-32 lg:right-32 xl:right-40 2xl:right-56 z-10`}>
             <GravityButton 
               href={websiteUrl}
               icon={<FiExternalLink className="text-2xl" />}
@@ -106,41 +111,55 @@ export default function ProjectSection({
 
       <Spacer mobileSize="xxs" size="xs" />
 
-      {/* Mobile Showcase */}
-      <div className="w-full max-w-[100%] lg:max-w-[80%] mx-auto">
-        <div className="relative w-full aspect-[16/9] flex items-center justify-center gap-4 lg:gap-12">
-          <div className="relative w-[25%] aspect-[9/19]">
-            <Image 
-              src={mobile1}
-              alt={`${title} mobile preview 1`}
-              fill
-              priority
-              className="object-contain"
-              sizes="(max-width: 751px) 100vw"
-            />
+      {/* Mobile Showcase or Mac Image 3 */}
+      {isMobileShowcase ? (
+        <div className="w-full max-w-[100%] lg:max-w-[80%] mx-auto">
+          <div className="relative w-full aspect-[16/9] flex items-center justify-center gap-4 lg:gap-12">
+            <div className="relative w-[25%] aspect-[9/19]">
+              <Image 
+                src={mobile1}
+                alt={`${title} mobile preview 1`}
+                fill
+                priority
+                className="object-contain"
+                sizes="(max-width: 751px) 100vw"
+              />
+            </div>
+            <div className="relative w-[25%] aspect-[9/19]">
+              <Image 
+                src={mobile2}
+                alt={`${title} mobile preview 2`}
+                fill
+                priority
+                className="object-contain"
+                sizes="(max-width: 751px) 100vw"
+              />
+            </div>
+            <div className="relative w-[25%] aspect-[9/19]">
+              <Image 
+                src={mobile3}
+                alt={`${title} mobile preview 3`}
+                fill
+                priority
+                className="object-contain"
+                sizes="(max-width: 751px) 100vw"
+              />
+            </div>
           </div>
-          <div className="relative w-[25%] aspect-[9/19]">
+        </div>
+      ) : (
+        <div className="w-full max-w-[90%] lg:max-w-[68%] mx-auto">
+          <div className="relative w-full aspect-[16/9]">
             <Image 
-              src={mobile2}
-              alt={`${title} mobile preview 2`}
+              src={macImage3}
+              alt={`${title} mac preview 3`}
               fill
               priority
               className="object-contain"
-              sizes="(max-width: 751px) 100vw"
-            />
-          </div>
-          <div className="relative w-[25%] aspect-[9/19]">
-            <Image 
-              src={mobile3}
-              alt={`${title} mobile preview 3`}
-              fill
-              priority
-              className="object-contain"
-              sizes="(max-width: 751px) 100vw"
             />
           </div>
         </div>
-      </div>
+      )}
 
       <Spacer mobileSize="xxs" size="xs" />
 

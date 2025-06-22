@@ -23,6 +23,22 @@ const baseUrl = 'https://supabase.mge-dashboard.pro/storage/v1/object/public/por
 
 const defaultProjects = [
   {
+    title: "Account Tech Multisig",
+    src: `${baseUrl}accounttechmultisig/main.png`,
+    color: "#28282B",
+    type: "Front-End Development & Smart Contract Integration",
+    year: "2025",
+    route: "/work/account-tech-multisig"
+  },
+  {
+    title: "Account Tech DAO",
+    src: `${baseUrl}accounttechdao/main.png`,
+    color: "#00b9a6",
+    type: "Front-End Development & Smart Contract Integration",
+    year: "2025",
+    route: "/work/account-tech-dao"
+  },
+  {
     title: "MG Événements",
     src: `${baseUrl}mgevenements/main.png`,
     color: "#737373",
@@ -37,14 +53,6 @@ const defaultProjects = [
     type: "Conception & Development",
     year: "2024",
     route: "/work/mge-dashboard"
-  },
-  {
-    title: "Halcyon Labs",
-    src: `${baseUrl}halcyon/main.png`,
-    color: "#000000",
-    type: "UI/UX Design",
-    year: "2022",
-    route: "/work/halcyon-labs"
   },
 ]
 

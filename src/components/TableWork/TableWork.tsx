@@ -27,6 +27,26 @@ const baseUrl = 'https://supabase.mge-dashboard.pro/storage/v1/object/public/por
 
 const defaultProjects = [
   {
+    title: "Account Tech Multisig",
+    location: "Remote",
+    services: "Front-End Development & Smart Contract Integration",
+    src: `${baseUrl}accounttechmultisig/main.png`,
+    color: "#28282B",
+    year: "2025",
+    route: "/work/account-tech-multisig",
+    type: "Full Stack"
+  },
+  {
+    title: "Account Tech DAO",
+    location: "Remote",
+    services: "Front-End Development & Smart Contract Integration",
+    src: `${baseUrl}accounttechdao/main.png`,
+    color: "#00b9a6", //teal color
+    year: "2025",
+    route: "/work/account-tech-dao",
+    type: "Full Stack"
+  },
+  {
     title: "MG Événements",
     location: "Toulouse, France",
     services: "Conception & Development",

@@ -33,7 +33,7 @@ export default function Home() {
       />
       <Spacer mobileSize="xs" size="xs" />
       <ProjectSection
-        title="MGE Dashboard"
+        title="Halcyon Labs"
         projectName="halcyon"
         websiteUrl="https://github.com/HalcyonBuilders/halcyon-website"
         buttonLabel="Visit GitHub Repo"
@@ -48,10 +48,10 @@ export default function Home() {
       />
       <div ref={triggerRef}>
         <ProjectFooter nextProject={{
-          title: "MG Événements",
-          href: "/work/mg-evenements",
-          nextProjectName: "mgevenements",
-          color: "#737373"
+          title: "Account Tech Multisig",
+          href: "/work/account-tech-multisig",
+          nextProjectName: "accounttechmultisig",
+          color: "#28282B"
         }} triggerRef={triggerRef as React.RefObject<HTMLDivElement>} />
       </div>
     </>

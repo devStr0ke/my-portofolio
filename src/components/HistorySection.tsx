@@ -11,8 +11,8 @@ const historyItems: HistoryItem[] = [
   {
     year: "NOW",
     title: "Freelance Developer",
-    company: "Frontend developer at gmove",
-    description: "Currently working on a multisig dapp for the gmove project."
+    company: "Building cool stuff",
+    description: "Currently working at account.tech"
   },
   {
     year: "2023",

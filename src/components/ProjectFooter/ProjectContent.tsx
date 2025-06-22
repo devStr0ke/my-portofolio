@@ -87,7 +87,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           {/* Indigo mask - positioned below the card */}
           <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-[2]" />
         </div>
-        <RoundedButton href='/work' color='neutral' superscript='3' backgroundColor='#0a0a0a' className='z-[3] mb-10 font-orbitron'>All work</RoundedButton>
+        <RoundedButton href='/work' color='neutral' superscript='5' backgroundColor='#0a0a0a' className='z-[3] mb-10 font-orbitron'>All work</RoundedButton>
       </div>
     </div>
   )
