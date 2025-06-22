@@ -27,6 +27,16 @@ const baseUrl = 'https://supabase.mge-dashboard.pro/storage/v1/object/public/por
 
 const defaultProjects = [
   {
+    title: "Account Tech Multisig",
+    location: "Remote",
+    services: "Front-End Development & Smart Contract Integration",
+    src: `${baseUrl}accounttechmultisig/main.png`,
+    color: "#B28FFF", //teal color
+    year: "2025",
+    route: "/work/account-tech-multisig",
+    type: "Full Stack"
+  },
+  {
     title: "Account Tech DAO",
     location: "Remote",
     services: "Front-End Development & Smart Contract Integration",

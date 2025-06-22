@@ -25,22 +25,22 @@ export default function Home() {
       <FloatingNav disableScroll={true} footerId="project-footer" />
       <Spacer mobileSize="sm" size="md" />
       <ProjectHeader 
-        title="Account Tech DAO"
+        title="Account Tech Multisig"
         role="Front-End Development & Smart Contract Integration"
-        techStack={["Next.js", "Tailwind CSS", "Sui Stack"]}
+        techStack={["Next.js", "Tailwind CSS", "SUI stack"]}
         location="Remote"
         year="2025"
       />
       <Spacer mobileSize="xs" size="xs" />
       <ProjectSection
-        title="Account Tech DAO"
-        projectName="accounttechdao"
-        websiteUrl="https://dao.account.tech/"
+        title="Account Tech Multisig"
+        projectName="accounttechmultisig"
+        websiteUrl="https://multisig.account.tech/"
         buttonLabel="Visit Live Website"
         isMobileShowcase={false}
-        firstDescription="The DAO app by Account.Tech is a decentralized governance platform built on Sui that redefines how communities and protocols make decisions. It brings transparency, flexibility, and full on-chain execution to decentralized operations through a powerful intent-based model."
-        secondDescription="Participants govern through Smart Accounts linked to NFTs or fungible tokens, enabling secure proposal submissions and voting on-chain. The app supports default actions like airdrops, package upgrades, and vesting, while integrating seamlessly with Sui-native assets and third-party packages."
-        thirdDescription="I worked on both the front-end and smart contract integration of the DAO app, crafting a smooth user experience that connects governance logic directly with the blockchain. The result is a robust, transparent tool that empowers on-chain communities to coordinate effectively and securely."
+        firstDescription="The Multisig app by Account.Tech is a secure coordination tool on the Sui blockchain that enables trusted groups to manage assets and actions through collective approval. Built on the same intent-based architecture as the DAO, it offers a robust and flexible approach to shared governance."
+        secondDescription="Unlike the DAO, participation in a Multisig requires explicit invitation to a Smart Account. Once inside, members can propose and vote on-chain for actions like token transfers, upgrades, and asset management, all governed by secure, transparent rules native to Sui."
+        thirdDescription="I contributed to both the front-end development and smart contract integration of the Multisig app, focusing on crafting a secure and intuitive experience for invited users. The result is a high-trust, low-friction platform that enables seamless collective decision-making in Web3 environments."
         //credits={{
         //  name: "Thouny",
         //  linkedIn: "https://github.com/thounyy",
@@ -49,10 +49,10 @@ export default function Home() {
       />
       <div ref={triggerRef}>
         <ProjectFooter nextProject={{
-          title: "MG Événements",
-          href: "/work/mg-evenements",
-          nextProjectName: "mgevenements",
-          color: "#737373"
+          title: "Account Tech DAO",
+          href: "/work/account-tech-dao",
+          nextProjectName: "accounttechdao",
+          color: "#00b9a6"
         }} triggerRef={triggerRef as React.RefObject<HTMLDivElement>} />
       </div>
     </>
