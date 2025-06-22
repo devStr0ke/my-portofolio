@@ -1,6 +1,7 @@
 'use client'
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 
 interface CardProps {
   i: number;
@@ -12,14 +13,16 @@ interface CardProps {
 
 const Card = ({ i, title, description, features, color }: CardProps) => {
   const container = useRef<HTMLDivElement>(null);
+  const isNarrowScreen = useMediaQuery({ maxHeight: 749 });
+  const dontShowFeatures = useMediaQuery({ maxHeight: 632 });
   
   return (
     <div 
       ref={container} 
-      className="h-screen flex items-center justify-center sticky top-0"
+      className="h-screen flex items-start justify-center sticky top-28 lg:top-44"
     >
       <motion.div 
-        style={{ backgroundColor: color, top: `calc(-5vh + ${i * 80}px)` }}
+        style={{ backgroundColor: color, top: `calc(${i * 80}px)` }}
         className="flex flex-col relative h-[500px] w-full origin-top border-t border-zinc-800"
       >
         {/* Desktop layout (hidden below lg) */}
@@ -36,17 +39,17 @@ const Card = ({ i, title, description, features, color }: CardProps) => {
               {description}
             </p>
             
-            {features && (
-              <div className="space-y-4">
+            {features && !dontShowFeatures && (
+              <div className={`${isNarrowScreen ? 'flex flex-row gap-4' : 'space-y-4'}`}>
                 {features.map((feature, index) => (
                   <div 
                     key={index} 
-                    className="flex items-center justify-start gap-4 border-b border-zinc-800 pb-4 last:border-b-0"
+                    className={`flex items-center gap-2 ${!isNarrowScreen && 'border-b border-zinc-800 pb-4 last:border-b-0'} ${isNarrowScreen && 'shrink-0'}`}
                   >
-                    <span className="text-neutral-500 text-sm">
+                    <span className="text-neutral-500 text-xs shrink-0">
                       {(index + 1).toString().padStart(2, '0')}
                     </span>
-                    <span className="text-neutral-300 text-md sm:text-lg md:text-xl lg:text-2xl font-semibold">
+                    <span className={`text-neutral-300 font-semibold ${isNarrowScreen ? 'text-sm' : 'text-md sm:text-lg md:text-xl lg:text-2xl'}`}>
                       {feature}
                     </span>
                   </div>

@@ -71,7 +71,7 @@ const LinksOverlay = ({ setActive }: { setActive: Dispatch<SetStateAction<boolea
 
 const LinksContainer = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   return (
-    <motion.div className="space-y-4 p-12 pl-4 md:pl-20">
+    <motion.div className="space-y-4 p-12 pl-4 md:pl-20 font-orbitron">
       {LINKS.map((l, idx) => {
         return (
           <NavLink key={l.title} href={l.href} idx={idx}>

@@ -56,7 +56,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
         </p>
 
         <Link href={nextProject.href} className="relative z-[2] mb-56">
-          <h2 className='text-5xl sm:text-6xl md:text-8xl font-light text-neutral-950 font-orbitron'>
+          <h2 className='text-4xl sm:text-6xl md:text-8xl font-light text-neutral-950 font-orbitron text-center'>
             {nextProject.title}
           </h2>
         </Link>
