@@ -25,21 +25,23 @@ export default function Home() {
       <FloatingNav disableScroll={true} footerId="project-footer" />
       <Spacer mobileSize="sm" size="md" />
       <ProjectHeader 
-        title="Halcyon Labs"
-        role="Design & Front-End Development"
-        techStack={["Next.js", "Tailwind CSS", "Mysten Wallet", "Supabase"]}
-        location="Toulouse, France"
-        year="2024"
+        title="Account Tech DAO"
+        role="Front-End Development & Smart Contract Integration"
+        techStack={["Next.js", "Tailwind CSS", "Mysten Wallet", "Supabase", "Sui"]}
+        location="Remote"
+        year="2025"
       />
       <Spacer mobileSize="xs" size="xs" />
       <ProjectSection
-        title="Halcyon Labs"
-        projectName="halcyon"
-        websiteUrl="https://github.com/HalcyonBuilders/halcyon-website"
-        buttonLabel="Visit GitHub Repo"
-        firstDescription="Halcyon Labs is a decentralized application built on the Sui blockchain that reimagines whitelist distribution through gamification. The project transforms the traditional whitelist process into an engaging experience where users participate in a unique lottery system."
-        secondDescription="Users can mint virtual water bottles on the blockchain, with full bottles representing successful whitelist entries. Empty bottles aren't worthless - collect five of them, and you can try your luck again, adding a strategic layer to the experience."
-        thirdDescription="I designed and developed the front-end interface, focusing on creating an intuitive user experience that seamlessly connects with the blockchain. The result is a smooth, engaging platform that makes Web3 technology accessible and fun."
+        title="Account Tech DAO"
+        projectName="accounttechdao"
+        websiteUrl="https://dao.account.tech/"
+        buttonLabel="Visit Live Website"
+        buttonTopOffset="-top-0"
+        isMobileShowcase={false}
+        firstDescription="The DAO app by Account.Tech is a decentralized governance platform built on Sui that redefines how communities and protocols make decisions. It brings transparency, flexibility, and full on-chain execution to decentralized operations through a powerful intent-based model."
+        secondDescription="Participants govern through Smart Accounts linked to NFTs or fungible tokens, enabling secure proposal submissions and voting on-chain. The app supports default actions like airdrops, package upgrades, and vesting, while integrating seamlessly with Sui-native assets and third-party packages."
+        thirdDescription="I worked on both the front-end and smart contract integration of the DAO app, crafting a smooth user experience that connects governance logic directly with the blockchain. The result is a robust, transparent tool that empowers on-chain communities to coordinate effectively and securely."
         //credits={{
         //  name: "Thouny",
         //  linkedIn: "https://github.com/thounyy",
