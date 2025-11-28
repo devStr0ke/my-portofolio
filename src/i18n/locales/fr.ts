@@ -165,5 +165,42 @@ export const fr: Translations = {
         ]
       }
     ]
+  },
+  // Contact form
+  contactForm: {
+    fields: {
+      name: {
+        label: "Quel est votre nom ?",
+        placeholder: "Samuel Coelho",
+        error: "Nom requis"
+      },
+      email: {
+        label: "Quelle est votre adresse email ?",
+        placeholder: "samuel.coelho@voidsoftware.pro",
+        error: "Email requis"
+      },
+      organization: {
+        label: "Nom de votre organisation (facultatif)",
+        placeholder: "Void Software"
+      },
+      subject: {
+        label: "Quel est l'objet de votre message ?",
+        placeholder: "Projet de développement web",
+        error: "Objet requis"
+      },
+      message: {
+        label: "Quel est votre message ?",
+        placeholder: "Parlez-moi de votre projet...",
+        error: "Message requis"
+      }
+    },
+    errors: {
+      fillRequired: "Veuillez remplir tous les champs obligatoires",
+      sendFailed: "Échec de l'envoi. Veuillez réessayer."
+    },
+    button: {
+      send: "Envoyer le message",
+      sending: "Envoi en cours..."
+    }
   }
 };

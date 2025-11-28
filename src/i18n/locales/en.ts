@@ -163,6 +163,43 @@ export const en = {
         ]
       }
     ]
+  },
+  // Contact form
+  contactForm: {
+    fields: {
+      name: {
+        label: "What's your name?",
+        placeholder: "Samuel Coelho",
+        error: "Name required"
+      },
+      email: {
+        label: "What's your email?",
+        placeholder: "samuel.coelho@voidsoftware.pro",
+        error: "Email required"
+      },
+      organization: {
+        label: "What's the name of your organization?",
+        placeholder: "Void Software"
+      },
+      subject: {
+        label: "What's the subject of your message?",
+        placeholder: "Website Development Project",
+        error: "Subject required"
+      },
+      message: {
+        label: "What's your message?",
+        placeholder: "Tell me about your project...",
+        error: "Message required"
+      }
+    },
+    errors: {
+      fillRequired: "Please fill in all required fields",
+      sendFailed: "Failed to send message. Please try again."
+    },
+    button: {
+      send: "Send Message",
+      sending: "Sending..."
+    }
   }
 };
 
