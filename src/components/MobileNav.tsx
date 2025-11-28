@@ -63,8 +63,10 @@ const Nav = () => {
 };
 
 const LinksOverlay = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
+  const { locale } = useTranslations();
+  
   return (
-    <nav className="fixed right-4 top-4 z-[100] h-[calc(100vh_-_110px)] w-[calc(100%_-_32px)] overflow-hidden">
+    <nav key={locale} className="fixed right-4 top-4 z-[100] h-[calc(100vh_-_110px)] w-[calc(100%_-_32px)] overflow-hidden">
       <Logo setActive={setActive} />
       <LinksContainer setActive={setActive} />
       <FooterCTAs setActive={setActive} />
@@ -237,10 +239,7 @@ const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>
             return (
               <motion.button
                 key={idx}
-                onClick={() => {
-                  l.onClick?.();
-                  setActive(false);
-                }}
+                onClick={l.onClick}
                 initial={{ opacity: 0, y: -8 }}
                 animate={{
                   opacity: 1,
