@@ -7,6 +7,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import ProjectCard from '@/components/ProjectCard'
 import { Spacer } from '../Spacer';
 import { RoundedButton } from '../RoundedButton';
+import { useTranslations } from '@/i18n/LanguageContext';
 
 interface ProjectContentProps {
   nextProject: {
@@ -21,6 +22,7 @@ interface ProjectContentProps {
 export default function ProjectContent({ nextProject, triggerRef }: ProjectContentProps) {
   const lineRef = useRef(null);
   const cardRef = useRef(null);
+  const { t } = useTranslations();
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -52,7 +54,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
     <div className='bg-indigo-600 h-full w-full relative'>
       <div className='absolute inset-0 flex flex-col gap-8 items-center justify-end'>
         <p className='text-2xl font-bold text-neutral-950 font-orbitron'>
-          Next project
+          {t.projectFooter.nextProject}
         </p>
 
         <Link href={nextProject.href} className="relative z-[2] mb-56">
@@ -87,7 +89,7 @@ export default function ProjectContent({ nextProject, triggerRef }: ProjectConte
           {/* Indigo mask - positioned below the card */}
           <div className="absolute top-0 left-0 w-full bg-indigo-600 h-[500px] z-[2]" />
         </div>
-        <RoundedButton href='/work' color='neutral' superscript='5' backgroundColor='#0a0a0a' className='z-[3] mb-10 font-orbitron'>All work</RoundedButton>
+        <RoundedButton href='/work' color='neutral' backgroundColor='#0a0a0a' className='z-[3] mb-10 font-orbitron'>{t.projectFooter.allWork}</RoundedButton>
       </div>
     </div>
   )

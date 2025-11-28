@@ -105,6 +105,11 @@ export const en = {
     edition: "2025 © Edition",
     localTime: "LOCAL TIME"
   },
+  // Project footer
+  projectFooter: {
+    nextProject: "Next project",
+    allWork: "All work"
+  },
   // Route names (for page transitions)
   routes: {
     home: "Home",

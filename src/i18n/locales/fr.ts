@@ -107,6 +107,11 @@ export const fr: Translations = {
     edition: "2025 © Édition",
     localTime: "HEURE LOCALE"
   },
+  // Project footer
+  projectFooter: {
+    nextProject: "Projet suivant",
+    allWork: "Tous mes projets"
+  },
   // Route names (for page transitions)
   routes: {
     home: "Accueil",

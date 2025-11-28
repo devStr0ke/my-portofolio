@@ -34,7 +34,7 @@ const frenchParagraph = [
   { text: "et" },
   { text: "des" },
   { text: "solutions" },
-  { text: "évolutives." }
+  { text: "efficaces." }
 ];
 
 export const ExperienceSection = () => {
