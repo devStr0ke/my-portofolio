@@ -90,6 +90,12 @@ export const en = {
   // MyMottoSection component
   motto: {
     title: "My Motto"
+  },
+  // Homepage buttons
+  buttons: {
+    moreAboutMe: "More about me",
+    detailedExperience: "Detailed experience",
+    allWork: "All work"
   }
 };
 

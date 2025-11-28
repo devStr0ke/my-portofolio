@@ -92,5 +92,11 @@ export const fr: Translations = {
   // MyMottoSection component
   motto: {
     title: "Ma Devise"
+  },
+  // Homepage buttons
+  buttons: {
+    moreAboutMe: "En savoir plus",
+    detailedExperience: "Parcours détaillé",
+    allWork: "Tous mes projets"
   }
 };
