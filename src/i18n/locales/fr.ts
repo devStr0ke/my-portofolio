@@ -51,5 +51,35 @@ export const fr: Translations = {
         description: "Transformation de designs en interfaces web réactives, accessibles et conviviales.",
       },
     ]
+  },
+  // HistorySection component
+  history: {
+    title: "Parcours",
+    items: [
+      {
+        year: "AJD",
+        title: "Développeur Freelance",
+        company: "Je crée des trucs cool",
+        description: "Actuellement freelance, je travaille sur divers projets web pour des clients variés."
+      },
+      {
+        year: "2023",
+        title: "Développeur Full Stack",
+        company: "Dassault Systèmes",
+        description: "Développement de solutions UI/UX évolutives pour une application d'envergure avec React et Node.js."
+      },
+      {
+        year: "2022",
+        title: "Développeur Frontend",
+        company: "INSPI & Innersense",
+        description: "Refonte complète du frontend d'une application avec Vue.js et amélioration de l'expérience utilisateur."
+      },
+      {
+        year: "2019",
+        title: "Étudiant Universitaire",
+        company: "Université Paul Sabatier",
+        description: "Études en informatique à l'UPS de 2019 à 2024 (Master)"
+      }
+    ]
   }
 };

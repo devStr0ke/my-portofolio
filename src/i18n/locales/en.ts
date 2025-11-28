@@ -49,6 +49,36 @@ export const en = {
         description: "Transforming designs into responsive, accessible, and user-friendly web interfaces.",
       },
     ]
+  },
+  // HistorySection component
+  history: {
+    title: "History",
+    items: [
+      {
+        year: "NOW",
+        title: "Freelance Developer",
+        company: "Building cool stuff",
+        description: "Currently freelancing and creating awesome web applications."
+      },
+      {
+        year: "2023",
+        title: "Full Stack Developer",
+        company: "Dassault Systèmes",
+        description: "Developed scalable UI/UX solutions for a large application using React and Node.js."
+      },
+      {
+        year: "2022",
+        title: "Frontend Developer",
+        company: "INSPI & Innersense",
+        description: "Revamped an old app's frontend by rebuilding it in Vue.js with modern UI/UX enhancements."
+      },
+      {
+        year: "2019",
+        title: "University Student",
+        company: "University Paul Sabatier",
+        description: "Studied Computer Science at UPS from 2019 to 2024 (Master's degree)"
+      }
+    ]
   }
 };
 
