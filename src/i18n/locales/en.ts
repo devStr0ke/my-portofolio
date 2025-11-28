@@ -213,6 +213,50 @@ export const en = {
       services: "SERVICES",
       year: "YEAR"
     }
+  },
+  // Project pages
+  projects: {
+    accountTechDao: {
+      role: "Front-End Development & Smart Contract Integration",
+      buttonLabel: "Visit Live Website",
+      firstDescription: "The DAO app by Account.Tech is a decentralized governance platform built on Sui that redefines how communities and protocols make decisions. It brings transparency, flexibility, and full on-chain execution to decentralized operations through a powerful intent-based model.",
+      secondDescription: "Participants govern through Smart Accounts linked to NFTs or fungible tokens, enabling secure proposal submissions and voting on-chain. The app supports default actions like airdrops, package upgrades, and vesting, while integrating seamlessly with Sui-native assets and third-party packages.",
+      thirdDescription: "I worked on both the front-end and smart contract integration of the DAO app, crafting a smooth user experience that connects governance logic directly with the blockchain. The result is a robust, transparent tool that empowers on-chain communities to coordinate effectively and securely."
+    },
+    accountTechMultisig: {
+      role: "Front-End Development & Smart Contract Integration",
+      buttonLabel: "Visit Live Website",
+      firstDescription: "Account.Tech's Multisig is a decentralized coordination tool built on the Sui blockchain that allows trusted groups to manage shared assets and operations securely. It enables on-chain execution through a powerful intent-based system, combining flexibility with strong access control.",
+      secondDescription: "Users gain access to a Multisig Smart Account by invitation, allowing them to create proposals and vote on key actions such as token transfers, contract upgrades, or asset management. Every interaction is fully on-chain, transparent, and enforced by Sui-native logic.",
+      thirdDescription: "I contributed to both the front-end development and smart contract integration of the Multisig application, focusing on delivering a seamless and secure experience for authorized participants. The result is a clean, responsive platform that brings trust and structure to collective decision-making."
+    },
+    mgEvenements: {
+      role: "Design & Development",
+      buttonLabel: "Visit Live Website",
+      firstDescription: "MG Événements is a boutique event planning agency based in Toulouse, France. I crafted their digital presence to reflect their dedication to creating unforgettable moments, with a design that balances elegance and functionality.",
+      secondDescription: "The website serves as a digital showcase of their services, allowing clients to explore their offerings and seamlessly request quotes. The design emphasizes visual storytelling while maintaining a clean, professional aesthetic.",
+      thirdDescription: "Every interaction was carefully crafted to enhance user engagement. From smooth page transitions to responsive animations, the site delivers a polished experience that reflects MG Événements commitment to excellence."
+    },
+    mgeDashboard: {
+      role: "Database & Development",
+      buttonLabel: "Visit GitHub Repo",
+      firstDescription: "MGE Dashboard is a custom-built administrative interface designed specifically for MG Événements. This powerful tool seamlessly integrates with their client-facing website, enabling real-time database management and quote processing, creating a fluid workflow between client interactions and business operations.",
+      secondDescription: "At its core, the dashboard provides comprehensive CRUD operations for product management, with instant synchronization to the main website. Every update made in the dashboard is immediately reflected on MG Événements' client platform, ensuring consistent and up-to-date information across all touchpoints.",
+      thirdDescription: "The quote management system streamlines client communication by centralizing all incoming requests from the website. This integration creates a seamless pipeline from client inquiry to quote processing, enabling MG Événements to respond promptly and manage their business operations efficiently."
+    },
+    halcyonLabs: {
+      role: "Design & Front-End Development",
+      buttonLabel: "Visit GitHub Repo",
+      firstDescription: "Halcyon Labs is a decentralized application built on the Sui blockchain that reimagines whitelist distribution through gamification. The project transforms the traditional whitelist process into an engaging experience where users participate in a unique lottery system.",
+      secondDescription: "Users can mint virtual water bottles on the blockchain, with full bottles representing successful whitelist entries. Empty bottles aren't worthless - collect five of them, and you can try your luck again, adding a strategic layer to the experience.",
+      thirdDescription: "I designed and developed the front-end interface, focusing on creating an intuitive user experience that seamlessly connects with the blockchain. The result is a smooth, engaging platform that makes Web3 technology accessible and fun."
+    }
+  },
+  // Project header labels
+  projectHeader: {
+    roleServices: "ROLE / SERVICES",
+    techStack: "TECH STACK",
+    locationYear: "LOCATION & YEAR"
   }
 };
 

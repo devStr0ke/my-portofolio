@@ -6,8 +6,10 @@ import ProjectSection from "@/components/ProjectPresentation/ProjectSection";
 import ProjectFooter from "@/components/ProjectFooter/ProjectFooter";
 import { useRef, useEffect } from "react";
 import Lenis from 'lenis';
+import { useTranslations } from "@/i18n/LanguageContext";
 
 export default function Home() {
+  const { t } = useTranslations();
   // Explicitly type the ref as non-null
   const triggerRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +28,7 @@ export default function Home() {
       <Spacer mobileSize="sm" size="md" />
       <ProjectHeader 
         title="Account Tech DAO"
-        role="Front-End Development & Smart Contract Integration"
+        role={t.projects.accountTechDao.role}
         techStack={["Next.js", "Tailwind CSS", "Sui Stack"]}
         location="Remote"
         year="2025"
@@ -36,11 +38,11 @@ export default function Home() {
         title="Account Tech DAO"
         projectName="accounttechdao"
         websiteUrl="https://dao.account.tech/"
-        buttonLabel="Visit Live Website"
+        buttonLabel={t.projects.accountTechDao.buttonLabel}
         isMobileShowcase={false}
-        firstDescription="The DAO app by Account.Tech is a decentralized governance platform built on Sui that redefines how communities and protocols make decisions. It brings transparency, flexibility, and full on-chain execution to decentralized operations through a powerful intent-based model."
-        secondDescription="Participants govern through Smart Accounts linked to NFTs or fungible tokens, enabling secure proposal submissions and voting on-chain. The app supports default actions like airdrops, package upgrades, and vesting, while integrating seamlessly with Sui-native assets and third-party packages."
-        thirdDescription="I worked on both the front-end and smart contract integration of the DAO app, crafting a smooth user experience that connects governance logic directly with the blockchain. The result is a robust, transparent tool that empowers on-chain communities to coordinate effectively and securely."
+        firstDescription={t.projects.accountTechDao.firstDescription}
+        secondDescription={t.projects.accountTechDao.secondDescription}
+        thirdDescription={t.projects.accountTechDao.thirdDescription}
         //credits={{
         //  name: "Thouny",
         //  linkedIn: "https://github.com/thounyy",
