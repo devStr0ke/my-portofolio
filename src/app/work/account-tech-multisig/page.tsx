@@ -6,8 +6,10 @@ import ProjectSection from "@/components/ProjectPresentation/ProjectSection";
 import ProjectFooter from "@/components/ProjectFooter/ProjectFooter";
 import { useRef, useEffect } from "react";
 import Lenis from 'lenis';
+import { useTranslations } from "@/i18n/LanguageContext";
 
 export default function Home() {
+  const { t } = useTranslations();
   // Explicitly type the ref as non-null
   const triggerRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +28,7 @@ export default function Home() {
       <Spacer mobileSize="sm" size="md" />
       <ProjectHeader 
         title="Account Tech Multisig"
-        role="Front-End Development & Smart Contract Integration"
+        role={t.projects.accountTechMultisig.role}
         techStack={["Next.js", "Tailwind CSS", "SUI stack"]}
         location="Remote"
         year="2025"
@@ -36,11 +38,11 @@ export default function Home() {
         title="Account Tech Multisig"
         projectName="accounttechmultisig"
         websiteUrl="https://multisig.account.tech/"
-        buttonLabel="Visit Live Website"
+        buttonLabel={t.projects.accountTechMultisig.buttonLabel}
         isMobileShowcase={false}
-        firstDescription="Account.Tech’s Multisig is a decentralized coordination tool built on the Sui blockchain that allows trusted groups to manage shared assets and operations securely. It enables on-chain execution through a powerful intent-based system, combining flexibility with strong access control."
-        secondDescription="Users gain access to a Multisig Smart Account by invitation, allowing them to create proposals and vote on key actions such as token transfers, contract upgrades, or asset management. Every interaction is fully on-chain, transparent, and enforced by Sui-native logic."
-        thirdDescription="I contributed to both the front-end development and smart contract integration of the Multisig application, focusing on delivering a seamless and secure experience for authorized participants. The result is a clean, responsive platform that brings trust and structure to collective decision-making."
+        firstDescription={t.projects.accountTechMultisig.firstDescription}
+        secondDescription={t.projects.accountTechMultisig.secondDescription}
+        thirdDescription={t.projects.accountTechMultisig.thirdDescription}
         //credits={{
         //  name: "Thouny",
         //  linkedIn: "https://github.com/thounyy",

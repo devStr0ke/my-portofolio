@@ -6,8 +6,10 @@ import ProjectSection from "@/components/ProjectPresentation/ProjectSection";
 import ProjectFooter from "@/components/ProjectFooter/ProjectFooter";
 import { useRef, useEffect } from "react";
 import Lenis from 'lenis';
+import { useTranslations } from "@/i18n/LanguageContext";
 
 export default function Home() {
+  const { t } = useTranslations();
   // Explicitly type the ref as non-null
   const triggerRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +28,7 @@ export default function Home() {
       <Spacer mobileSize="sm" size="md" />
       <ProjectHeader 
         title="MG Événements"
-        role="Design & Development"
+        role={t.projects.mgEvenements.role}
         techStack={["Next.js", "Tailwind CSS", "Supabase", "Framer Motion"]}
         location="Toulouse, France"
         year="2024"
@@ -36,9 +38,10 @@ export default function Home() {
         title="MG Événements"
         projectName="mgevenements"
         websiteUrl="https://mgevenements.fr/"
-        firstDescription="MG Événements is a boutique event planning agency based in Toulouse, France. I crafted their digital presence to reflect their dedication to creating unforgettable moments, with a design that balances elegance and functionality."
-        secondDescription="The website serves as a digital showcase of their services, allowing clients to explore their offerings and seamlessly request quotes. The design emphasizes visual storytelling while maintaining a clean, professional aesthetic."
-        thirdDescription="Every interaction was carefully crafted to enhance user engagement. From smooth page transitions to responsive animations, the site delivers a polished experience that reflects MG Événements commitment to excellence."
+        buttonLabel={t.projects.mgEvenements.buttonLabel}
+        firstDescription={t.projects.mgEvenements.firstDescription}
+        secondDescription={t.projects.mgEvenements.secondDescription}
+        thirdDescription={t.projects.mgEvenements.thirdDescription}
         //credits={{
         //  name: "Eva Bardeau",
         //  linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",

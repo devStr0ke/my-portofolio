@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import { useTranslations } from '@/i18n/LanguageContext';
 
 interface ProjectHeaderProps {
   title: string;
@@ -10,6 +11,8 @@ interface ProjectHeaderProps {
 }
 
 export default function ProjectHeader({ title, role, techStack, location, year }: ProjectHeaderProps) {
+  const { t } = useTranslations();
+  
   return (
     <div className="w-full max-w-[90%] lg:max-w-[68%] mx-auto">
       {/* Title */}
@@ -21,7 +24,7 @@ export default function ProjectHeader({ title, role, techStack, location, year }
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Role/Services Column */}
         <div>
-          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">ROLE / SERVICES</h3>
+          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">{t.projectHeader.roleServices}</h3>
           <div className="border-t border-zinc-800 pt-2 md:pt-6">
             <p className="text-sm 2xl:text-base text-neutral-500">{role}</p>
           </div>
@@ -29,7 +32,7 @@ export default function ProjectHeader({ title, role, techStack, location, year }
 
          {/* Tech Stack Column */}
          <div>
-          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">TECH STACK</h3>
+          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">{t.projectHeader.techStack}</h3>
           <div className="border-t-[0.25px] border-zinc-800 pt-2 md:pt-6">
             <p className="text-sm 2xl:text-base text-neutral-500">
               {techStack.join(', ')}
@@ -39,7 +42,7 @@ export default function ProjectHeader({ title, role, techStack, location, year }
 
         {/* Location & Year Column */}
         <div>
-          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">LOCATION & YEAR</h3>
+          <h3 className="text-xs 2xl:text-sm text-neutral-500 mb-4">{t.projectHeader.locationYear}</h3>
           <div className="border-t-[0.25px] border-zinc-800 pt-2 md:pt-6">
             <p className="text-sm 2xl:text-base text-neutral-500">{location} © {year}</p>
           </div>

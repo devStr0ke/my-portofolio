@@ -14,8 +14,10 @@ import { MyMottoSection } from "@/components/MyMottoSection";
 import Footer from "@/components/Footer/Footer";
 import { useEffect } from "react";
 import Lenis from 'lenis';
+import { useTranslations } from "@/i18n/LanguageContext";
 
 export default function Home() {
+  const { t } = useTranslations();
 
   useEffect( () => {
     const lenis = new Lenis()
@@ -37,7 +39,7 @@ export default function Home() {
         <WhatIdoSection />
         <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
-          <RoundedButton href='/about' color='light' className='flex justify-center items-center font-orbitron'>More about me</RoundedButton>
+          <RoundedButton href='/about' color='light' className='flex justify-center items-center font-orbitron'>{t.buttons.moreAboutMe}</RoundedButton>
         </div>
         <Spacer mobileSize="md" size="lg" />
         <ExperienceSection />
@@ -45,7 +47,7 @@ export default function Home() {
         <HistorySection />
         <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
-          <RoundedButton href='/experience' color='light' className='flex justify-center items-center font-orbitron'>Detailed experience</RoundedButton>
+          <RoundedButton href='/experience' color='light' className='flex justify-center items-center font-orbitron'>{t.buttons.detailedExperience}</RoundedButton>
         </div>
         <Spacer mobileSize="md" size="lg" />
         <ProjectsSection />
@@ -53,7 +55,7 @@ export default function Home() {
         <Work />
         <Spacer size="xxs" mobileSize="xxxs" />
         <div className="flex justify-center items-center">
-          <RoundedButton href='/work' color='light' superscript='5' className='flex justify-center items-center font-orbitron'>All work</RoundedButton>
+          <RoundedButton href='/work' color='light' className='flex justify-center items-center font-orbitron'>{t.buttons.allWork}</RoundedButton>
         </div>
         <Spacer mobileSize="md"size="lg" />
         <MyMottoSection />

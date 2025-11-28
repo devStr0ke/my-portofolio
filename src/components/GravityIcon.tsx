@@ -6,14 +6,13 @@ import {
   } from "framer-motion";
   import { useRef } from "react";
   
-  interface GravityIconProps {
-    icon: React.ReactNode;
-    href: string;
-    className?: string;
-  }
-  
-  const GravityIcon = ({ icon, href, className }: GravityIconProps) => {
-    const ref = useRef<HTMLAnchorElement | null>(null);
+interface GravityIconProps {
+  icon: React.ReactNode;
+  href?: string;
+  onClick?: () => void;
+  className?: string;
+}  const GravityIcon = ({ icon, href, onClick, className }: GravityIconProps) => {
+    const ref = useRef<HTMLAnchorElement | HTMLButtonElement | null>(null);
   
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -32,7 +31,7 @@ import {
     const transform = useMotionTemplate`translateX(${xSpring}px) translateY(${ySpring}px)`;
   
     const handleMouseMove = (
-      e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+      e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement, MouseEvent>
     ) => {
       if (!ref.current) return;
   
@@ -47,9 +46,25 @@ import {
       y.set(0);
     };
   
+    // If onClick is provided, render as button, otherwise as link
+    if (onClick) {
+      return (
+        <motion.button
+          ref={ref as React.RefObject<HTMLButtonElement>}
+          onClick={onClick}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{ transform }}
+          className={`hover:text-indigo-600 transition-colors ${className || ''}`}
+        >
+          {icon}
+        </motion.button>
+      );
+    }
+  
     return (
       <motion.a
-        ref={ref}
+        ref={ref as React.RefObject<HTMLAnchorElement>}
         href={href}
         target="_blank"
         rel="noopener noreferrer"

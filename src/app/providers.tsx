@@ -3,23 +3,29 @@
 import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { TransitionRouter } from "next-transition-router";
+import { LanguageProvider, useTranslations } from "@/i18n/LanguageContext";
 
-const routes: { [key: string]: string } = {
-  "/": "Home",
-  "/about": "About",
-  "/experience": "Experience",
-  "/work": "Work",
-  "/contact": "Contact",
-  "/work/mg-evenements": "MG-Evenements",
-  "/work/mge-dashboard": "MGE-Dashboard",
-  "/work/halcyon-labs": "Halcyon-Labs",
-  "/work/account-tech-multisig": "Account-Tech-Multisig",
-  "/work/account-tech-dao": "Account-Tech-DAO",
-};
-
-export function Providers({ children }: { children: React.ReactNode }) {
+function TransitionContent({ children }: { children: React.ReactNode }) {
   const layer = useRef<HTMLDivElement | null>(null);
   const [currentRoute, setCurrentRoute] = useState("");
+  const { t } = useTranslations();
+
+  const getRouteName = (path: string) => {
+    const routeMap: { [key: string]: string } = {
+      "/": t.routes.home,
+      "/about": t.routes.about,
+      "/experience": t.routes.experience,
+      "/work": t.routes.work,
+      "/contact": t.routes.contact,
+      "/work/mg-evenements": t.routes.mgEvenements,
+      "/work/mge-dashboard": t.routes.mgeDashboard,
+      "/work/halcyon-labs": t.routes.halcyonLabs,
+      "/work/account-tech-multisig": t.routes.accountTechMultisig,
+      "/work/account-tech-dao": t.routes.accountTechDao,
+    };
+
+    return routeMap[path] || '· ' + path.charAt(0).toUpperCase() + path.slice(1);
+  };
 
   return (
     <TransitionRouter
@@ -76,9 +82,17 @@ export function Providers({ children }: { children: React.ReactNode }) {
         className="fixed inset-0 z-[9999] translate-y-full bg-indigo-600 flex items-center justify-center"
       >
         <span className="text-4xl font-light text-white font-orbitron">
-          {routes[currentRoute] || '· ' + currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)}
+          {getRouteName(currentRoute)}
         </span>
       </div>
     </TransitionRouter>
+  );
+}
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <LanguageProvider>
+      <TransitionContent>{children}</TransitionContent>
+    </LanguageProvider>
   );
 }

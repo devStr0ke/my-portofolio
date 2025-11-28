@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslations } from "@/i18n/LanguageContext";
 
 type HistoryItem = {
   year: string;
@@ -7,44 +8,19 @@ type HistoryItem = {
   description: string;
 };
 
-const historyItems: HistoryItem[] = [
-  {
-    year: "NOW",
-    title: "Freelance Developer",
-    company: "Building cool stuff",
-    description: "Currently working at account.tech"
-  },
-  {
-    year: "2023",
-    title: "Full Stack Developer",
-    company: "Dassault Systèmes",
-    description: "Developed scalable UI/UX solutions for a large application using React and Node.js."
-  },
-  {
-    year: "2022",
-    title: "Frontend Developer",
-    company: "INSPI & Innersense",
-    description: "Revamped an old app's frontend by rebuilding it in Vue.js with modern UI/UX enhancements."
-  },
-  {
-    year: "2019",
-    title: "University Student",
-    company: "University Paul Sabatier",
-    description: "Studied Computer Science at UPS from 2019 to 2024 (Master's degree)"
-  }
-];
-
 export const HistorySection = () => {
+  const { t } = useTranslations();
+
   return (
     <section className="bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto">
         <motion.div className="flex flex-col">
           <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest ml-0 font-orbitron">
-            History
+            {t.history.title}
           </span>
           
           <div className="text-start">
-            {historyItems.map((item, index) => (
+            {t.history.items.map((item, index) => (
               <HistoryItem key={index} {...item} />
             ))}
           </div>

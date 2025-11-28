@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { RoundedButton } from "./RoundedButton";
 import Modal from "./Modal";
+import { useTranslations } from "@/i18n/LanguageContext";
 
 interface FormData {
   name: string;
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 const ContactForm = () => {
+  const { t } = useTranslations();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -32,7 +34,7 @@ const ContactForm = () => {
     
     if (emptyFields.length > 0) {
       setInvalidFields(emptyFields);
-      setError('Please fill in all required fields');
+      setError(t.contactForm.errors.fillRequired);
       return;
     }
 
@@ -59,7 +61,7 @@ const ContactForm = () => {
         message: "",
       });
     } catch (err) {
-      setError('Failed to send message. Please try again.');
+      setError(t.contactForm.errors.sendFailed);
     } finally {
       setIsSubmitting(false);
     }
@@ -71,7 +73,7 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit} className="space-y-12">
           <FormField
             number="01"
-            label="What's your name?"
+            label={t.contactForm.fields.name.label}
             name="name"
             value={formData.name}
             onChange={(value) => {
@@ -80,11 +82,13 @@ const ContactForm = () => {
             }}
             required
             isInvalid={invalidFields.includes('name')}
+            placeholder={t.contactForm.fields.name.placeholder}
+            errorPlaceholder={t.contactForm.fields.name.error}
           />
 
           <FormField
             number="02"
-            label="What's your email?"
+            label={t.contactForm.fields.email.label}
             name="email"
             type="email"
             value={formData.email}
@@ -94,19 +98,22 @@ const ContactForm = () => {
             }}
             required
             isInvalid={invalidFields.includes('email')}
+            placeholder={t.contactForm.fields.email.placeholder}
+            errorPlaceholder={t.contactForm.fields.email.error}
           />
 
           <FormField
             number="03"
-            label="What's the name of your organization?"
+            label={t.contactForm.fields.organization.label}
             name="organization"
             value={formData.organization}
             onChange={(value) => setFormData({ ...formData, organization: value })}
+            placeholder={t.contactForm.fields.organization.placeholder}
           />
 
           <FormField
             number="04"
-            label="What's the subject of your message?"
+            label={t.contactForm.fields.subject.label}
             name="subject"
             value={formData.subject}
             onChange={(value) => {
@@ -115,11 +122,13 @@ const ContactForm = () => {
             }}
             required
             isInvalid={invalidFields.includes('subject')}
+            placeholder={t.contactForm.fields.subject.placeholder}
+            errorPlaceholder={t.contactForm.fields.subject.error}
           />
 
           <FormField
             number="05"
-            label="What's your message?"
+            label={t.contactForm.fields.message.label}
             name="message"
             type="textarea"
             value={formData.message}
@@ -129,6 +138,8 @@ const ContactForm = () => {
             }}
             required
             isInvalid={invalidFields.includes('message')}
+            placeholder={t.contactForm.fields.message.placeholder}
+            errorPlaceholder={t.contactForm.fields.message.error}
           />
 
           {error && (
@@ -157,7 +168,7 @@ const ContactForm = () => {
               size="custom"
               customSize={{ width: 'w-[220px]', padding: 'py-7' }}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? t.contactForm.button.sending : t.contactForm.button.send}
             </RoundedButton>
           </div>
         </form>
@@ -180,10 +191,12 @@ interface FormFieldProps {
   onChange: (value: string) => void;
   required?: boolean;
   isInvalid?: boolean;
+  placeholder?: string;
+  errorPlaceholder?: string;
 }
 
-const FormField = ({ number, label, name, type = "text", value, onChange, required, isInvalid }: FormFieldProps) => {
-  const placeholders: { [key: string]: string } = {
+const FormField = ({ number, label, name, type = "text", value, onChange, required, isInvalid, placeholder, errorPlaceholder }: FormFieldProps) => {
+  const defaultPlaceholders: { [key: string]: string } = {
     name: "Samuel Coelho",
     email: "samuel.coelho@voidsoftware.pro",
     organization: "Void Software",
@@ -191,13 +204,15 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
     message: "Tell me about your project...",
   };
 
-
-  const errorPlaceholders: { [key: string]: string } = {
+  const defaultErrorPlaceholders: { [key: string]: string } = {
     name: "Name required",
     email: "Email required",
     subject: "Subject required",
     message: "Message required",
   };
+
+  const actualPlaceholder = placeholder || defaultPlaceholders[name];
+  const actualErrorPlaceholder = errorPlaceholder || defaultErrorPlaceholders[name];
 
   const baseInputClasses = "w-full bg-transparent text-base sm:text-lg text-neutral-400 focus:outline-none focus:text-neutral-200 transition-colors [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-neutral-400 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgb(10_10_10)_inset] md:pl-[84px] pl-[32px] -mt-8";
   const placeholderClasses = isInvalid 
@@ -221,7 +236,7 @@ const FormField = ({ number, label, name, type = "text", value, onChange, requir
         value={value}
         onChange={(e) => onChange(e.target.value)}
         required={required}
-        placeholder={isInvalid ? errorPlaceholders[name] : placeholders[name]}
+        placeholder={isInvalid ? actualErrorPlaceholder : actualPlaceholder}
         autoComplete="off"
         className={`${baseInputClasses} ${placeholderClasses}`}
       />

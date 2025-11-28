@@ -1,3 +1,4 @@
+"use client";
 import {
     motion,
     useScroll,
@@ -7,15 +8,19 @@ import {
   } from "framer-motion";
   import React, { useRef } from "react";
   import { FiArrowDown } from "react-icons/fi";
-  import { FaGithub, FaLinkedin} from "react-icons/fa";
+  import { FaGithub, FaLinkedin } from "react-icons/fa";
+  import { HiGlobeAlt } from "react-icons/hi";
   import HighLightText from "./HighLightText";
   import GravityIcon from "./GravityIcon";
   import Magnetic from "@/components/Magnetic";
   import { GravityButton } from "./GravityButton";
+  import { createLanguageSwitcher } from "@/helpers/utils";
+  import { useTranslations } from "@/i18n/LanguageContext";
 import Link from "next/link";
 
   export const HeroSection = () => {
     const targetRef = useRef(null);
+    const { t } = useTranslations();
   
     const { scrollYProgress } = useScroll({
       target: targetRef,
@@ -42,7 +47,7 @@ import Link from "next/link";
             style={{ skewX, x }}
             className="font-orbitron origin-bottom-left whitespace-nowrap text-6xl font-black uppercase leading-[0.85] md:text-7xl 2xl:text-8xl md:leading-[0.85]"
           >
-            Full Stack Developer • Creative Problem Solver • Full Stack Developer • Creative Problem Solver
+            {`${t.hero.banner.lineA} • ${t.hero.banner.lineB} • ${t.hero.banner.lineA} • ${t.hero.banner.lineB}`}
           </motion.p>
           <ScrollArrow />
         </div>
@@ -89,6 +94,9 @@ import Link from "next/link";
   };
   
   const SocialLinks = () => {
+    const { locale, setLocale } = useTranslations();
+    const handleLanguageSwitch = createLanguageSwitcher(locale, setLocale);
+
     return (
       <div className="hidden md:flex gap-4">
         <GravityIcon 
@@ -99,35 +107,43 @@ import Link from "next/link";
           icon={<FaLinkedin size={25} />}
           href="https://www.linkedin.com/in/samuel-c-293984212/"
         />
+        <GravityIcon 
+          icon={<HiGlobeAlt size={25} />}
+          onClick={handleLanguageSwitch}
+        />
       </div>
     );
   };
   
   const Links = () => {
+    const { t } = useTranslations();
+
     return (
       <div className="flex gap-6 capitalize text-sm xl:text-base text-neutral-500 font-orbitron">
-        <Magnetic><Link href="/about" className="font-bold uppercase cursor-pointer hover:text-indigo-600">About</Link></Magnetic>
-        <Magnetic><Link href="/experience" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Experience</Link></Magnetic>
-        <Magnetic><Link href="/work" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Work</Link></Magnetic>
-        <Magnetic><Link href="/contact" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Contact</Link></Magnetic>
+        <Magnetic><Link href="/about" className="font-bold uppercase cursor-pointer hover:text-indigo-600">{t.pages.about}</Link></Magnetic>
+        <Magnetic><Link href="/experience" className="font-bold uppercase cursor-pointer hover:text-indigo-600">{t.pages.experience}</Link></Magnetic>
+        <Magnetic><Link href="/work" className="font-bold uppercase cursor-pointer hover:text-indigo-600">{t.pages.work}</Link></Magnetic>
+        <Magnetic><Link href="/contact" className="font-bold uppercase cursor-pointer hover:text-indigo-600">{t.pages.contact}</Link></Magnetic>
       </div>
     );
   };
   
   const CenterCopy = () => {
+    const { t } = useTranslations();
+
     return (
       <div className="flex flex-col items-center justify-center mx-auto w-full text-center">
         <h1 className="text-4xl sm:text-6xl md:text-6xl 2xl:text-8xl">
           <div className="text-neutral-500 mb-1">
-            <HighLightText>Software engineer,</HighLightText>
+            <HighLightText>{t.hero.title.line1}</HighLightText>
           </div>
           <div className="text-neutral-500 mb-2">
-            <HighLightText>building for</HighLightText>
+            <HighLightText>{t.hero.title.line2}</HighLightText>
           </div>
           <div className="text-neutral-500">
-            <HighLightText>the</HighLightText>{" "}
+            <HighLightText>{t.hero.title.line3.start}</HighLightText>{" "}
             <span className="text-indigo-600 italic">
-              <HighLightText>web.</HighLightText>
+              <HighLightText>{t.hero.title.line3.highlight}</HighLightText>
             </span>
           </div>
         </h1>
@@ -139,6 +155,8 @@ import Link from "next/link";
   };
   
   const ScrollArrow = () => {
+    const { t } = useTranslations();
+
     return (
       <>
         <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-500 lg:block font-orbitron">
@@ -147,7 +165,7 @@ import Link from "next/link";
               writingMode: "vertical-lr",
             }}
           >
-            SCROLL
+            {t.hero.scroll}
           </span>
           <FiArrowDown className="mx-auto mt-2" />
         </div>
@@ -157,7 +175,7 @@ import Link from "next/link";
               writingMode: "vertical-lr",
             }}
           >
-            SCROLL
+            {t.hero.scroll}
           </span>
           <FiArrowDown className="mx-auto mt-2" />
         </div>

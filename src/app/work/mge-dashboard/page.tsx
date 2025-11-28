@@ -6,10 +6,12 @@ import ProjectSection from "@/components/ProjectPresentation/ProjectSection";
 import ProjectFooter from "@/components/ProjectFooter/ProjectFooter";
 import { useRef, useEffect } from "react";
 import Lenis from 'lenis';
+import { useTranslations } from "@/i18n/LanguageContext";
 
 export default function Home() {
   // Explicitly type the ref as non-null
   const triggerRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslations();
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -26,7 +28,7 @@ export default function Home() {
       <Spacer mobileSize="sm" size="md" />
       <ProjectHeader 
         title="MGE Dashboard"
-        role="Database & Development"
+        role={t.projects.mgeDashboard.role}
         techStack={["Next.js", "Tailwind CSS", "Shadcn/UI", "Supabase"]}
         location="Toulouse, France"
         year="2024"
@@ -36,10 +38,10 @@ export default function Home() {
         title="MGE Dashboard"
         projectName="mgedashboard"
         websiteUrl="https://github.com/Void-Software-Inc/mge-dashboard"
-        buttonLabel="Visit GitHub Repo"
-        firstDescription="MGE Dashboard is a custom-built administrative interface designed specifically for MG Événements. This powerful tool seamlessly integrates with their client-facing website, enabling real-time database management and quote processing, creating a fluid workflow between client interactions and business operations."
-        secondDescription="At its core, the dashboard provides comprehensive CRUD operations for product management, with instant synchronization to the main website. Every update made in the dashboard is immediately reflected on MG Événements' client platform, ensuring consistent and up-to-date information across all touchpoints."
-        thirdDescription="The quote management system streamlines client communication by centralizing all incoming requests from the website. This integration creates a seamless pipeline from client inquiry to quote processing, enabling MG Événements to respond promptly and manage their business operations efficiently."
+        buttonLabel={t.projects.mgeDashboard.buttonLabel}
+        firstDescription={t.projects.mgeDashboard.firstDescription}
+        secondDescription={t.projects.mgeDashboard.secondDescription}
+        thirdDescription={t.projects.mgeDashboard.thirdDescription}
         //credits={{
         //  name: "Eva Bardeau",
         //  linkedIn: "https://www.linkedin.com/in/eva-bardeau-95ba311aa/",
