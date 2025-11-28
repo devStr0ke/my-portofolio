@@ -5,7 +5,7 @@ export const fr: Translations = {
   hero: {
     title: {
       line1: "Ingénieur logiciel,",
-      line2: "contribuant à améliorer",
+      line2: "façonnant",
       line3: {
         start: "le",
         highlight: "web."

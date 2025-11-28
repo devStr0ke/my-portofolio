@@ -81,7 +81,7 @@ function TransitionContent({ children }: { children: React.ReactNode }) {
         ref={layer}
         className="fixed inset-0 z-[9999] translate-y-full bg-indigo-600 flex items-center justify-center"
       >
-        <span className="text-4xl font-light text-white font-orbitron">
+        <span className="text-4xl font-light text-white font-orbitron text-center">
           {getRouteName(currentRoute)}
         </span>
       </div>
