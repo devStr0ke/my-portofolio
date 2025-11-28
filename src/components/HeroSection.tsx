@@ -1,3 +1,4 @@
+"use client";
 import {
     motion,
     useScroll,
@@ -13,7 +14,8 @@ import {
   import GravityIcon from "./GravityIcon";
   import Magnetic from "@/components/Magnetic";
   import { GravityButton } from "./GravityButton";
-  import { handleLanguageSwitch } from "@/helpers/utils";
+  import { createLanguageSwitcher } from "@/helpers/utils";
+  import { useTranslations } from "@/i18n/LanguageContext";
 import Link from "next/link";
 
   export const HeroSection = () => {
@@ -91,6 +93,9 @@ import Link from "next/link";
   };
   
   const SocialLinks = () => {
+    const { locale, setLocale } = useTranslations();
+    const handleLanguageSwitch = createLanguageSwitcher(locale, setLocale);
+
     return (
       <div className="hidden md:flex gap-4">
         <GravityIcon 
@@ -121,19 +126,21 @@ import Link from "next/link";
   };
   
   const CenterCopy = () => {
+    const { t } = useTranslations();
+
     return (
       <div className="flex flex-col items-center justify-center mx-auto w-full text-center">
         <h1 className="text-4xl sm:text-6xl md:text-6xl 2xl:text-8xl">
           <div className="text-neutral-500 mb-1">
-            <HighLightText>Software engineer,</HighLightText>
+            <HighLightText>{t.hero.title.line1}</HighLightText>
           </div>
           <div className="text-neutral-500 mb-2">
-            <HighLightText>building for</HighLightText>
+            <HighLightText>{t.hero.title.line2}</HighLightText>
           </div>
           <div className="text-neutral-500">
-            <HighLightText>the</HighLightText>{" "}
+            <HighLightText>{t.hero.title.line3.start}</HighLightText>{" "}
             <span className="text-indigo-600 italic">
-              <HighLightText>web.</HighLightText>
+              <HighLightText>{t.hero.title.line3.highlight}</HighLightText>
             </span>
           </div>
         </h1>
@@ -145,6 +152,8 @@ import Link from "next/link";
   };
   
   const ScrollArrow = () => {
+    const { t } = useTranslations();
+
     return (
       <>
         <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 text-xs text-neutral-500 lg:block font-orbitron">
@@ -153,7 +162,7 @@ import Link from "next/link";
               writingMode: "vertical-lr",
             }}
           >
-            SCROLL
+            {t.hero.scroll}
           </span>
           <FiArrowDown className="mx-auto mt-2" />
         </div>
@@ -163,7 +172,7 @@ import Link from "next/link";
               writingMode: "vertical-lr",
             }}
           >
-            SCROLL
+            {t.hero.scroll}
           </span>
           <FiArrowDown className="mx-auto mt-2" />
         </div>

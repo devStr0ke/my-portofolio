@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { TransitionRouter } from "next-transition-router";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 
 const routes: { [key: string]: string } = {
   "/": "Home",
@@ -22,63 +23,65 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const [currentRoute, setCurrentRoute] = useState("");
 
   return (
-    <TransitionRouter
-      auto={true}
-      leave={(next, from, to) => {
-        console.log({ from, to });
-        setCurrentRoute(to || "");  // Store the destination route
+    <LanguageProvider>
+      <TransitionRouter
+        auto={true}
+        leave={(next, from, to) => {
+          console.log({ from, to });
+          setCurrentRoute(to || "");  // Store the destination route
 
-        const tl = gsap
-          .timeline({
-            onComplete: next,
-          })
-          .fromTo(
-            layer.current,
-            { y: "100%" },
-            {
+          const tl = gsap
+            .timeline({
+              onComplete: next,
+            })
+            .fromTo(
+              layer.current,
+              { y: "100%" },
+              {
+                y: 0,
+                duration: 0.4,
+                ease: "circ.inOut",
+              },
+            )
+            .to(layer.current, {
               y: 0,
               duration: 0.4,
+            });
+
+          return () => {
+            tl.kill();
+          };
+        }}
+        enter={(next) => {
+          const tl = gsap
+            .timeline({
+              onComplete: () => {
+                setCurrentRoute("");  // Reset the route when animation completes
+                next();
+              }
+            })
+            .to(layer.current, {
+              y: "-100%",
+              duration: 0.5,
               ease: "circ.inOut",
-            },
-          )
-          .to(layer.current, {
-            y: 0,
-            duration: 0.4,
-          });
+            });
 
-        return () => {
-          tl.kill();
-        };
-      }}
-      enter={(next) => {
-        const tl = gsap
-          .timeline({
-            onComplete: () => {
-              setCurrentRoute("");  // Reset the route when animation completes
-              next();
-            }
-          })
-          .to(layer.current, {
-            y: "-100%",
-            duration: 0.5,
-            ease: "circ.inOut",
-          });
-
-        return () => {
-          tl.kill();
-        };
-      }}
-    >
-      <main>{children}</main>
-
-      <div
-        ref={layer}
-        className="fixed inset-0 z-[9999] translate-y-full bg-indigo-600 flex items-center justify-center"
+          return () => {
+            tl.kill();
+          };
+        }}
       >
-        <span className="text-4xl font-light text-white font-orbitron">
-          {routes[currentRoute] || '· ' + currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)}
-        </span>
-      </div>
-    </TransitionRouter>
+        <main>{children}</main>
+
+        <div
+          ref={layer}
+          className="fixed inset-0 z-[9999] translate-y-full bg-indigo-600 flex items-center justify-center"
+        >
+          <span className="text-4xl font-light text-white font-orbitron">
+            {routes[currentRoute] || '· ' + currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)}
+          </span>
+        </div>
+      </TransitionRouter>
+    </LanguageProvider>
   );
 }

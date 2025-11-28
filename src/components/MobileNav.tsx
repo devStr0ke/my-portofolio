@@ -4,7 +4,8 @@ import { HiGlobeAlt } from "react-icons/hi";
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Image from "next/image";
-import { handleLanguageSwitch } from "@/helpers/utils";
+import { createLanguageSwitcher } from "@/helpers/utils";
+import { useTranslations } from "@/i18n/LanguageContext";
 
 export const MobileNav = () => {
   return (
@@ -188,6 +189,34 @@ const HamburgerButton = ({
 };
 
 const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
+  const { locale, setLocale } = useTranslations();
+  const handleLanguageSwitch = createLanguageSwitcher(locale, setLocale);
+
+  const SOCIAL_CTAS: Array<{
+    Component: React.ComponentType<{ className?: string }>;
+    href?: string;
+    target?: string;
+    rel?: string;
+    onClick?: () => void;
+  }> = [
+    {
+      Component: FaGithub,
+      href: "https://github.com/devStr0ke",
+      target: "_blank",
+      rel: "noopener noreferrer"
+    },
+    {
+      Component: FaLinkedin,
+      href: "https://www.linkedin.com/in/samuel-c-293984212/",
+      target: "_blank",
+      rel: "noopener noreferrer"
+    },
+    {
+      Component: HiGlobeAlt,
+      onClick: handleLanguageSwitch,
+    },
+  ];
+
   return (
     <>
       <div className="absolute bottom-6 left-6 flex gap-4 md:flex-col">
@@ -266,31 +295,6 @@ const LINKS = [
   {
     title: "Contact",
     href: "/contact",
-  },
-];
-
-const SOCIAL_CTAS: Array<{
-  Component: React.ComponentType<{ className?: string }>;
-  href?: string;
-  target?: string;
-  rel?: string;
-  onClick?: () => void;
-}> = [
-  {
-    Component: FaGithub,
-    href: "https://github.com/devStr0ke",
-    target: "_blank",
-    rel: "noopener noreferrer"
-  },
-  {
-    Component: FaLinkedin,
-    href: "https://www.linkedin.com/in/samuel-c-293984212/",
-    target: "_blank",
-    rel: "noopener noreferrer"
-  },
-  {
-    Component: HiGlobeAlt,
-    onClick: handleLanguageSwitch,
   },
 ];
 

@@ -7,7 +7,8 @@ import Magnetic from "./Magnetic";
 import GravityIcon from "./GravityIcon";
 import Link from "next/link";
 import Image from "next/image";
-import { handleLanguageSwitch } from "@/helpers/utils";
+import { createLanguageSwitcher } from "@/helpers/utils";
+import { useTranslations } from "@/i18n/LanguageContext";
 
 interface FloatingNavProps {
   disableScroll?: boolean;
@@ -19,6 +20,8 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
   const [visible, setVisible] = useState(disableScroll);
   const [isOverFooter, setIsOverFooter] = useState(false);
   const [isNavOverFooter, setIsNavOverFooter] = useState(false);
+  const { locale, setLocale } = useTranslations();
+  const handleLanguageSwitch = createLanguageSwitcher(locale, setLocale);
 
   const checkIfOverFooter = (scrollPosition: number) => {
     const footer = document.querySelector(`#${footerId}`);
