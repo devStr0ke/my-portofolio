@@ -119,5 +119,9 @@ export const fr: Translations = {
     halcyonLabs: "Halcyon-Labs",
     accountTechMultisig: "Account-Tech-Multisig",
     accountTechDao: "Account-Tech-DAO"
+  },
+  // About page
+  aboutPage: {
+    title: "Au-delà du code"
   }
 };

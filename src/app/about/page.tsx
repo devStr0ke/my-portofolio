@@ -8,8 +8,9 @@ import { Spacer } from "@/components/Spacer";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { useTranslations } from "@/i18n/LanguageContext";
 
-const descriptionText1 = [
+const englishDescriptionText1 = [
   { text: "I'm" },
   { text: "a" },
   { text: "submission", color: "rgb(99 102 241)" },
@@ -29,7 +30,28 @@ const descriptionText1 = [
   { text: "excellence" }
 ];
 
-const descriptionText2 = [
+const frenchDescriptionText1 = [
+  { text: "Je" },
+  { text: "suis" },
+  { text: "coach" },
+  { text: "de" },
+  { text: "grappling", color: "rgb(99 102 241)" },
+  { text: "/JJB", color: "rgb(99 102 241)" },
+  { text: "et" },
+  { text: "j’accompagne" },
+  { text: "les" },
+  { text: "athlètes" },
+  { text: "qui" },
+  { text: "visent" },
+  { text: "la" },
+  { text: "précision," },
+  { text: "le" },
+  { text: "détail" },
+  { text: "et" },
+  { text: "l’excellence." }
+];
+
+const englishDescriptionText2 = [
   { text: "I" },
   { text: "also" },
   { text: "love" },
@@ -49,7 +71,30 @@ const descriptionText2 = [
   { text: "experiences", color: "rgb(99 102 241)" }
 ];
 
-const descriptionText3 = [
+const frenchDescriptionText2 = [
+  { text: "J’adore" },
+  { text: "explorer" },
+  { text: "le" },
+  { text: "monde" },
+  { text: ":" },
+  { text: "chaque" },
+  { text: "voyage" },
+  { text: "stimule" },
+  { text: "ma" },
+  { text: "curiosité" },
+  { text: "et" },
+  { text: "m’ouvre" },
+  { text: "à" },
+  { text: "de" },
+  { text: "nouvelles" },
+  { text: "aventures,", color: "rgb(99 102 241)" },
+  { text: "découvertes", color: "rgb(99 102 241)" },
+  { text: "et" },
+  { text: "expériences", color: "rgb(99 102 241)" }
+];
+
+
+const englishDescriptionText3 = [
   { text: "I" },
   { text: "love" },
   { text: "espresso" },
@@ -62,7 +107,29 @@ const descriptionText3 = [
   { text: "experiences", color: "rgb(99 102 241)" },
 ];
 
-const descriptionText4 = [
+const frenchDescriptionText3 = [
+  { text: "Amateur" },
+  { text: "de" },
+  { text: "bon" },
+  { text: "café" },
+  { text: "et" },
+  { text: "de" },
+  { text: "bons" },
+  { text: "plats," },
+  { text: "je" },
+  { text: "poursuis" },
+  { text: "sans" },
+  { text: "cesse" },
+  { text: "les" },
+  { text: "expériences", color: "rgb(99 102 241)" },
+  { text: "qui" },
+  { text: "éveillent" },
+  { text: "les" },
+  { text: "sens.", color: "rgb(99 102 241)" }
+];
+
+
+const englishDescriptionText4 = [
   { text: "I" },
   { text: "hope" },
   { text: "you" },
@@ -79,7 +146,35 @@ const descriptionText4 = [
   { text: "code." }
 ];
 
+const frenchDescriptionText4 = [
+  { text: "J’espère" },
+  { text: "que" },
+  { text: "vous" },
+  { text: "avez" },
+  { text: "apprécié" },
+  { text: "en" },
+  { text: "découvrir" },
+  { text: "un" },
+  { text: "peu" },
+  { text: "plus" },
+  { text: "sur" },
+  { text: "moi" },
+  { text: "et" },
+  { text: "sur" },
+  { text: "ce" },
+  { text: "qui" },
+  { text: "m’inspire", color: "rgb(99 102 241)" },
+  { text: "au" },
+  { text: "quotidien." }
+];
+
 export default function Home() {
+  const { locale, t } = useTranslations();
+
+  const descriptionText1 = locale === 'fr' ? frenchDescriptionText1 : englishDescriptionText1;
+  const descriptionText2 = locale === 'fr' ? frenchDescriptionText2 : englishDescriptionText2;
+  const descriptionText3 = locale === 'fr' ? frenchDescriptionText3 : englishDescriptionText3;
+  const descriptionText4 = locale === 'fr' ? frenchDescriptionText4 : englishDescriptionText4;
 
   useEffect( () => {
     const lenis = new Lenis()
@@ -99,7 +194,7 @@ export default function Home() {
         <Spacer mobileSize="sm" size="md" />
         <div className="max-w-[90%] lg:max-w-[68%] mx-auto">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal mb-16 md:mb-32 text-neutral-500">
-            Beyond the code
+            {t.aboutPage.title}
           </h1>
         </div>
         <ZoomParallax />

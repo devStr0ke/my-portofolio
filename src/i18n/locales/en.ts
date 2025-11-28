@@ -117,6 +117,10 @@ export const en = {
     halcyonLabs: "Halcyon-Labs",
     accountTechMultisig: "Account-Tech-Multisig",
     accountTechDao: "Account-Tech-DAO"
+  },
+  // About page
+  aboutPage: {
+    title: "Beyond the code"
   }
 };
 
