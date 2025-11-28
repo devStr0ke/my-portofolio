@@ -22,6 +22,7 @@ export const en = {
     about: "About",
     experience: "Experience",
     work: "Work",
+    projects: "Projects",
     contact: "Contact"
   },
   // WhatIdoSection component

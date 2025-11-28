@@ -23,7 +23,8 @@ export const fr: Translations = {
   pages: {
     about: "À propos",
     experience: "Expérience",
-    work: "Projets",
+    work: "Taff",
+    projects: "Projets",
     contact: "Contact"
   },
   // WhatIdoSection component
