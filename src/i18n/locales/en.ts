@@ -86,6 +86,10 @@ export const en = {
     frontendSmartContract: "Front-End Development & Smart Contract Integration",
     conceptionDevelopment: "Conception & Development",
     uiuxDesign: "UI/UX Design"
+  },
+  // MyMottoSection component
+  motto: {
+    title: "My Motto"
   }
 };
 

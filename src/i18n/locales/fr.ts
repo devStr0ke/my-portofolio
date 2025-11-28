@@ -88,5 +88,9 @@ export const fr: Translations = {
     frontendSmartContract: "Développement Front-End & Intégration Smart Contract",
     conceptionDevelopment: "Conception & Développement",
     uiuxDesign: "Design UI/UX"
+  },
+  // MyMottoSection component
+  motto: {
+    title: "Ma Devise"
   }
 };
