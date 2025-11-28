@@ -96,6 +96,14 @@ export const en = {
     moreAboutMe: "More about me",
     detailedExperience: "Detailed experience",
     allWork: "All work"
+  },
+  // Footer component
+  footer: {
+    title: "Let's collaborate",
+    getInTouch: "Get in touch",
+    version: "VERSION",
+    edition: "2025 © Edition",
+    localTime: "LOCAL TIME"
   }
 };
 

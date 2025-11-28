@@ -98,5 +98,13 @@ export const fr: Translations = {
     moreAboutMe: "En savoir plus",
     detailedExperience: "Parcours détaillé",
     allWork: "Tous mes projets"
+  },
+  // Footer component
+  footer: {
+    title: "Travaillons ensemble",
+    getInTouch: "Contactez-moi",
+    version: "VERSION",
+    edition: "2025 © Édition",
+    localTime: "HEURE LOCALE"
   }
 };
