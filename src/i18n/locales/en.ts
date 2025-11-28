@@ -104,6 +104,19 @@ export const en = {
     version: "VERSION",
     edition: "2025 © Edition",
     localTime: "LOCAL TIME"
+  },
+  // Route names (for page transitions)
+  routes: {
+    home: "Home",
+    about: "About",
+    experience: "Experience",
+    work: "Work",
+    contact: "Contact",
+    mgEvenements: "MG-Evenements",
+    mgeDashboard: "MGE-Dashboard",
+    halcyonLabs: "Halcyon-Labs",
+    accountTechMultisig: "Account-Tech-Multisig",
+    accountTechDao: "Account-Tech-DAO"
   }
 };
 

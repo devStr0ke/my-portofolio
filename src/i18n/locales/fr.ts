@@ -23,7 +23,7 @@ export const fr: Translations = {
   pages: {
     about: "À propos",
     experience: "Expérience",
-    work: "Taff",
+    work: "Travaux",
     projects: "Projets",
     contact: "Contact"
   },
@@ -106,5 +106,18 @@ export const fr: Translations = {
     version: "VERSION",
     edition: "2025 © Édition",
     localTime: "HEURE LOCALE"
+  },
+  // Route names (for page transitions)
+  routes: {
+    home: "Accueil",
+    about: "À propos",
+    experience: "Expérience",
+    work: "Travaux",
+    contact: "Contact",
+    mgEvenements: "MG-Événements",
+    mgeDashboard: "Tableau de bord MGE",
+    halcyonLabs: "Halcyon-Labs",
+    accountTechMultisig: "Account-Tech-Multisig",
+    accountTechDao: "Account-Tech-DAO"
   }
 };
