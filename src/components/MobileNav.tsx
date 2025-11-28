@@ -73,9 +73,18 @@ const LinksOverlay = ({ setActive }: { setActive: Dispatch<SetStateAction<boolea
 };
 
 const LinksContainer = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
+  const { t } = useTranslations();
+
+  const translatedLinks = [
+    { title: t.pages.about, href: '/about' },
+    { title: t.pages.experience, href: '/experience' },
+    { title: t.pages.work, href: '/work' },
+    { title: t.pages.contact, href: '/contact' },
+  ];
+
   return (
     <motion.div className="space-y-4 p-12 pl-4 md:pl-20 font-orbitron">
-      {LINKS.map((l, idx) => {
+      {translatedLinks.map((l, idx) => {
         return (
           <NavLink key={l.title} href={l.href} idx={idx}>
             <span onClick={() => setActive(false)}>{l.title}</span>

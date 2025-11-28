@@ -1,5 +1,6 @@
-'use client';
+ 'use client';
 import { useState } from 'react';
+import { useTranslations } from '@/i18n/LanguageContext';
 import Project from './Project';
 import Modal from './Modal';
 import ProjectCard from '../ProjectCard';
@@ -56,18 +57,20 @@ const defaultProjects = [
   },
 ]
 
-export const Work = ({ title = "Selected Work", projects = defaultProjects, noTitle = false }: WorkProps) => {
+export const Work = ({ title, projects = defaultProjects, noTitle = false }: WorkProps) => {
+  const { t } = useTranslations();
+  const displayTitle = title ?? t.pages.work;
   const [modal, setModal] = useState({active: false, index: 0});
 
   return (
     <section className="bg-neutral-950 text-neutral-100">
       <div className="flex flex-col h-full max-w-[90%] lg:max-w-[68%] mx-auto">
-        {title && (
+        {displayTitle && (
           noTitle ? (
             <></>
           ) : (
             <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest font-orbitron">
-              {title}
+              {displayTitle}
             </span>
           )
         )}

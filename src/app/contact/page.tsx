@@ -5,9 +5,11 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { useTranslations } from '@/i18n/LanguageContext';
 
 
 export default function Home() {
+  const { t } = useTranslations();
   useEffect( () => {
     const lenis = new Lenis()
    
@@ -27,7 +29,7 @@ export default function Home() {
         <Spacer mobileSize="sm" size="md" />
         <div className="max-w-[90%] lg:max-w-[68%] mx-auto">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal mb-16 md:mb-32 text-neutral-500">
-            Lets get in touch
+            {t.pages.contact}
           </h1>
         </div>
         <ContactForm />

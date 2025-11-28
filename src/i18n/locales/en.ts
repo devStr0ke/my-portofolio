@@ -9,7 +9,20 @@ export const en = {
         highlight: "web."
       }
     },
-    scroll: "SCROLL"
+    scroll: "SCROLL",
+    // Large repeating banner lines (used in HeroSection)
+    banner: {
+      lineA: "FULL STACK DEVELOPER",
+      lineB: "CREATIVE PROBLEM SOLVER"
+    }
+  }
+  ,
+  // Generic page titles / nav labels
+  pages: {
+    about: "About",
+    experience: "Experience",
+    work: "Work",
+    contact: "Contact"
   }
 };
 

@@ -20,6 +20,7 @@ import Link from "next/link";
 
   export const HeroSection = () => {
     const targetRef = useRef(null);
+    const { t } = useTranslations();
   
     const { scrollYProgress } = useScroll({
       target: targetRef,
@@ -46,7 +47,7 @@ import Link from "next/link";
             style={{ skewX, x }}
             className="font-orbitron origin-bottom-left whitespace-nowrap text-6xl font-black uppercase leading-[0.85] md:text-7xl 2xl:text-8xl md:leading-[0.85]"
           >
-            Full Stack Developer • Creative Problem Solver • Full Stack Developer • Creative Problem Solver
+            {`${t.hero.banner.lineA} • ${t.hero.banner.lineB} • ${t.hero.banner.lineA} • ${t.hero.banner.lineB}`}
           </motion.p>
           <ScrollArrow />
         </div>
@@ -115,12 +116,14 @@ import Link from "next/link";
   };
   
   const Links = () => {
+    const { t } = useTranslations();
+
     return (
       <div className="flex gap-6 capitalize text-sm xl:text-base text-neutral-500 font-orbitron">
-        <Magnetic><Link href="/about" className="font-bold uppercase cursor-pointer hover:text-indigo-600">About</Link></Magnetic>
-        <Magnetic><Link href="/experience" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Experience</Link></Magnetic>
-        <Magnetic><Link href="/work" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Work</Link></Magnetic>
-        <Magnetic><Link href="/contact" className="font-bold uppercase cursor-pointer hover:text-indigo-600">Contact</Link></Magnetic>
+        <Magnetic><Link href="/about" className="font-bold uppercase cursor-pointer hover:text-indigo-600">{t.pages.about}</Link></Magnetic>
+        <Magnetic><Link href="/experience" className="font-bold uppercase cursor-pointer hover:text-indigo-600">{t.pages.experience}</Link></Magnetic>
+        <Magnetic><Link href="/work" className="font-bold uppercase cursor-pointer hover:text-indigo-600">{t.pages.work}</Link></Magnetic>
+        <Magnetic><Link href="/contact" className="font-bold uppercase cursor-pointer hover:text-indigo-600">{t.pages.contact}</Link></Magnetic>
       </div>
     );
   };

@@ -1,5 +1,6 @@
-'use client';
+ 'use client';
 import Character from '@/components/Character';
+import { useTranslations } from '@/i18n/LanguageContext';
 
 const paragraph = [
   { text: "Over" },
@@ -21,9 +22,10 @@ const paragraph = [
 ];
 
 export const ExperienceSection = () => {
+  const { t } = useTranslations();
   return (
     <main className='flex justify-center items-center min-h-min'>
-      <Character paragraph={paragraph} title="Experience" />
+      <Character paragraph={paragraph} title={t.pages.experience} />
     </main>
   )
 }

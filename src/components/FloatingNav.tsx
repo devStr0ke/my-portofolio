@@ -20,7 +20,7 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
   const [visible, setVisible] = useState(disableScroll);
   const [isOverFooter, setIsOverFooter] = useState(false);
   const [isNavOverFooter, setIsNavOverFooter] = useState(false);
-  const { locale, setLocale } = useTranslations();
+  const { locale, setLocale, t } = useTranslations();
   const handleLanguageSwitch = createLanguageSwitcher(locale, setLocale);
 
   const checkIfOverFooter = (scrollPosition: number) => {
@@ -107,22 +107,16 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
       >
         <nav className="flex flex-col gap-1 uppercase text-right text-sm xl:text-base font-orbitron">
           <Magnetic>
-            <Link href="/about" className={navLinkClass}>About</Link>
+            <Link href="/about" className={navLinkClass}>{t.pages.about}</Link>
           </Magnetic>
           <Magnetic>
-            <Link href="/experience" className={navLinkClass}>
-              Experience
-            </Link>
+            <Link href="/experience" className={navLinkClass}>{t.pages.experience}</Link>
           </Magnetic>
           <Magnetic>
-            <Link href="/work" className={navLinkClass}>
-              Work
-            </Link>
+            <Link href="/work" className={navLinkClass}>{t.pages.work}</Link>
           </Magnetic>
           <Magnetic>
-            <Link href="/contact" className={navLinkClass}>
-              Contact
-            </Link>
+            <Link href="/contact" className={navLinkClass}>{t.pages.contact}</Link>
           </Magnetic>
         </nav>
       </motion.div>
