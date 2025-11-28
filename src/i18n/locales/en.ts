@@ -121,6 +121,48 @@ export const en = {
   // About page
   aboutPage: {
     title: "Beyond the code"
+  },
+  // Experience page
+  experiencePage: {
+    title: "My Experience",
+    experiences: [
+      {
+        title: "MIAGE Master's Degree",
+        description: "Completed a comprehensive 5-year Master's program in Computer Science (MIAGE) at Paul Sabatier University from 2019 to 2024. The program provided a strong foundation in both technical and business aspects of information systems.",
+        features: [
+          "Computer Science Fundamentals",
+          "Software Engineering",
+          "Business Information Systems",
+        ]
+      },
+      {
+        title: "INSPI Internship",
+        description: "Completed a 6-month internship at INSPI from April to September 2022, focusing on modernizing their application infrastructure. Part of the frontend redesign initiative while gaining valuable full-stack development experience.",
+        features: [
+          "Vue.js Frontend Development",
+          "Ruby Backend Development",
+          "UI/UX Redesign",
+        ]
+      },
+      {
+        title: "Dassault Systèmes",
+        description: "Joined as a full-stack developer through a work-study program during my 4th and 5th year of MIAGE (2022-2024). Led the migration from Vue.js to React.js while maintaining and improving core functionalities.",
+        features: [
+          "React.js Migration",
+          "Ruby Backend Development",
+          "Performance Optimization"
+        ]
+      },
+      {
+        title: "Freelance Web3 Developer",
+        description: "Currently working with GMove on account.tech, developing a Smart Account protocol for the Sui blockchain. Focusing on creating intuitive and secure interfaces for Web3 applications.",
+        features: [
+          "UI/UX Engineering",
+          "Smart Contract Integration",
+          "DApp Development"
+        ]
+      }
+    ]
   }
 };
 

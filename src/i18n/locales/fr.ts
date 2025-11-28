@@ -123,5 +123,47 @@ export const fr: Translations = {
   // About page
   aboutPage: {
     title: "Au-delà du code"
+  },
+  // Experience page
+  experiencePage: {
+    title: "Mon Parcours",
+    experiences: [
+      {
+        title: "Master MIAGE",
+        description: "J'ai effectué un cursus de 5 ans en informatique (MIAGE) à l'Université Paul Sabatier de 2019 à 2024. Ce programme m'a apporté une solide formation tant technique que managériale dans les systèmes d'information.",
+        features: [
+          "Fondamentaux de l'informatique",
+          "Génie logiciel",
+          "Systèmes d'information",
+        ]
+      },
+      {
+        title: "Stage chez INSPI",
+        description: "Stage de 6 mois chez INSPI d'avril à septembre 2022, durant lequel j'ai participé à la modernisation de leur infrastructure applicative. J'y ai contribué à la refonte du frontend tout en acquérant une expérience précieuse en développement full-stack.",
+        features: [
+          "Développement Frontend Vue.js",
+          "Développement Backend Ruby",
+          "Refonte UI/UX",
+        ]
+      },
+      {
+        title: "Dassault Systèmes",
+        description: "Intégré en tant que développeur full-stack en alternance durant ma 4ème et 5ème année de MIAGE (2022-2024). J'ai piloté la migration de Vue.js vers React.js tout en maintenant et améliorant les fonctionnalités existantes.",
+        features: [
+          "Migration vers React.js",
+          "Développement Backend Ruby",
+          "Optimisation des performances"
+        ]
+      },
+      {
+        title: "Développeur Web3 Freelance",
+        description: "Actuellement en collaboration avec GMove sur account.tech, où je développe un protocole de Smart Account pour la blockchain Sui. Je me concentre sur la création d'interfaces intuitives et sécurisées pour les applications Web3.",
+        features: [
+          "Engineering UI/UX",
+          "Intégration de Smart Contracts",
+          "Développement de DApps"
+        ]
+      }
+    ]
   }
 };
