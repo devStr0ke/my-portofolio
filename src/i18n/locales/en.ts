@@ -23,6 +23,32 @@ export const en = {
     experience: "Experience",
     work: "Work",
     contact: "Contact"
+  },
+  // WhatIdoSection component
+  whatIdo: {
+    title: "What I Do",
+    items: [
+      {
+        title: "Web Architecture",
+        description: "Designing scalable, maintainable, and efficient web systems",
+      },
+      {
+        title: "API Integration",
+        description: "Connecting applications with third-party services",
+      },
+      {
+        title: "Web3 Development",
+        description: "Building decentralized apps (dApps) and integrating blockchain technologies.",
+      },
+      {
+        title: "Performance Tuning",
+        description: "Optimizing code and infrastructure to ensure fast, reliable, and efficient applications.",
+      },
+      {
+        title: "UI/UX Design",
+        description: "Transforming designs into responsive, accessible, and user-friendly web interfaces.",
+      },
+    ]
   }
 };
 

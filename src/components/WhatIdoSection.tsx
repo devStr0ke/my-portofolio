@@ -1,36 +1,16 @@
 import {
   motion
 } from "framer-motion";
+import { useTranslations } from "@/i18n/LanguageContext";
 
 type WhatIdoItem = {
   title: string;
   description: string;
 };
 
-const items: WhatIdoItem[] = [
-  {
-    title: "Web Architecture",
-    description: "Designing scalable, maintainable, and efficient web systems",
-  },
-  {
-    title: "API Integration",
-    description: "Connecting applications with third-party services",
-  },
-  {
-    title: "Web3 Development",
-    description: "Building decentralized apps (dApps) and integrating blockchain technologies.",
-  },
-  {
-    title: "Performance Tuning",
-    description: "Optimizing code and infrastructure to ensure fast, reliable, and efficient applications.",
-  },
-  {
-    title: "UI/UX Design",
-    description: "Transforming designs into responsive, accessible, and user-friendly web interfaces.",
-  },
-];
-
 export const WhatIdoSection = () => {
+  const { t } = useTranslations();
+
   return (
     <section
       className="min-h-min bg-neutral-950 text-neutral-100"
@@ -38,12 +18,12 @@ export const WhatIdoSection = () => {
       <div className="flex flex-col h-min max-w-[90%] lg:max-w-[68%] mx-auto">
         <motion.div className="flex flex-col">
           <span className="text-neutral-200 font-bold text-base uppercase mb-6 block tracking-widest font-orbitron">
-            What I Do
+            {t.whatIdo.title}
           </span>
           
           
           <div>
-            {items.map((item, index) => (
+            {t.whatIdo.items.map((item, index) => (
               <WhatIdoItem key={index} {...item} />
             ))}
           </div>
