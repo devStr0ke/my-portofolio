@@ -80,6 +80,12 @@ export const en = {
         description: "Studied Computer Science at UPS from 2019 to 2024 (Master's degree)"
       }
     ]
+  },
+  // Work component - Project types
+  projectTypes: {
+    frontendSmartContract: "Front-End Development & Smart Contract Integration",
+    conceptionDevelopment: "Conception & Development",
+    uiuxDesign: "UI/UX Design"
   }
 };
 

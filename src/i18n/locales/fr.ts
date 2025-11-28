@@ -82,5 +82,11 @@ export const fr: Translations = {
         description: "Études en informatique à l'UPS de 2019 à 2024 (Master)"
       }
     ]
+  },
+  // Work component - Project types
+  projectTypes: {
+    frontendSmartContract: "Développement Front-End & Intégration Smart Contract",
+    conceptionDevelopment: "Conception & Développement",
+    uiuxDesign: "Design UI/UX"
   }
 };

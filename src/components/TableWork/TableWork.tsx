@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { useTranslations } from '@/i18n/LanguageContext';
 import { FilterButtons } from './FilterButtons';
 import Modal from '../Work/Modal';
 import TableProject from './TableProject';
@@ -25,70 +26,73 @@ interface TableWorkProps {
 
 const baseUrl = 'https://supabase.mge-dashboard.pro/storage/v1/object/public/portofolio/';
 
-const defaultProjects = [
-  {
-    title: "Account Tech Multisig",
-    location: "Remote",
-    services: "Front-End Development & Smart Contract Integration",
-    src: `${baseUrl}accounttechmultisig/main.png`,
-    color: "#28282B",
-    year: "2025",
-    route: "/work/account-tech-multisig",
-    type: "Full Stack"
-  },
-  {
-    title: "Account Tech DAO",
-    location: "Remote",
-    services: "Front-End Development & Smart Contract Integration",
-    src: `${baseUrl}accounttechdao/main.png`,
-    color: "#00b9a6", //teal color
-    year: "2025",
-    route: "/work/account-tech-dao",
-    type: "Full Stack"
-  },
-  {
-    title: "MG Événements",
-    location: "Toulouse, France",
-    services: "Conception & Development",
-    src: `${baseUrl}mgevenements/main.png`,
-    color: "#737373",
-    year: "2024",
-    route: "/work/mg-evenements",
-    type: "Full Stack"
-  },
-  {
-    title: "MGE Dashboard",
-    location: "Toulouse, France",
-    services: "Conception & Development",
-    src: `${baseUrl}mgedashboard/main.png`,
-    color: "#e5e5e5",
-    year: "2024",
-    route: "/work/mge-dashboard",
-    type: "Full Stack"
-  },
-  {
-    title: "Halcyon Labs",
-    location: "Toulouse, France",
-    services: "UI/UX Design",
-    src: `${baseUrl}halcyon/main.png`,
-    color: "#000000",
-    year: "2022",
-    route: "/work/halcyon-labs",
-    type: "Front End"
-  },
-];
+export const TableWork = ({ title = "Selected Work", projects, noTitle = false }: TableWorkProps) => {
+  const { t } = useTranslations();
+  
+  const defaultProjects = [
+    {
+      title: "Account Tech Multisig",
+      location: "Remote",
+      services: t.projectTypes.frontendSmartContract,
+      src: `${baseUrl}accounttechmultisig/main.png`,
+      color: "#28282B",
+      year: "2025",
+      route: "/work/account-tech-multisig",
+      type: "Full Stack"
+    },
+    {
+      title: "Account Tech DAO",
+      location: "Remote",
+      services: t.projectTypes.frontendSmartContract,
+      src: `${baseUrl}accounttechdao/main.png`,
+      color: "#00b9a6", //teal color
+      year: "2025",
+      route: "/work/account-tech-dao",
+      type: "Full Stack"
+    },
+    {
+      title: "MG Événements",
+      location: "Toulouse, France",
+      services: t.projectTypes.conceptionDevelopment,
+      src: `${baseUrl}mgevenements/main.png`,
+      color: "#737373",
+      year: "2024",
+      route: "/work/mg-evenements",
+      type: "Full Stack"
+    },
+    {
+      title: "MGE Dashboard",
+      location: "Toulouse, France",
+      services: t.projectTypes.conceptionDevelopment,
+      src: `${baseUrl}mgedashboard/main.png`,
+      color: "#e5e5e5",
+      year: "2024",
+      route: "/work/mge-dashboard",
+      type: "Full Stack"
+    },
+    {
+      title: "Halcyon Labs",
+      location: "Toulouse, France",
+      services: t.projectTypes.uiuxDesign,
+      src: `${baseUrl}halcyon/main.png`,
+      color: "#000000",
+      year: "2022",
+      route: "/work/halcyon-labs",
+      type: "Front End"
+    },
+  ];
 
-export const TableWork = ({ title = "Selected Work", projects = defaultProjects, noTitle = false }: TableWorkProps) => {
+  const projectList = projects ?? defaultProjects;
   const [modal, setModal] = useState({active: false, index: 0});
   const [filter, setFilter] = useState<'All' | 'Full Stack' | 'Front End'>('All');
   const [view, setView] = useState<'grid' | 'list'>('list');
 
   const counts = {
-    fullStack: projects.filter(p => p.type.includes('Full Stack')).length,
-    frontEnd: projects.filter(p => p.type.includes('Front End')).length,
+    fullStack: projectList.filter(p => p.type.includes('Full Stack')).length,
+    frontEnd: projectList.filter(p => p.type.includes('Front End')).length,
   };
 
-  const filteredProjects = projects.filter(project => {
+  const filteredProjects = projectList.filter(project => {
     if (filter === 'All') return true;
     return project.type.includes(filter);
   });

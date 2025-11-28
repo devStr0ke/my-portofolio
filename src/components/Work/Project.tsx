@@ -7,10 +7,11 @@ interface ProjectProps {
   index: number;
   title: string;
   route: string;
+  type: string;
   setModal: (modal: { active: boolean; index: number }) => void;
 }
 
-export default function Project({ index, title, route, setModal }: ProjectProps) {
+export default function Project({ index, title, route, type, setModal }: ProjectProps) {
   return (
     <Link href={route}>
       <motion.div 
@@ -37,7 +38,7 @@ export default function Project({ index, title, route, setModal }: ProjectProps)
             {title}
           </h2>
           <p className="font-semibold transition-all duration-400 group-hover:translate-x-[10px]">
-            Design & Development
+            {type}
           </p>
         </div>
 
@@ -47,7 +48,7 @@ export default function Project({ index, title, route, setModal }: ProjectProps)
             {title}
           </h2>
           <div className="flex justify-between items-center text-sm text-neutral-500">
-            <span>Interaction & Development</span>
+            <span>{type}</span>
             <span>2024</span>
           </div>
         </div>
