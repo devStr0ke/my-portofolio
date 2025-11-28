@@ -114,10 +114,10 @@ export const TableWork = ({ title = "Selected Work", projects, noTitle = false }
         {view === 'list' && (
           <div className="hidden lg:block">
             <div className="flex items-center text-xs text-neutral-500 mb-4 w-full gap-8">
-              <span className="w-[35%]">CLIENT</span>
-              <span className="w-[25%]">LOCATION</span>
-              <span className="w-[35%]">SERVICES</span>
-              <span className="w-[15%]">YEAR</span>
+              <span className="w-[35%]">{t.workPage.tableHeaders.client}</span>
+              <span className="w-[25%]">{t.workPage.tableHeaders.location}</span>
+              <span className="w-[35%]">{t.workPage.tableHeaders.services}</span>
+              <span className="w-[15%]">{t.workPage.tableHeaders.year}</span>
             </div>
             
             {/* Projects table */}

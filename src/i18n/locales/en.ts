@@ -200,6 +200,19 @@ export const en = {
       send: "Send Message",
       sending: "Sending..."
     }
+  },
+  // Work page
+  workPage: {
+    title: "Building for the web",
+    filters: {
+      all: "All"
+    },
+    tableHeaders: {
+      client: "CLIENT",
+      location: "LOCATION",
+      services: "SERVICES",
+      year: "YEAR"
+    }
   }
 };
 

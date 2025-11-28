@@ -202,5 +202,18 @@ export const fr: Translations = {
       send: "Envoyer le message",
       sending: "Envoi en cours..."
     }
+  },
+  // Work page
+  workPage: {
+    title: "Façonner le web",
+    filters: {
+      all: "Tous"
+    },
+    tableHeaders: {
+      client: "CLIENT",
+      location: "LIEU",
+      services: "SERVICES",
+      year: "ANNÉE"
+    }
   }
 };

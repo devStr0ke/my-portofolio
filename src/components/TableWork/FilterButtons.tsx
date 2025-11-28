@@ -1,5 +1,6 @@
 'use client';
 import { RoundedButton } from '../RoundedButton';
+import { useTranslations } from '@/i18n/LanguageContext';
 
 interface FilterButtonsProps {
   filter: 'All' | 'Full Stack' | 'Front End';
@@ -13,6 +14,8 @@ interface FilterButtonsProps {
 }
 
 export const FilterButtons = ({ filter, setFilter, counts, view, setView }: FilterButtonsProps) => {
+  const { t } = useTranslations();
+  
   return (
     <div className="flex justify-between items-center mb-8">
       {/* Left side - Filter buttons */}
@@ -29,7 +32,7 @@ export const FilterButtons = ({ filter, setFilter, counts, view, setView }: Filt
           active={filter === 'All'}
           className='font-orbitron'
         >
-          All
+          {t.workPage.filters.all}
         </RoundedButton>
         <RoundedButton
           href="#"
