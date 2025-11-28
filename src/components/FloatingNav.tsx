@@ -2,10 +2,12 @@
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiGlobeAlt } from "react-icons/hi";
 import Magnetic from "./Magnetic";
 import GravityIcon from "./GravityIcon";
 import Link from "next/link";
 import Image from "next/image";
+import { handleLanguageSwitch } from "@/helpers/utils";
 
 interface FloatingNavProps {
   disableScroll?: boolean;
@@ -142,6 +144,11 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
           <GravityIcon 
             icon={<FaLinkedin size={25} />}
             href="https://www.linkedin.com/in/samuel-c-293984212/"
+            className={isOverFooter ? 'text-neutral-950 hover:text-neutral-950' : "text-neutral-500"}
+          />
+          <GravityIcon 
+            icon={<HiGlobeAlt size={25} />}
+            onClick={handleLanguageSwitch}
             className={isOverFooter ? 'text-neutral-950 hover:text-neutral-950' : "text-neutral-500"}
           />
         </div>

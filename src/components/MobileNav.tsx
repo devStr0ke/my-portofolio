@@ -1,8 +1,10 @@
 "use client";
 import { FaGithub, FaLinkedin} from "react-icons/fa";
+import { HiGlobeAlt } from "react-icons/hi";
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Image from "next/image";
+import { handleLanguageSwitch } from "@/helpers/utils";
 
 export const MobileNav = () => {
   return (
@@ -190,6 +192,36 @@ const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>
     <>
       <div className="absolute bottom-6 left-6 flex gap-4 md:flex-col">
         {SOCIAL_CTAS.map((l, idx) => {
+          const Component = l.Component;
+          
+          // If it has onClick, render as button
+          if (l.onClick) {
+            return (
+              <motion.button
+                key={idx}
+                onClick={() => {
+                  l.onClick?.();
+                  setActive(false);
+                }}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    delay: 1 + idx * 0.125,
+                    duration: 0.5,
+                    ease: "easeInOut",
+                  },
+                }}
+                exit={{ opacity: 0, y: -8 }}
+                className="cursor-pointer"
+              >
+                <Component className="text-xl text-neutral-500 transition-colors hover:text-indigo-600" />
+              </motion.button>
+            );
+          }
+          
+          // Otherwise render as link
           return (
             <motion.a
               key={idx}
@@ -209,7 +241,7 @@ const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>
               }}
               exit={{ opacity: 0, y: -8 }}
             >
-              <l.Component className="text-xl text-neutral-500 transition-colors hover:text-indigo-600" />
+              <Component className="text-xl text-neutral-500 transition-colors hover:text-indigo-600" />
             </motion.a>
           );
         })}
@@ -237,7 +269,13 @@ const LINKS = [
   },
 ];
 
-const SOCIAL_CTAS = [
+const SOCIAL_CTAS: Array<{
+  Component: React.ComponentType<{ className?: string }>;
+  href?: string;
+  target?: string;
+  rel?: string;
+  onClick?: () => void;
+}> = [
   {
     Component: FaGithub,
     href: "https://github.com/devStr0ke",
@@ -249,6 +287,10 @@ const SOCIAL_CTAS = [
     href: "https://www.linkedin.com/in/samuel-c-293984212/",
     target: "_blank",
     rel: "noopener noreferrer"
+  },
+  {
+    Component: HiGlobeAlt,
+    onClick: handleLanguageSwitch,
   },
 ];
 

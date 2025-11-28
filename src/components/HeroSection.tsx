@@ -7,11 +7,13 @@ import {
   } from "framer-motion";
   import React, { useRef } from "react";
   import { FiArrowDown } from "react-icons/fi";
-  import { FaGithub, FaLinkedin} from "react-icons/fa";
+  import { FaGithub, FaLinkedin } from "react-icons/fa";
+  import { HiGlobeAlt } from "react-icons/hi";
   import HighLightText from "./HighLightText";
   import GravityIcon from "./GravityIcon";
   import Magnetic from "@/components/Magnetic";
   import { GravityButton } from "./GravityButton";
+  import { handleLanguageSwitch } from "@/helpers/utils";
 import Link from "next/link";
 
   export const HeroSection = () => {
@@ -98,6 +100,10 @@ import Link from "next/link";
         <GravityIcon 
           icon={<FaLinkedin size={25} />}
           href="https://www.linkedin.com/in/samuel-c-293984212/"
+        />
+        <GravityIcon 
+          icon={<HiGlobeAlt size={25} />}
+          onClick={handleLanguageSwitch}
         />
       </div>
     );
