@@ -4,11 +4,11 @@ export const fr: Translations = {
   // HeroSection component
   hero: {
     title: {
-      line1: "Ingénieur logiciel,",
-      line2: "façonnant",
+      line1: "AI-powered,",
+      line2: "Software Engineer,",
       line3: {
-        start: "le",
-        highlight: "web."
+        start: "productivité &",
+        highlight: "qualité."
       }
     },
     scroll: "DÉFILER",
@@ -32,24 +32,24 @@ export const fr: Translations = {
     title: "Ce que je fais",
     items: [
       {
-        title: "Architecture Web",
-        description: "Conception de systèmes web évolutifs, maintenables et efficaces",
+        title: "Développement Frontend",
+        description: "Création d'interfaces modernes, performantes et accessibles avec React et Next.js.",
       },
       {
-        title: "Intégration d'API",
-        description: "Connexion d'applications avec des services tiers",
+        title: "Développement Full-Stack",
+        description: "Conception et livraison d'applications web complètes, de l'architecture à la production.",
       },
       {
-        title: "Développement Web3",
-        description: "Construction d'applications décentralisées (dApps) et intégration de technologies blockchain.",
+        title: "Workflow augmenté par l'IA",
+        description: "Utilisation quotidienne d'agents IA comme levier de productivité pour livrer plus vite et mieux.",
       },
       {
-        title: "Optimisation des Performances",
-        description: "Optimisation du code et de l'infrastructure pour garantir des applications rapides, fiables et efficaces.",
+        title: "Design Systems",
+        description: "Création de librairies de composants réutilisables et maintenables avec un fort souci de cohérence UI.",
       },
       {
-        title: "Design UI/UX",
-        description: "Transformation de designs en interfaces web réactives, accessibles et conviviales.",
+        title: "Intégration Web3",
+        description: "Développement d'interfaces interagissant avec des smart contracts et des technologies blockchain.",
       },
     ]
   },
@@ -64,7 +64,13 @@ export const fr: Translations = {
         description: "Actuellement freelance, je travaille sur divers projets web pour des clients variés."
       },
       {
-        year: "2023",
+        year: "2025",
+        title: "Lead Frontend Developer",
+        company: "Account.Tech incubé par Aftermath Finance",
+        description: "Frontend Lead sur une application Web3 Next.js sur SUI, rendant les opérations complexes on-chain accessibles aux utilisateurs non techniques."
+      },
+      {
+        year: "2024",
         title: "Développeur Full Stack",
         company: "Dassault Systèmes",
         description: "Développement de solutions UI/UX évolutives pour une application d'envergure avec React et Node.js."
@@ -104,7 +110,7 @@ export const fr: Translations = {
     title: "Travaillons ensemble",
     getInTouch: "Contactez-moi",
     version: "VERSION",
-    edition: "2025 © Édition",
+    edition: "2026 © Édition",
     localTime: "HEURE LOCALE"
   },
   // Project footer
@@ -161,12 +167,12 @@ export const fr: Translations = {
         ]
       },
       {
-        title: "Développeur Web3 Freelance",
-        description: "Actuellement en collaboration avec GMove sur account.tech, où je développe un protocole de Smart Account pour la blockchain Sui. Je me concentre sur la création d'interfaces intuitives et sécurisées pour les applications Web3.",
+        title: "Développeur Fullstack Freelance",
+        description: "Développeur Full-Stack passionné par la création d'interfaces modernes, performantes et accessibles, je travaille sur des applications variées allant du Web classique au Web3.",
         features: [
-          "Engineering UI/UX",
-          "Intégration de Smart Contracts",
-          "Développement de DApps"
+          "Développement Frontend",
+          "Full-Stack Engineering",
+          "UI/UX Design"
         ]
       }
     ]

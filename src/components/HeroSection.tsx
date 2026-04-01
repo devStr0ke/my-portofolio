@@ -10,6 +10,7 @@ import {
   import { FiArrowDown } from "react-icons/fi";
   import { FaGithub, FaLinkedin } from "react-icons/fa";
   import { HiGlobeAlt } from "react-icons/hi";
+  import { HiDocument } from "react-icons/hi2";
   import HighLightText from "./HighLightText";
   import GravityIcon from "./GravityIcon";
   import Magnetic from "@/components/Magnetic";
@@ -96,6 +97,7 @@ import Link from "next/link";
   const SocialLinks = () => {
     const { locale, setLocale } = useTranslations();
     const handleLanguageSwitch = createLanguageSwitcher(locale, setLocale);
+    const cvUrl = locale === 'fr' ? '/CVSamuelCoelho.pdf' : '/CVSamuelCoelhoEN.pdf';
 
     return (
       <div className="hidden md:flex gap-4">
@@ -110,6 +112,10 @@ import Link from "next/link";
         <GravityIcon 
           icon={<HiGlobeAlt size={25} />}
           onClick={handleLanguageSwitch}
+        />
+        <GravityIcon 
+          icon={<HiDocument size={25} />}
+          href={cvUrl}
         />
       </div>
     );

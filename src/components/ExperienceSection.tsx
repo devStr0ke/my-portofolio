@@ -4,7 +4,7 @@ import { useTranslations } from '@/i18n/LanguageContext';
 
 const englishParagraph = [
   { text: "Over" },
-  { text: "3 years", color: "rgb(99 102 241)" },
+  { text: "4 years", color: "rgb(99 102 241)" },
   { text: "of" },
   { text: "web" },
   { text: "development" },
@@ -21,7 +21,7 @@ const englishParagraph = [
 const frenchParagraph = [
   { text: "Plus" },
   { text: "de" },
-  { text: "3 ans", color: "rgb(99 102 241)" },
+  { text: "4 ans", color: "rgb(99 102 241)" },
   { text: "d’expérience" },
   { text: "en" },
   { text: "développement" },

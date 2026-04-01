@@ -1,6 +1,7 @@
 "use client";
 import { FaGithub, FaLinkedin} from "react-icons/fa";
 import { HiGlobeAlt } from "react-icons/hi";
+import { HiDocument } from "react-icons/hi2";
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Image from "next/image";
@@ -202,6 +203,7 @@ const HamburgerButton = ({
 const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>> }) => {
   const { locale, setLocale } = useTranslations();
   const handleLanguageSwitch = createLanguageSwitcher(locale, setLocale);
+  const cvUrl = locale === 'fr' ? '/CVSamuelCoelho.pdf' : '/CVSamuelCoelhoEN.pdf';
 
   const SOCIAL_CTAS: Array<{
     Component: React.ComponentType<{ className?: string }>;
@@ -225,6 +227,12 @@ const FooterCTAs = ({ setActive }: { setActive: Dispatch<SetStateAction<boolean>
     {
       Component: HiGlobeAlt,
       onClick: handleLanguageSwitch,
+    },
+    {
+      Component: HiDocument,
+      href: cvUrl,
+      target: "_blank",
+      rel: "noopener noreferrer"
     },
   ];
 

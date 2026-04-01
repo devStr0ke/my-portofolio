@@ -2,11 +2,11 @@ export const en = {
   // HeroSection component
   hero: {
     title: {
-      line1: "Software engineer,",
-      line2: "building for",
+      line1: "AI-powered,",
+      line2: "Software Engineer,",
       line3: {
-        start: "the",
-        highlight: "web."
+        start: "build faster,",
+        highlight: "better."
       }
     },
     scroll: "SCROLL",
@@ -30,24 +30,24 @@ export const en = {
     title: "What I Do",
     items: [
       {
-        title: "Web Architecture",
-        description: "Designing scalable, maintainable, and efficient web systems",
+        title: "Frontend Engineering",
+        description: "Building modern, performant and accessible interfaces with React and Next.js.",
       },
       {
-        title: "API Integration",
-        description: "Connecting applications with third-party services",
+        title: "Full-Stack Development",
+        description: "Designing and shipping complete web applications from architecture to production.",
       },
       {
-        title: "Web3 Development",
-        description: "Building decentralized apps (dApps) and integrating blockchain technologies.",
+        title: "AI-Augmented Workflow",
+        description: "Using AI agents daily as a productivity multiplier to ship faster and better.",
       },
       {
-        title: "Performance Tuning",
-        description: "Optimizing code and infrastructure to ensure fast, reliable, and efficient applications.",
+        title: "Design Systems",
+        description: "Creating reusable, maintainable component libraries with a strong focus on UI consistency.",
       },
       {
-        title: "UI/UX Design",
-        description: "Transforming designs into responsive, accessible, and user-friendly web interfaces.",
+        title: "Web3 Integration",
+        description: "Building interfaces that interact with smart contracts and blockchain technologies.",
       },
     ]
   },
@@ -59,10 +59,16 @@ export const en = {
         year: "NOW",
         title: "Freelance Developer",
         company: "Building cool stuff",
-        description: "Currently freelancing and creating awesome web applications."
+        description: "Currently freelancing and creating awesome apps."
       },
       {
-        year: "2023",
+        year: "2025",
+        title: "Lead Frontend Developer",
+        company: "Account.Tech incubated by Aftermath Finance",
+        description: "Frontend Lead on a Web3 Next.js app on SUI, making complex on-chain operations accessible to non-technical users."
+      },
+      {
+        year: "2024",
         title: "Full Stack Developer",
         company: "Dassault Systèmes",
         description: "Developed scalable UI/UX solutions for a large application using React and Node.js."
@@ -102,7 +108,7 @@ export const en = {
     title: "Let's collaborate",
     getInTouch: "Get in touch",
     version: "VERSION",
-    edition: "2025 © Edition",
+    edition: "2026 © Edition",
     localTime: "LOCAL TIME"
   },
   // Project footer
@@ -159,12 +165,12 @@ export const en = {
         ]
       },
       {
-        title: "Freelance Web3 Developer",
-        description: "Currently working with GMove on account.tech, developing a Smart Account protocol for the Sui blockchain. Focusing on creating intuitive and secure interfaces for Web3 applications.",
+        title: "Freelance Fullstack Developer",
+        description: "Full-Stack Developer with a focus on building modern, performant and accessible applications, working across a wide range of projects from classic web to Web3.",
         features: [
-          "UI/UX Engineering",
-          "Smart Contract Integration",
-          "DApp Development"
+          "Frontend Development",
+          "Full-Stack Engineering",
+          "UI/UX Design"
         ]
       }
     ]

@@ -3,6 +3,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiGlobeAlt } from "react-icons/hi";
+import { HiDocument } from "react-icons/hi2";
 import Magnetic from "./Magnetic";
 import GravityIcon from "./GravityIcon";
 import Link from "next/link";
@@ -22,6 +23,7 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
   const [isNavOverFooter, setIsNavOverFooter] = useState(false);
   const { locale, setLocale, t } = useTranslations();
   const handleLanguageSwitch = createLanguageSwitcher(locale, setLocale);
+  const cvUrl = locale === 'fr' ? '/CVSamuelCoelho.pdf' : '/CVSamuelCoelhoEN.pdf';
 
   const checkIfOverFooter = (scrollPosition: number) => {
     const footer = document.querySelector(`#${footerId}`);
@@ -146,6 +148,11 @@ export const FloatingNav = ({ disableScroll = false, footerId = 'main-footer' }:
           <GravityIcon 
             icon={<HiGlobeAlt size={25} />}
             onClick={handleLanguageSwitch}
+            className={isOverFooter ? 'text-neutral-950 hover:text-neutral-950' : "text-neutral-500"}
+          />
+          <GravityIcon 
+            icon={<HiDocument size={25} />}
+            href={cvUrl}
             className={isOverFooter ? 'text-neutral-950 hover:text-neutral-950' : "text-neutral-500"}
           />
         </div>
