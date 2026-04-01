@@ -165,6 +165,15 @@ export const en = {
         ]
       },
       {
+        title: "Lead Frontend Developer",
+        description: "Contributed to the development of Account.tech, a Web3 protocol incubated by Aftermath Finance, building modern, performant and accessible applications.",
+        features: [
+          "Frontend Development",
+          "Full-Stack Engineering",
+          "Web3 Integration"
+        ]
+      },
+      {
         title: "Freelance Fullstack Developer",
         description: "Full-Stack Developer with a focus on building modern, performant and accessible applications, working across a wide range of projects from classic web to Web3.",
         features: [

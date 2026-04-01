@@ -7,22 +7,30 @@ interface CardProps {
   i: number;
   title: string;
   description: string;
-  features?: string[]; // Add this for sub-items
+  features?: string[];
   color: string;
+  total: number;
 }
 
-const Card = ({ i, title, description, features, color }: CardProps) => {
+const Card = ({ i, title, description, features, color, total }: CardProps) => {
   const container = useRef<HTMLDivElement>(null);
   const isNarrowScreen = useMediaQuery({ maxHeight: 749 });
   const dontShowFeatures = useMediaQuery({ maxHeight: 632 });
-  
+
+  // Only stack if cards fit without overflow (max 4 stacked cards)
+  const useSticky = total <= 4;
+
   return (
     <div 
       ref={container} 
-      className="h-screen flex items-start justify-center sticky top-28 lg:top-44"
+      className={`flex items-start justify-center ${useSticky ? 'h-screen sticky top-28 lg:top-44' : 'py-8'}`}
     >
       <motion.div 
-        style={{ backgroundColor: color, top: `calc(${i * 80}px)` }}
+        style={{ backgroundColor: color, top: useSticky ? `calc(${i * 80}px)` : undefined }}
+        initial={useSticky ? undefined : { opacity: 0, y: 40 }}
+        whileInView={useSticky ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="flex flex-col relative h-[500px] w-full origin-top border-t border-zinc-800"
       >
         {/* Desktop layout (hidden below lg) */}

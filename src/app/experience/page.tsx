@@ -43,6 +43,7 @@ export default function Home() {
           {experiences.map((experience, i) => (
             <StickyCard
               key={i}
+              total={experiences.length}
               i={i}
               title={experience.title}
               description={experience.description}

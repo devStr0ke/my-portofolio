@@ -167,6 +167,15 @@ export const fr: Translations = {
         ]
       },
       {
+        title: "Lead Frontend Developer",
+        description: "Contribution au développement d'Account.tech, un protocole Web3 incubé par Aftermath Finance, en concevant des applications modernes, performantes et accessibles.",
+        features: [
+          "Développement Frontend",
+          "Ingénierie Full-Stack",
+          "Intégration Web3"
+        ]
+      },
+      {
         title: "Développeur Fullstack Freelance",
         description: "Développeur Full-Stack passionné par la création d'interfaces modernes, performantes et accessibles, je travaille sur des applications variées allant du Web classique au Web3.",
         features: [
