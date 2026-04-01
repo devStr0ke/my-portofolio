@@ -70,6 +70,7 @@ const Card = ({ i, title, description, features, color, total }: CardProps) => {
             {i === 1 && '⬡'}
             {i === 2 && '▲'}
             {i === 3 && '◆'}
+            {i === 4 && '⏣'}
           </div>
         </div>
 
